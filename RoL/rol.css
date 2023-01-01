@@ -1,0 +1,40 @@
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  margin-left: 20px;
+}
+
+.charsheet .sheet-grid-section{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows:  2fr 1fr;
+  grid-template-areas:"portrait portrait bio bio stats stats"
+                      "portrait portrait bio bio sup sup";
+  grid-gap: 5px;
+}
+
+.charsheet div.sheet-block{
+  display: grid;
+  justify-content: center;
+  padding: 5px;
+  border: 3px solid black;
+}
+
+.charsheet div.sheet-portrait{
+  grid-area: portrait;
+}
+
+.charsheet div.sheet-bio{
+  grid-area: bio;
+}
+
+.charsheet div.sheet-stats{
+  grid-area: stats;
+}
+
+.charsheet div.sheet-sup{
+  grid-area: sup;
+}

@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+<head>
+<title>Test character sheet</title>
+<style>
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  margin-left: 20px;
+}
+
+.charsheet .sheet-grid-section{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows:  2fr 1fr 1fr 2fr 1fr 1fr 1fr;
+  grid-template-areas:"portrait portrait bio bio stats stats"
+                      "portrait portrait bio bio sup sup"
+					  "advantages advantages advantages advantages advantages advantages"
+					  "common common expert expert combat combat"
+                      "common common expert expert damage damage"
+					  "weapons weapons weapons weapons weapons weapons"
+					  "magic magic magic magic magic magic";
+  grid-gap: 5px;
+}
+
+.charsheet div.sheet-block{
+  display: grid;
+  justify-content: center;
+  padding: 5px;
+  border: 3px solid black;
+}
+
+.charsheet div.sheet-portrait{
+  grid-area: portrait;
+}
+
+.charsheet div.sheet-bio{
+  grid-area: bio;
+}
+
+.charsheet div.sheet-stats{
+  grid-area: stats;
+}
+
+.charsheet div.sheet-sup{
+  grid-area: sup;
+}
+
+.charsheet div.sheet-advantages{
+  grid-area: advantages;
+}
+
+.charsheet div.sheet-common{
+  grid-area: common;
+}
+
+.charsheet div.sheet-expert{
+  grid-area: expert;
+}
+
+.charsheet div.sheet-combat{
+  grid-area: combat;
+}
+
+.charsheet div.sheet-damage{
+  grid-area: damage;
+}
+
+.charsheet div.sheet-weapons{
+  grid-area: weapons;
+}
+
+.charsheet div.sheet-magic{
+  grid-area: magic;
+}
+
+</style>
+</head>
+<body>
+<form class="charsheet">
+<!----- Investigator Info ------->
+<div class="sheet-grid-section">
+
+	<div class="sheet-portrait sheet-block">
+	    <label>Rivers of London</label>
+	    <div>
+			<label>Name</label>
+			<input name="attr_character_name" type="text">
+		</div>
+		<div>
+		    <img name="attr_character_avatar">
+		</div>
+	</div>
+	
+	<div class="sheet-bio sheet-block">
+	    <label>Investigator Info</label>
+		<div>
+			<label>Occupation</label>
+			<input name="attr_character_occupation" type="text">
+		</div>
+		<div>
+			<label>Place of birth</label>
+			<input name="attr_character_birthplace" type="text">
+		</div>
+		<div>
+			<label>Residence</label>
+			<input name="attr_character_residence" type="text">
+		</div>
+		<div>
+			<label>Pronoun</label>
+			<input name="attr_character_pronoun" type="text">
+		</div>
+		<div>
+			<label>Age</label>
+			<input name="attr_character_age" type="text">
+		</div>
+		<div>
+			<label>Affluence: </label>
+			<input name="attr_character_affluence" type="text">
+		</div>		
+		<div>
+			<label>Notes: </label>
+			<input name="attr_character_affluence" type="text">
+		</div>
+	</div>
+	
+	<div class="sheet-stats sheet-block">
+	    <label>Characteristics</label>
+		<div>
+			<label>STR</label>
+			<input name="attr_character_str" type="text">
+		</div>
+		<div>
+			<label>CON</label>
+			<input name="attr_character_con" type="text">
+		</div>
+		<div>
+			<label>DEX</label>
+			<input name="attr_character_dex" type="text">
+		</div>
+		<div>
+			<label>INT</label>
+			<input name="attr_character_int" type="text">
+		</div>
+		<div>
+			<label>POW</label>
+			<input name="attr_character_pow" type="text">
+		</div>
+	</div>
+	
+	<div class="sheet-sup sheet-block">
+	    <label>Suplimental info</label>
+		<div>
+			<label>MOV</label>
+			<input name="attr_character_mov" type="text">
+		</div>
+		<div>
+			<label>Luck</label>
+			<input name="attr_character_luck" type="text">
+		</div>
+		<div>
+			<label>Magic pts </label>
+			<input name="attr_character_magicpts" type="text">
+		</div>
+	</div>
+	
+	<div class="sheet-advantages sheet-block">
+	    <label>Advantages & disadvantages</label>
+	</div>
+	
+	<div class="sheet-common sheet-block">
+	    <label>Common skills</label>
+	</div>
+	
+	<div class="sheet-expert sheet-block">
+	    <label>Expert skills</label>
+	</div>
+	
+	<div class="sheet-combat sheet-block">
+	    <label>Combat skills</label>
+	</div>
+	
+	<div class="sheet-damage sheet-block">
+	    <label>Damage</label>
+	</div>
+	
+	<div class="sheet-weapons sheet-block">
+	    <label>Weapons</label>
+	</div>
+	
+	<div class="sheet-magic sheet-block">
+	    <label>Magic</label>
+	</div>
+		
+</div>
+
+</form>
+
+
+</body>
+</html>
