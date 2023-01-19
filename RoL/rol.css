@@ -10,6 +10,42 @@
 	/*incase BOM decides to screw up css */
 }
 
+
+/* roll template */
+.sheet-rolltemplate-rol-percent div.sheet-template-container {
+	border: 2px solid #000 !important;
+	border-radius: 3px 3px 3px 3px;
+}
+.sheet-rolltemplate-rol-percent .sheet-template-header {
+	background-color: rgba(112, 32, 130,1);
+	color: white;
+	padding: 2px;
+	border-bottom: 1px solid black;
+	line-height: 1.6em;
+	font-size: 1.2em;
+}
+.sheet-rolltemplate-rol-percent .sheet-template-value {
+    background-color: lightgrey;
+	padding: 5px;
+	border-bottom: 1px solid black;
+	font-weight: bold;
+}
+.sheet-rolltemplate-rol-percent .sheet-template-result {
+    background-color: white;
+	padding: 5px;
+	border-bottom: 1px solid black;
+	font-weight: bold;
+}
+
+.sheet-rolltemplate-rol-percent .inlinerollresult  {
+	display: inline-block;
+	min-width: 1.5em;
+	text-align: center;
+	border: 0px;
+	background-color: rgba(217, 217, 214,1);
+}
+
+/* Inputs */
 input[type="text"] {
   background-color: transparent;
   border-style: none none solid none;

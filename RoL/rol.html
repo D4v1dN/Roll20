@@ -1,3 +1,30 @@
+<!-- ==== Roll Templates ==== -->
+
+
+<rolltemplate class="sheet-rolltemplate-rol-percent">
+    <div class="sheet-template-container">
+    	<div class="sheet-template-header">{{name}}</div>
+    	<div class="sheet-template-result">
+    	    {{#rollGreater() roll success}}
+    	        <span class="">Failed</span>
+    	    {{/rollGreater() roll success}}
+    	    {{#^rollGreater() roll success}}
+    	        {{#rollGreater() roll hard}}
+    	            <span class="">Normal success</span>
+    	        {{/rollGreater() roll hard}}
+    	        {{#^rollGreater() roll hard}}
+    	            <span class="">Hard success</span>
+    	        {{/^rollGreater() roll hard}}
+    	    {{/^rollGreater() roll success}}
+    	</div>    	
+    	<div class="sheet-template-value">Value: {{success}} / {{hard}}</div>
+    	<div class="sheet-template-value">Rolled: {{roll}}</div>
+    </div>
+</rolltemplate>
+
+<!-- ==== Sheet definition ==== -->
+
+
 <div class="sheet-header">
 	<span>Rivers of London - version 0.1 alpha</span> 
 </div>
@@ -36,36 +63,36 @@
 			<label class="sheet-short-label">STR</label>
 			<input name="attr_character_str" type="number" min="0" max="100">
 			<span>/</span>
-			<input name="attr_character_str_half" type="number" value=value="floor(@{character_str}/2)" disabled="true"> 	
-			<button name="roll_strength" type="roll" value="&{template:default} {{name=Strength}} {{success=[[@{character_str}]] hard=[[@{character_str}]]}} {{roll=[[d100]]}}"></button>
+			<input name="attr_character_str_half" type="number" value="floor(@{character_str}/2)" disabled="true"> 	
+			<button name="roll_strength" type="roll" value="&{template:rol-percent} {{name=Strength}} {{success=[[@{character_str}]]}} {{hard=[[@{character_str_half}]]}} {{roll=[[d100]]}}"></button>
 		</div>
 		<div>
 			<label class="sheet-short-label">CON</label>
 			<input name="attr_character_con" type="number" min="0" max="100"> 
 			<span>/</span>
 			<input name="attr_character_con_half" type="number" value="floor(@{character_con}/2)" disabled="true"> 	
-			<button name="roll_con" type="roll" value="&{template:default} {{name=Constitution}} {{success=[[@{character_con}]]}} {{half=[[floor(@{character_dex}/2)]]}} {{roll=[[d100]]}}"></button>
+			<button name="roll_con" type="roll" value="&{template:rol-percent} {{name=Constitution}} {{success=[[@{character_con}]]}} {{hard=[[@{character_con_half}]]}} {{roll=[[d100]]}}"></button>
 		</div>
 		<div>
 			<label class="sheet-short-label">DEX</label>
 			<input name="attr_character_dex" type="number" min="0" max="100">
 			<span>/</span>
-			<input name="attr_character_dex_half" type="number" value="floor(@{character_dex}/2" disabled="true"> 	
-			<button name="roll_dex" type="roll" value="&{template:default} {{name=Dexterity}} {{hard=[[@{character_dex_half}]]}} {{roll=[[d100]]}}"></button>
+			<input name="attr_character_dex_half" type="number" value="floor(@{character_dex}/2)" disabled="true"> 	
+			<button name="roll_dex" type="roll" value="&{template:rol-percent} {{name=Dexterity}} {{success=[[@{character_dex}]]}} {{hard=[[@{character_dex_half}]]}} {{roll=[[d100]]}}"></button>
 		</div>
 		<div>
 			<label class="sheet-short-label">INT</label>
 			<input name="attr_character_int" type="number" min="0" max="100">
 			<span>/</span>
 			<input name="attr_character_int_half" type="number" value="floor(@{character_int}/2)" disabled="true"> 
-		    <button name="roll_int" type="roll" value="&{template:default} {{name=Intelligence}} {{success=[[@{character_int}]] hard=[[floor(@{character_dex}/2)]]}} {{roll=[[d100]]}}"></button>
+			<button name="roll_int" type="roll" value="&{template:rol-percent} {{name=Strength}} {{success=[[@{character_int}]]}} {{hard=[[@{character_int_half}]]}} {{roll=[[d100]]}}"></button>
 		</div>
 		<div>
 			<label class="sheet-short-label">POW</label>
 			<input name="attr_character_pow" type="number" min="0" max="100">
 			<span>/</span>
 			<input name="attr_character_pow_half" type="number" value="floor(@{character_pow}/2)" disabled="true"> 	
-			<button class='roll_pow' type='roll' value='&{template:coc} {{name=@{character_pow}}} {{success=[[@{character_pow}]]}} {{hard=[[@{character_pow_half}]]}} {{roll1=[[1d100]]}} {{roll2=[[1d100]]}}' name='roll_pow_check' />
+			<button name="roll_pow" type="roll" value="&{template:rol-percent} {{name=Power}} {{success=[[@{character_pow}]]}} {{hard=[[@{character_pow_half}]]}} {{roll=[[d100]]}}"></button>
 		</div>
 		<div><p></p></div>
 	</div>
