@@ -3,38 +3,107 @@
 <head>
 <title>Test character sheet</title>
 <style>
-body {
-  background-color: lightblue;
+.charsheet {
+    background-color: aliceblue;
+    border: 0px;
+    color:black;
+    width: 840px;
+	margin: 2px;
 }
 
-h1 {
-  color: navy;
-  margin-left: 20px;
+.dummy{
+	/*incase BOM decides to screw up css */
+}
+
+input[type="text"] {
+  background-color: transparent;
+  border-style: none none solid none;
+  border-color: grey;
+}
+
+input[type="number"] {
+  background-color: transparent;
+  border-style: none none solid none;
+  border-color: grey;
+  width: 3em;
+}
+
+input.sheet-bio-input {
+	width:70%;
+}
+
+textarea {
+    background-color: transparent;
+	width: 95%;
+    margin: 0 0 0 0;
+	resize: none;
+	background-attachment: local;
+    background-image:
+	linear-gradient(to right, aliceblue 10px, transparent 10px),
+	linear-gradient(to left, aliceblue 10px, transparent 10px),
+	repeating-linear-gradient(aliceblue, aliceblue 30px, #ccc 30px, #ccc 31px, aliceblue 31px);
+    line-height: 31px;
+    padding: 8px 8;
+	border: 0px;
+}
+
+input[type="checkbox"].sheet-checkbox {
+  border-style: solid black;
+  border-radius: 0px;
+}
+
+h4.sheet-section-head {
+   color: white;
+   background-color: midnightblue;
+   padding-left: 2px;
+   padding-right: 2px;
+   margin: 1px;
+   text-align: left;
+   vertical-align: top;
+   font-weight: normal;
+   font-style: normal;
+   height: 1em;
+}
+
+
+label.sheet-short-label {
+   display: inline-block;
+   width: 4.5em;
+   vertical-align: top;
+   margin-left: 2px;
+}
+
+label.sheet-bio-label {
+   display: inline-block;
+   width: 6em;
+   vertical-align: top;
+   margin-left: 2px;
 }
 
 .charsheet .sheet-grid-section{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows:  2fr 1fr 1fr 2fr 1fr 1fr 1fr;
-  grid-template-areas:"portrait portrait bio bio stats stats"
-                      "portrait portrait bio bio sup sup"
+  grid-template-rows:  2fr 1fr 1fr 1fr 2fr 1fr 1fr 1fr;
+  grid-template-areas:"bio bio bio bio stats stats"
+                      "notes notes notes notes sup sup"
 					  "advantages advantages advantages advantages advantages advantages"
 					  "common common expert expert combat combat"
                       "common common expert expert damage damage"
 					  "weapons weapons weapons weapons weapons weapons"
 					  "magic magic magic magic magic magic";
-  grid-gap: 5px;
+  grid-gap: 2px;
+}
+
+.charsheet div.sheet-header{
+  display: flex;
+  padding: 0px;
+  border: 0px;
 }
 
 .charsheet div.sheet-block{
   display: grid;
-  justify-content: center;
-  padding: 5px;
-  border: 3px solid black;
-}
-
-.charsheet div.sheet-portrait{
-  grid-area: portrait;
+  padding: 0px;
+  border: 1px solid lightsteelblue;
 }
 
 .charsheet div.sheet-bio{
@@ -47,6 +116,10 @@ h1 {
 
 .charsheet div.sheet-sup{
   grid-area: sup;
+}
+
+.charsheet div.sheet-notes{
+  grid-area: notes;
 }
 
 .charsheet div.sheet-advantages{
@@ -82,117 +155,126 @@ h1 {
 <body>
 <form class="charsheet">
 <!----- Investigator Info ------->
-<div class="sheet-grid-section">
-
-	<div class="sheet-portrait sheet-block">
-	    <label>Rivers of London</label>
-	    <div>
-			<label>Name</label>
-			<input name="attr_character_name" type="text">
-		</div>
-		<div>
-		    <img name="attr_character_avatar">
-		</div>
-	</div>
-	
+<div class="sheet-header">
+	<h1>Rivers of London - Character name</h1> 
+</div>
+<div class="sheet-grid-section">	
 	<div class="sheet-bio sheet-block">
-	    <label>Investigator Info</label>
+	    <h4 class="sheet-section-head">Investigator Info</h4>
 		<div>
-			<label>Occupation</label>
-			<input name="attr_character_occupation" type="text">
+			<label class="sheet-bio-label">Occupation</label>
+			<input class="sheet-bio-input" name="attr_character_occupation" type="text">
 		</div>
 		<div>
-			<label>Place of birth</label>
-			<input name="attr_character_birthplace" type="text">
+			<label class="sheet-bio-label">Place of birth</label>
+			<input class="sheet-bio-input" name="attr_character_birthplace" type="text">
 		</div>
 		<div>
-			<label>Residence</label>
-			<input name="attr_character_residence" type="text">
+			<label class="sheet-bio-label">Residence</label>
+			<input class="sheet-bio-input" name="attr_character_residence" type="text">
 		</div>
 		<div>
-			<label>Pronoun</label>
-			<input name="attr_character_pronoun" type="text">
+			<label class="sheet-bio-label">Pronoun</label>
+			<input class="sheet-bio-input" name="attr_character_pronoun" type="text">
 		</div>
 		<div>
-			<label>Age</label>
-			<input name="attr_character_age" type="text">
+			<label class="sheet-bio-label">Age</label>
+			<input class="sheet-bio-input" name="attr_character_age" type="text">
 		</div>
 		<div>
-			<label>Affluence: </label>
-			<input name="attr_character_affluence" type="text">
+			<label class="sheet-bio-label">Affluence</label>
+			<input class="sheet-bio-input" name="attr_character_affluence" type="text">
 		</div>		
-		<div>
-			<label>Notes: </label>
-			<input name="attr_character_affluence" type="text">
-		</div>
 	</div>
 	
 	<div class="sheet-stats sheet-block">
-	    <label>Characteristics</label>
+	    <h4 class="sheet-section-head">Characteristics</h4>
 		<div>
-			<label>STR</label>
-			<input name="attr_character_str" type="text">
+			<label class="sheet-short-label">STR</label>
+			<input name="attr_character_str" type="number" min="0" max="100">
+			<span>/</span>
+			<input name="attr_character_str_half" type="number" value="(@{attr_character_str}/2)" disabled="true"> 				
 		</div>
 		<div>
-			<label>CON</label>
-			<input name="attr_character_con" type="text">
+			<label class="sheet-short-label">CON</label>
+			<input name="attr_character_con" type="number" min="0" max="100"> 
+			<span>/</span>
+			<input name="attr_character_con_half" type="number" value="(@{attr_character_con}/2)" disabled="true"> 			
 		</div>
 		<div>
-			<label>DEX</label>
-			<input name="attr_character_dex" type="text">
+			<label class="sheet-short-label">DEX</label>
+			<input name="attr_character_dex" type="number" min="0" max="100">
+			<span>/</span>
+			<input name="attr_character_dex_half" type="number" value="(@{attr_character_dex_half}/2)" disabled="true"> 				
 		</div>
 		<div>
-			<label>INT</label>
-			<input name="attr_character_int" type="text">
+			<label class="sheet-short-label">INT</label>
+			<input name="attr_character_int" type="number" min="0" max="100">
+			<span>/</span>
+			<input name="attr_character_int_half" type="number" value="(@{attr_character_int_half}/2)" disabled="true"> 				
 		</div>
 		<div>
-			<label>POW</label>
-			<input name="attr_character_pow" type="text">
+			<label class="sheet-short-label">POW</label>
+			<input name="attr_character_pow" type="number" min="0" max="100">
+			<span>/</span>
+			<input name="attr_character_pow_half" type="number" value="(@{attr_character_pow_half}/2)" disabled="true"> 				
 		</div>
 	</div>
 	
 	<div class="sheet-sup sheet-block">
-	    <label>Suplimental info</label>
+	    <h4 class="sheet-section-head">Suplimental info</h4>
 		<div>
-			<label>MOV</label>
-			<input name="attr_character_mov" type="text">
+			<label class="sheet-short-label">MOV</label>
+			<input name="attr_character_mov" type="number">
 		</div>
 		<div>
-			<label>Luck</label>
-			<input name="attr_character_luck" type="text">
+			<label class="sheet-short-label">Luck</label>
+			<input name="attr_character_luck" type="number">
+			<span>/</span>
+			<input name="attr_character_luck_current" type="number">
 		</div>
 		<div>
-			<label>Magic pts </label>
-			<input name="attr_character_magicpts" type="text">
+			<label class="sheet-short-label">Magic pts </label>
+			<input name="attr_character_magicpts" type="number">
+			<span>/</span>
+			<input name="attr_character_magicpts_current" type="number">
+		</div>
+	</div>
+	
+	<div class="sheet-notes sheet-block">
+	    <h4 class="sheet-section-head">Notes</h4>
+		<div>
+			<textarea name="attr_character_notes" rows="3"></textarea>
 		</div>
 	</div>
 	
 	<div class="sheet-advantages sheet-block">
-	    <label>Advantages & disadvantages</label>
+
+		<h4 class="sheet-section-head">Advantages & disadvantages</h4>
 	</div>
 	
 	<div class="sheet-common sheet-block">
-	    <label>Common skills</label>
+	    <h4 class="sheet-section-head">Common skills</h4>
 	</div>
 	
 	<div class="sheet-expert sheet-block">
-	    <label>Expert skills</label>
+	    <h4 class="sheet-section-head">Expert skills</h4>
 	</div>
 	
 	<div class="sheet-combat sheet-block">
-	    <label>Combat skills</label>
+	    <h4 class="sheet-section-head">Combat skills</h4>
 	</div>
 	
 	<div class="sheet-damage sheet-block">
-	    <label>Damage</label>
+	    <h4 class="sheet-section-head">Damage</h4>
 	</div>
 	
 	<div class="sheet-weapons sheet-block">
-	    <label>Weapons</label>
+	    <h4 class="sheet-section-head">Weapons</h4>
 	</div>
 	
 	<div class="sheet-magic sheet-block">
-	    <label>Magic</label>
+	    <h4 class="sheet-section-head">Magic</h4>
 	</div>
 		
 </div>
