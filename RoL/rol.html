@@ -8,6 +8,16 @@
     <input type="hidden" name="attr_character_dex_half" value="0"> 	
     <input type="hidden" name="attr_character_int_half" value="0"> 	
     <input type="hidden" name="attr_character_pow_half" value="0"> 	
+    <input type="hidden" name="attr_character_athletics_half" value="0"> 	
+    <input type="hidden" name="attr_character_drive_half" value="0"> 	
+    <input type="hidden" name="attr_character_navigate_half" value="0"> 	
+    <input type="hidden" name="attr_character_observation_half" value="0"> 	
+    <input type="hidden" name="attr_character_readp_half" value="0"> 	
+    <input type="hidden" name="attr_character_research_half" value="0"> 	
+    <input type="hidden" name="attr_character_sensev_half" value="0"> 	
+    <input type="hidden" name="attr_character_social_half" value="0"> 	
+    <input type="hidden" name="attr_character_stealth_half" value="0"> 	
+
     
     <div class="sheet-header">
     	<span>Rivers of London - version 0.1 alpha</span> 
@@ -15,27 +25,27 @@
     <div class="sheet-grid-section">	
     	<div class="sheet-bio sheet-block">
     	    <h4 class="sheet-section-head">Investigator Info</h4>
-    		<div>
+    		<div class="sheet-section-row">
     			<label class="sheet-bio-label">Occupation</label>
     			<input class="sheet-bio-input" name="attr_character_occupation" type="text">
     		</div>
-    		<div>
+    		<div  class="sheet-section-row">
     			<label class="sheet-bio-label">Place of birth</label>
     			<input class="sheet-bio-input" name="attr_character_birthplace" type="text">
     		</div>
-    		<div>
+    		<div  class="sheet-section-row">
     			<label class="sheet-bio-label">Residence</label>
     			<input class="sheet-bio-input" name="attr_character_residence" type="text">
     		</div>
-    		<div>
+    		<div  class="sheet-section-row">
     			<label class="sheet-bio-label">Pronoun</label>
     			<input class="sheet-bio-input" name="attr_character_pronoun" type="text">
     		</div>
-    		<div>
+    		<div  class="sheet-section-row">
     			<label class="sheet-bio-label">Age</label>
     			<input class="sheet-bio-input" name="attr_character_age" type="text">
     		</div>
-    		<div>
+    		<div class="sheet-section-row">
     			<label class="sheet-bio-label">Affluence</label>
     			<input class="sheet-bio-input" name="attr_character_affluence" type="text">
     		</div>		
@@ -45,61 +55,76 @@
     	   
     	    
     	    <h4 class="sheet-section-head">Characteristics</h4>
-    		<div>
+    		<div class="sheet-section-row">
     			<label class="sheet-short-label">STR</label>
-    			<input name="attr_character_str" type="number" min="0" max="100">
+    			<input name="attr_character_str" class="sheet-input-align-top" type="number" min="0" max="100">
     			<span>/</span>
-    			<input type="number" name="attr_character_str_half" value="0" readonly>
+    			<input type="number" class="sheet-input-align-top" name="attr_character_str_half" value="0" readonly>
    			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Strength}} {{success=[[@{character_str}]]}} {{hard=[[@{character_str_half}]]}} {{roll=[[d100]]}}"></button>
+   			    <br>
+   			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
     		</div>
-    		<div>
-    			<label class="sheet-short-label">CON</label>
-    			<input name="attr_character_con" type="number" min="0" max="100"> 
-    			<span>/</span>
-    			<input name="attr_character_con_half" type="number" value="0" readonly> 	
-    			<button name="roll_con" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Constitution}} {{success=[[@{character_con}]]}} {{hard=[[@{character_con_half}]]}} {{roll=[[d100]]}}"></button>
+    		<div class="sheet-section-row">
+    			    <label class="sheet-short-label">CON</label>
+    			    <input name="attr_character_con" type="number" min="0" max="100"> 
+    			    <span class="sheet-input-seperator">/</span>
+        			<input name="attr_character_con_half" type="number" value="0" readonly> 	
+        			<button name="roll_con" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Constitution}} {{success=[[@{character_con}]]}} {{hard=[[@{character_con_half}]]}} {{roll=[[d100]]}}"></button>
+      			    <br>
+       			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
     		</div>
-    		<div>
+    		<div class="sheet-section-row">
     			<label class="sheet-short-label">DEX</label>
     			<input name="attr_character_dex" type="number" min="0" max="100">
     			<span>/</span>
     			<input name="attr_character_dex_half" type="number" value="0" readonly> 	
     			<button name="roll_dex" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Dexterity}} {{success=[[@{character_dex}]]}} {{hard=[[@{character_dex_half}]]}} {{roll=[[d100]]}}"></button>
+    	  	    <br>
+   			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
     		</div>
-    		<div>
+    		<div class="sheet-section-row">
     			<label class="sheet-short-label">INT</label>
     			<input name="attr_character_int" type="number" min="0" max="100">
     			<span>/</span>
     			<input name="attr_character_int_half" type="number" value="0" readonly> 
     			<button name="roll_int" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Intelligence}} {{success=[[@{character_int}]]}} {{hard=[[@{character_int_half}]]}} {{roll=[[d100]]}}"></button>
+      			 <br>
+   			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
     		</div>
-    		<div>
+    		<div class="sheet-section-row">
     			<label class="sheet-short-label">POW</label>
     			<input name="attr_character_pow" type="number" min="0" max="100">
     			<span>/</span>
     			<input name="attr_character_pow_half" type="number" value="0" readonly> 	
     			<button name="roll_pow" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Power}} {{success=[[@{character_pow}]]}} {{hard=[[@{character_pow_half}]]}} {{roll=[[d100]]}}"></button>
+  			    <br>
+   			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
     		</div>
-    		<div><p></p></div>
     	</div>
     	
     	<div class="sheet-sup sheet-block">
     	    <h4 class="sheet-section-head">Suplimental info</h4>
-    		<div>
+    		<div class="sheet-section-row">
     			<label class="sheet-short-label">MOV</label>
     			<input name="attr_character_mov" type="number">
+    			<br>
+   			    <span class="sheet-hint-short-label">&nbsp;</span>
     		</div>
-    		<div>
+    		<div class="sheet-section-row">
     			<label class="sheet-short-label">Luck</label>
     			<input name="attr_character_luck" type="number">
     			<span>/</span>
     			<input name="attr_character_luck_current" type="number">
+  			    <br>
+   			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-starting">Starting</span><span class="sheet-hint-current">Current</span>
     		</div>
-    		<div>
+    		<div class="sheet-section-row">
     			<label class="sheet-short-label">Magic</label>
     			<input name="attr_character_magicpts" type="number">
     			<span>/</span>
     			<input name="attr_character_magicpts_current" type="number">
+  			    <br>
+   			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-starting">Starting</span><span class="sheet-hint-current">Current</span>  			
     		</div>
     	</div>
     	
@@ -126,9 +151,90 @@
     		    </div>
     		</div>
     	</div>
-    	
+
     	<div class="sheet-common sheet-block">
     	    <h4 class="sheet-section-head">Common skills</h4>
+    		<div class="sheet-section-row">
+    			<label class="sheet-long-label">Athletics</label>
+    			<input name="attr_character_athletics" class="sheet-input-align-top" type="number" min="0" max="100">
+    			<span>/</span>
+    			<input type="number" class="sheet-input-align-top" name="attr_character_athletics_half" value="0" readonly>
+   			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Athletics}} {{success=[[@{character_athletics}]]}} {{hard=[[@{character_athletics_half}]]}} {{roll=[[d100]]}}"></button>
+   			    <br>
+   			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+    		</div>
+    		<div class="sheet-section-row">
+    			<label class="sheet-long-label">Drive</label>
+    			<input name="attr_character_drive" class="sheet-input-align-top" type="number" min="0" max="100">
+    			<span>/</span>
+    			<input type="number" class="sheet-input-align-top" name="attr_character_drive_half" value="0" readonly>
+   			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Drive}} {{success=[[@{character_drive}]]}} {{hard=[[@{character_drive_half}]]}} {{roll=[[d100]]}}"></button>
+   			    <br>
+   			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+    		</div>    		
+    		<div class="sheet-section-row">
+    			<label class="sheet-long-label">Navigate</label>
+    			<input name="attr_character_navigate" class="sheet-input-align-top" type="number" min="0" max="100">
+    			<span>/</span>
+    			<input type="number" class="sheet-input-align-top" name="attr_character_navigate_half" value="0" readonly>
+   			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Navigate}} {{success=[[@{character_navigate}]]}} {{hard=[[@{character_navigate_half}]]}} {{roll=[[d100]]}}"></button>
+   			    <br>
+   			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+    		</div>
+    		<div class="sheet-section-row">
+    			<label class="sheet-long-label">Observation</label>
+    			<input name="attr_character_observation" class="sheet-input-align-top" type="number" min="0" max="100">
+    			<span>/</span>
+    			<input type="number" class="sheet-input-align-top" name="attr_character_observation_half" value="0" readonly>
+   			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Observation}} {{success=[[@{character_observation}]]}} {{hard=[[@{character_observation_half}]]}} {{roll=[[d100]]}}"></button>
+   			    <br>
+   			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+    		</div>
+    		<div class="sheet-section-row">
+    			<label class="sheet-long-label">Read Person</label>
+    			<input name="attr_character_readp" class="sheet-input-align-top" type="number" min="0" max="100">
+    			<span>/</span>
+    			<input type="number" class="sheet-input-align-top" name="attr_character_readp_half" value="0" readonly>
+   			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name='Read Person'}} {{success=[[@{character_readp}]]}} {{hard=[[@{character_readp_half}]]}} {{roll=[[d100]]}}"></button>
+   			    <br>
+   			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+    		</div>
+    		<div class="sheet-section-row">
+    			<label class="sheet-long-label">Research</label>
+    			<input name="attr_character_research" class="sheet-input-align-top" type="number" min="0" max="100">
+    			<span>/</span>
+    			<input type="number" class="sheet-input-align-top" name="attr_character_research_half" value="0" readonly>
+   			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Research}} {{success=[[@{character_research}]]}} {{hard=[[@{character_research_half}]]}} {{roll=[[d100]]}}"></button>
+   			    <br>
+   			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+    		</div>
+    		<div class="sheet-section-row">
+    			<label class="sheet-long-label">Sense Vestigia</label>
+    			<input name="attr_character_sensev" class="sheet-input-align-top" type="number" min="0" max="100">
+    			<span>/</span>
+    			<input type="number" class="sheet-input-align-top" name="attr_character_sensev_half" value="0" readonly>
+   			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name='Sense Vestigia'}} {{success=[[@{character_sensev}]]}} {{hard=[[@{character_sensev_half}]]}} {{roll=[[d100]]}}"></button>
+   			    <br>
+   			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+    		</div>
+    		<div class="sheet-section-row">
+    			<label class="sheet-long-label">Social</label>
+    			<input name="attr_character_social" class="sheet-input-align-top" type="number" min="0" max="100">
+    			<span>/</span>
+    			<input type="number" class="sheet-input-align-top" name="attr_character_social_half" value="0" readonly>
+   			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Social}} {{success=[[@{character_social}]]}} {{hard=[[@{character_social_half}]]}} {{roll=[[d100]]}}"></button>
+   			    <br>
+   			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+    		</div>    		
+    		<div class="sheet-section-row">
+    			<label class="sheet-long-label">Stealth</label>
+    			<input name="attr_character_stealth" class="sheet-input-align-top" type="number" min="0" max="100">
+    			<span>/</span>
+    			<input type="number" class="sheet-input-align-top" name="attr_character_stealth_half" value="0" readonly>
+   			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Stealth}} {{success=[[@{character_stealth}]]}} {{hard=[[@{character_stealth_half}]]}} {{roll=[[d100]]}}"></button>
+   			    <br>
+   			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+    		</div>    		
     	</div>
     	
     	<div class="sheet-expert sheet-block">

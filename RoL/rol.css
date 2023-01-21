@@ -4,6 +4,7 @@
     color:black;
     width: 840px;
 	margin: 2px;
+	line-height: 1.0;
 }
 
 .dummy{
@@ -11,7 +12,7 @@
 }
 
 
-/* roll template */
+/* ==== roll template ==== */
 
 .sheet-rolltemplate-rol-percent div.sheet-template-charname {
     border: 0px;
@@ -67,7 +68,13 @@
     color: black;
 }
 
-/* Inputs */
+/* ==== Inputs ==== */
+
+.sheet-textarea-div{
+    width: 95%;
+}
+
+
 input[type="text"] {
   background-color: transparent;
   border-style: none none solid none;
@@ -99,9 +106,6 @@ textarea {
 	padding: 1px 1px 1px 1px;
 }
 
-.sheet-textarea-div{
-    width: 95%;
-}
 
 textarea.sheet-textarea-notes {
     height: 100px;
@@ -117,12 +121,21 @@ input.sheet-adv-input {
 }
 
 
+
+/* ==== General section stuff  ==== */
+
+.charsheet div.sheet-header{
+  display: flex;
+  padding: 0px;
+  border: 0px;
+}
+
 h4.sheet-section-head {
    color: white;
    background-color: midnightblue;
    padding-left: 2px;
    padding-right: 2px;
-   margin: 1px;
+   margin: 0px 0px 0px 0px;
    text-align: left;
    vertical-align: top;
    font-weight: normal;
@@ -130,21 +143,84 @@ h4.sheet-section-head {
    height: 1.5em;
 }
 
-
 label.sheet-short-label {
    display: inline-block;
    width: 4.5em;
-   vertical-align: top;
-   margin-left: 2px;
+   vertical-align: middle;
+   margin-left: 5px;
+   margin-bottom: 0px;
+   font-size: 1em;
 }
+
+label.sheet-long-label {
+   display: inline-block;
+   width: 8em;
+   vertical-align: middle;
+   margin-left: 5px;
+   margin-bottom: 0px;
+   font-size: 1em;
+}
+
+.sheet-hint-short-label {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 80px;
+    vertical-align: top;
+}
+
+.sheet-hint-long-label {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 150px;
+    vertical-align: top;
+}
+
+.sheet-hint-full {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 25px;
+    vertical-align: top;
+}
+
+.sheet-hint-half {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 45px;
+    vertical-align: top;
+}
+
+.sheet-hint-starting {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 12px;
+    vertical-align: top;
+}
+
+.sheet-hint-current {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 35px;
+    vertical-align: top;
+}
+
+
+
+/* ==== Section specific ==== */
 
 label.sheet-bio-label {
    display: inline-block;
    width: 7em;
-   vertical-align: top;
-   margin-left: 2px;
+   vertical-align: middle;
+   margin-left: 5px;
+   margin-bottom: 0px;
+   font-size: 1em;
 }
 
+.sheet-adv-div {
+    margin-left: 10px;    
+}
+
+/* ==== Grid definition ==== */
 .charsheet .sheet-grid-section{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -157,12 +233,6 @@ label.sheet-bio-label {
 					  "weapons weapons weapons weapons weapons weapons"
 					  "magic magic magic magic magic magic";
   grid-gap: 2px;
-}
-
-.charsheet div.sheet-header{
-  display: flex;
-  padding: 0px;
-  border: 0px;
 }
 
 .charsheet div.sheet-block{
@@ -189,10 +259,6 @@ label.sheet-bio-label {
 
 .charsheet div.sheet-advantages{
   grid-area: advantages;
-}
-
-.sheet-adv-div {
-    margin-left: 10px;    
 }
 
 .charsheet div.sheet-common{
