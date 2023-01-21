@@ -87,7 +87,6 @@ input.sheet-bio-input {
 
 textarea {
     background-color: transparent;
-	width: 80%;
     margin: 0 0 0 0;
 	resize: none;
 	background-attachment: local;
@@ -96,19 +95,27 @@ textarea {
 	linear-gradient(to left, aliceblue 10px, transparent 10px),
 	repeating-linear-gradient(aliceblue, aliceblue 30px, #ccc 30px, #ccc 31px, aliceblue 31px);
     line-height: 31px;
-    padding: 8px 8;
 	border: 0px;
+	padding: 1px 1px 1px 1px;
 }
 
 .sheet-textarea-div{
     width: 95%;
 }
 
+textarea.sheet-textarea-notes {
+    height: 100px;
+}
 
 input[type="checkbox"].sheet-checkbox {
   border-style: solid black;
   border-radius: 0px;
 }
+
+input.sheet-adv-input {
+    width: 99%;
+}
+
 
 h4.sheet-section-head {
    color: white;
@@ -141,7 +148,7 @@ label.sheet-bio-label {
 .charsheet .sheet-grid-section{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows:  2fr 1fr 1fr 1fr 2fr 1fr 1fr 1fr;
+  grid-template-rows:  2fr 1fr 1fr 1fr 2fr 1fr 1fr;
   grid-template-areas:"bio bio bio bio stats stats"
                       "notes notes notes notes sup sup"
 					  "advantages advantages advantages advantages advantages advantages"
@@ -182,6 +189,10 @@ label.sheet-bio-label {
 
 .charsheet div.sheet-advantages{
   grid-area: advantages;
+}
+
+.sheet-adv-div {
+    margin-left: 10px;    
 }
 
 .charsheet div.sheet-common{
