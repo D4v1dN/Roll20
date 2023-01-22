@@ -16,7 +16,9 @@
     <input type="hidden" name="attr_character_research_half" value="0"> 	
     <input type="hidden" name="attr_character_sensev_half" value="0"> 	
     <input type="hidden" name="attr_character_social_half" value="0"> 	
-    <input type="hidden" name="attr_character_stealth_half" value="0"> 	
+    <input type="hidden" name="attr_character_stealth_half" value="0"> 
+    <input type="hidden" name="attr_character_fighting_half" value="0"> 	
+    <input type="hidden" name="attr_character_firearms_half" value="0"> 	    
 
     
     <div class="sheet-header">
@@ -243,6 +245,25 @@
     	
     	<div class="sheet-combat sheet-block">
     	    <h4 class="sheet-section-head">Combat skills</h4>
+   		    <div class="sheet-section-row">
+    			<label class="sheet-long-label">Fighting</label>
+    			<input name="attr_character_fighting" class="sheet-input-align-top" type="number" min="0" max="100">
+    			<span>/</span>
+    			<input type="number" class="sheet-input-align-top" name="attr_character_fighting_half" value="0" readonly>
+   			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Fighting}} {{success=[[@{character_fighting}]]}} {{hard=[[@{character_fighting_half}]]}} {{roll=[[d100]]}}"></button>
+   			    <br>
+   			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+    		</div>
+    		<div class="sheet-section-row">
+    			<label class="sheet-long-label">Firearms</label>
+    			<input name="attr_character_firearms" class="sheet-input-align-top" type="number" min="0" max="100">
+    			<span>/</span>
+    			<input type="number" class="sheet-input-align-top" name="attr_character_firearms_half" value="0" readonly>
+   			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Firearms}} {{success=[[@{character_firearms}]]}} {{hard=[[@{character_firearms_half}]]}} {{roll=[[d100]]}}"></button>
+   			    <br>
+   			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+    		</div>    		
+    	    
     	</div>
     	
     	<div class="sheet-damage sheet-block">
@@ -305,6 +326,8 @@
             "character_sensev",
             "character_social",  
             "character_stealth",  
+            "character_fighting",  
+            "character_firearms",              
     ]
     
     // perform the update
@@ -369,5 +392,11 @@
     on("change:character_stealth", function() { 
         updateHalfAttr("character_stealth");
     });
+    on("change:character_fighting", function() { 
+        updateHalfAttr("character_fighting");
+    });
+    on("change:character_firearms", function() { 
+        updateHalfAttr("character_firearms");
+    });    
 
 </script>
