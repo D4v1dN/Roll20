@@ -92,6 +92,11 @@ input.sheet-bio-input {
 	width:70%;
 }
 
+input[type="text"].sheet-damage-special  {
+    color: red;
+	border-style: none;
+}
+
 select {
   background-color: transparent;
   border-style: none none solid none;

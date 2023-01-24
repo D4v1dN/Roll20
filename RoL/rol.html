@@ -18,7 +18,8 @@
     <input type="hidden" name="attr_character_social_half" value="0"> 	
     <input type="hidden" name="attr_character_stealth_half" value="0"> 
     <input type="hidden" name="attr_character_fighting_half" value="0"> 	
-    <input type="hidden" name="attr_character_firearms_half" value="0"> 	    
+    <input type="hidden" name="attr_character_firearms_half" value="0"> 
+    <input type="hidden" name="attr_character_impared" value=""> 
 
     
     <div class="sheet-header">
@@ -284,18 +285,18 @@
     	    <div class="sheet-section-inner-container">
     	        <h4 class="sheet-section-head">Damage</h4>
     	        <div class="sheet-section-row">
-    	            	<label class="sheet-long-label">Status</label>
+    	            <label class="sheet-long-label">Damage</label>
                     <select name="attr_character_status">
-                        <option value="0" selected="selected">Unharmed</option>
-                        <option value="1">Hurt</option>
-                        <option value="2">Bloodied</option>
-                        <option value="3">Down</option>
-                        <option value="4">Mortal Wound</option>
+                        <option value="0" selected="selected">0: Unharmed</option>
+                        <option value="1">1: Hurt</option>
+                        <option value="2">2: Bloodied</ophttps://app.roll20.net/campaigns/campaignsettings/13911731#customsheet-csstion>
+                        <option value="3">3: Down</option>
+                        <option value="4">4: (in one attack)</option>
+                        <option value="5">5: (in one attack)</option>
                     </select>
                 </div>
                 <div class="sheet-section-row">
-                    <label class="sheet-long-label">Impared</label>
-                    <input type="checkbox" name="attr_character_impared" disabled="disabled">
+                    <input type="text" class="sheet-damage-special" name="attr_character_impared" readonly>
                 </div>
                	        
     	   </div>
@@ -434,21 +435,27 @@
     });  
     
     /* damage */
-    
     on("sheet:opened change:character_status", function() { 
-    console.log("character_status!")
       getAttrs(["character_status"], function(values) {
             let srcVal = Object.values(values)[0]
             let intval = parseInt(srcVal)||0;
-            let impared = false
-            if (intval > 1) {
-                impared = true
+            let special = ""
+            switch (intval) {
+                case 2:
+                case 3:
+                    special = "** Impared"
+                    break;   
+                case 4: 
+                    special = "** Mortal wound"
+                    break; 
+                case 5: 
+                    special = "** Fatal blow"
+                    break;                     
+                    
             }
-    console.log(impared)                  
             let destHash = {}
-            destHash["character_impared"] = impared;
+            destHash["character_impared"] = special;
             setAttrs(destHash);
-    
        });        
     });  
 
