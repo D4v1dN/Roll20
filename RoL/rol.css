@@ -92,6 +92,13 @@ input.sheet-bio-input {
 	width:70%;
 }
 
+select {
+  background-color: transparent;
+  border-style: none none solid none;
+  border-color: grey;
+  width: 10em;  
+}
+
 textarea {
     background-color: transparent;
     margin: 0 0 0 0;
@@ -141,6 +148,10 @@ h4.sheet-section-head {
    font-weight: normal;
    font-style: normal;
    height: 1.5em;
+}
+
+div.sheet-section-row {
+    vertical-align: top;
 }
 
 label.sheet-short-label {
@@ -226,12 +237,12 @@ label.sheet-bio-label {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows:  2fr 1fr 1fr 1fr 2fr 1fr 1fr;
   grid-template-areas:"bio bio bio bio stats stats"
-                      "notes notes notes notes sup sup"
+                      "damage damage combat combat sup sup"
 					  "advantages advantages advantages advantages advantages advantages"
-					  "common common expert expert combat combat"
-                      "common common expert expert damage damage"
-					  "weapons weapons weapons weapons weapons weapons"
-					  "magic magic magic magic magic magic";
+					  "common common expert expert weapons weapons"
+                      "common common expert expert weapons weapons"
+					  "magic magic magic magic magic magic"
+					  "notes notes notes notes notes notes";
   grid-gap: 2px;
 }
 
@@ -271,6 +282,7 @@ label.sheet-bio-label {
 
 .charsheet div.sheet-combat{
   grid-area: combat;
+  justify-content: flex-start;
 }
 
 .charsheet div.sheet-damage{
