@@ -92,7 +92,7 @@ input.sheet-bio-input {
 	width:70%;
 }
 
-input[type="text"].sheet-damage-special  {
+input[type="text"].sheet-damage-status  {
     color: red;
 	border-style: none;
 }
@@ -121,6 +121,17 @@ textarea {
 
 textarea.sheet-textarea-notes {
     height: 100px;
+}
+
+textarea.sheet-damage-description  {
+	border-style: none;
+	background-color: transparent;
+	height: 40px;
+	line-height: 20px;
+	font-size: 12px;
+	background-image: none;
+	margin-left: 2px;
+	margin-right: 2px;
 }
 
 input[type="checkbox"].sheet-checkbox {
@@ -242,8 +253,8 @@ label.sheet-bio-label {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows:  2fr 1fr 1fr 1fr 2fr 1fr 1fr;
   grid-template-areas:"bio bio bio bio stats stats"
+                      "advantages advantages advantages advantages advantages advantages"
                       "damage damage combat combat sup sup"
-					  "advantages advantages advantages advantages advantages advantages"
 					  "common common expert expert weapons weapons"
                       "common common expert expert weapons weapons"
 					  "magic magic magic magic magic magic"

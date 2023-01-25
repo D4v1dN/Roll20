@@ -19,7 +19,8 @@
     <input type="hidden" name="attr_character_stealth_half" value="0"> 
     <input type="hidden" name="attr_character_fighting_half" value="0"> 	
     <input type="hidden" name="attr_character_firearms_half" value="0"> 
-    <input type="hidden" name="attr_character_impared" value=""> 
+    <input type="hidden" name="attr_character_status" value=""> 
+    <input type="hidden" name="attr_character_status_desc" value="">     
 
     
     <div class="sheet-header">
@@ -286,18 +287,21 @@
     	        <h4 class="sheet-section-head">Damage</h4>
     	        <div class="sheet-section-row">
     	            <label class="sheet-long-label">Damage</label>
-                    <select name="attr_character_status">
+                    <select name="attr_character_damage">
                         <option value="0" selected="selected">0: Unharmed</option>
                         <option value="1">1: Hurt</option>
-                        <option value="2">2: Bloodied</ophttps://app.roll20.net/campaigns/campaignsettings/13911731#customsheet-csstion>
+                        <option value="2">2: Bloodied</option>
                         <option value="3">3: Down</option>
                         <option value="4">4: (in one attack)</option>
                         <option value="5">5: (in one attack)</option>
                     </select>
                 </div>
                 <div class="sheet-section-row">
-                    <input type="text" class="sheet-damage-special" name="attr_character_impared" readonly>
+                    <input type="text" class="sheet-damage-status" name="attr_character_status" readonly>
                 </div>
+                <div class="sheet-section-row">
+                    <textarea class="sheet-damage-description" name="attr_character_status_desc" readonly></textarea>
+                </div>                
                	        
     	   </div>
     	</div>
@@ -435,26 +439,34 @@
     });  
     
     /* damage */
-    on("sheet:opened change:character_status", function() { 
-      getAttrs(["character_status"], function(values) {
+    on("sheet:opened change:character_damage", function() { 
+      getAttrs(["character_damage"], function(values) {
             let srcVal = Object.values(values)[0]
             let intval = parseInt(srcVal)||0;
-            let special = ""
+            let status = ""
+            let desc = ""
             switch (intval) {
                 case 2:
+                    status = "Status: Impared"
+                    desc = "Any rolls of 90 or over count as a fumble and trigger an Involuntary Action."
+                    break;                      
                 case 3:
-                    special = "** Impared"
+                    status = "Status: Down"
+                    desc = "You are down and can take no actions."
                     break;   
                 case 4: 
-                    special = "** Mortal wound"
+                    status = "Status: Mortal wound"
+                    desc = "You are down and can take no actions. You wil be dead in an hour without urgent treatment."
                     break; 
                 case 5: 
-                    special = "** Fatal blow"
+                    status = "Status: Fatal blow"
+                    desc = "You are dead. You can spend 30 luck points to instead have a mortal wound."
                     break;                     
                     
             }
             let destHash = {}
-            destHash["character_impared"] = special;
+            destHash["character_status"] = status;
+            destHash["character_status_desc"] = desc;
             setAttrs(destHash);
        });        
     });  
