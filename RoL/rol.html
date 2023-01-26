@@ -261,6 +261,14 @@
     	<div class="sheet-combat sheet-block">
     	    <div class="sheet-section-inner-container">
         	    <h4 class="sheet-section-head">Combat skills</h4>
+        	    
+        	    <div class="sheet-section-row">
+        	        <label class="sheet-long-label">Test</label>
+        	        <button type="action" class="sheet-dice" name="act_navigate"></button>
+        	    </div>
+        	  
+        	    
+        	    
        		    <div class="sheet-section-row">
         			<label class="sheet-long-label">Fighting</label>
         			<input name="attr_character_fighting" class="sheet-input-align-top" type="number" min="0" max="100">
@@ -323,7 +331,7 @@
 <!-- ==== Roll Templates ==== -->
 
 
-<rolltemplate class="sheet-rolltemplate-rol-percent">
+<rolltemplate class="sheet-rolltemplate-rol-test">
     <div class="sheet-template-charname">{{character_name}}</div>
     <div class="sheet-template-container">
     	<div class="sheet-template-rollname">
@@ -343,6 +351,20 @@
     	        {{/^rollGreater() roll hard}}
     	    {{/^rollGreater() roll success}}
     	</div>    	
+    </div>
+</rolltemplate>
+
+
+<rolltemplate class="sheet-rolltemplate-rol-percent">
+    <div class="sheet-template-charname">{{character_name}}</div>
+    <div class="sheet-template-container">
+    	<div class="sheet-template-rollname">
+            {{name}}      
+    	</div>
+    	<div class="sheet-template-values">Values: {{success}} / {{hard}}</div>
+    	<div class="sheet-template-result">
+    	    <span class="sheet-template-failure">{{computed::roll}}</span>
+    	</div>   
     </div>
 </rolltemplate>
 
@@ -470,5 +492,29 @@
             setAttrs(destHash);
        });        
     });  
+    
+
+    /* dice rolls */
+   const dicerolls = ['navigate']; 
+   
+   dicerolls.forEach(roll => {
+        on(`clicked:${roll}`, (info) => {
+            let displayName = roll.replace(/^[a-z]|-[a-z]/,  c => c.toUpperCase());
+            let rollcmd = `&{template:rol-percent} {{name=${displayName}}} {{character_name=@{character_name}}} {{success=[[@{character_${roll}}]]}} {{hard=[[@{character_${roll}_half}]]}} {{roll=[[1d100]]}}`;
+            startRoll(
+                rollcmd, (results) => {
+console.log(results);                    
+
+                const total = results.results.roll.result;
+    
+                finishRoll(
+                    results.rollId,
+                    {
+                        roll: `success: ${total}`,
+                    }
+                );
+            });
+        });
+   });
 
 </script>
