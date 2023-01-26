@@ -3,24 +3,25 @@
 
 <div class="sheet-main">
     <!-- Hidden attributes for calculated values -->
-    <input type="hidden" name="attr_character_str_half" value="0"> 	
-    <input type="hidden" name="attr_character_con_half" value="0"> 	
-    <input type="hidden" name="attr_character_dex_half" value="0"> 	
-    <input type="hidden" name="attr_character_int_half" value="0"> 	
-    <input type="hidden" name="attr_character_pow_half" value="0"> 	
+    <input type="hidden" name="attr_character_strength_half" value="0"> 	
+    <input type="hidden" name="attr_character_constitution_half" value="0"> 	
+    <input type="hidden" name="attr_character_dexterity_half" value="0"> 	
+    <input type="hidden" name="attr_character_intelligence_half" value="0"> 	
+    <input type="hidden" name="attr_character_power_half" value="0"> 	
     <input type="hidden" name="attr_character_athletics_half" value="0"> 	
     <input type="hidden" name="attr_character_drive_half" value="0"> 	
     <input type="hidden" name="attr_character_navigate_half" value="0"> 	
     <input type="hidden" name="attr_character_observation_half" value="0"> 	
-    <input type="hidden" name="attr_character_readp_half" value="0"> 	
+    <input type="hidden" name="attr_character_read-person_half" value="0"> 	
     <input type="hidden" name="attr_character_research_half" value="0"> 	
-    <input type="hidden" name="attr_character_sensev_half" value="0"> 	
+    <input type="hidden" name="attr_character_sense-vestigia_half" value="0"> 	
     <input type="hidden" name="attr_character_social_half" value="0"> 	
     <input type="hidden" name="attr_character_stealth_half" value="0"> 
     <input type="hidden" name="attr_character_fighting_half" value="0"> 	
     <input type="hidden" name="attr_character_firearms_half" value="0"> 
     <input type="hidden" name="attr_character_status" value=""> 
-    <input type="hidden" name="attr_character_status_desc" value="">     
+    <input type="hidden" name="attr_character_status_desc" value="">  
+    <input type="hidden" name="attr_character_fumble" value="100">  
 
     
     <div class="sheet-header">
@@ -63,47 +64,46 @@
         	    <h4 class="sheet-section-head">Characteristics</h4>
         		<div class="sheet-section-row">
         			<label class="sheet-short-label">STR</label>
-        			<input name="attr_character_str" class="sheet-input-align-top" type="number" min="0" max="100">
+        			<input name="attr_character_strength" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
-        			<input type="number" class="sheet-input-align-top" name="attr_character_str_half" value="0" readonly>
-       			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Strength}} {{success=[[@{character_str}]]}} {{hard=[[@{character_str_half}]]}} {{roll=[[d100]]}}"></button>
+        			<input type="number" class="sheet-input-align-top" name="attr_character_strength_half" value="0" readonly>
+                    <button type="action" class="sheet-dice" name="act_strength"></button>        			
        			    <br>
        			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
         		<div class="sheet-section-row">
         			    <label class="sheet-short-label">CON</label>
-        			    <input name="attr_character_con" type="number" min="0" max="100"> 
+        			    <input name="attr_character_constitution" type="number" min="0" max="100"> 
         			    <span class="sheet-input-seperator">/</span>
-            			<input name="attr_character_con_half" type="number" value="0" readonly> 	
-            			<button name="roll_con" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Constitution}} {{success=[[@{character_con}]]}} {{hard=[[@{character_con_half}]]}} {{roll=[[d100]]}}"></button>
-          			    <br>
+            			<input name="attr_character_constitution_half" type="number" value="0" readonly> 	
+                        <button type="action" class="sheet-dice" name="act_constitution"></button>
+                        <br>
            			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
         		<div class="sheet-section-row">
         			<label class="sheet-short-label">DEX</label>
-        			<input name="attr_character_dex" type="number" min="0" max="100">
+        			<input name="attr_character_dexterity" type="number" min="0" max="100">
         			<span>/</span>
-        			<input name="attr_character_dex_half" type="number" value="0" readonly> 	
-        			<button name="roll_dex" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Dexterity}} {{success=[[@{character_dex}]]}} {{hard=[[@{character_dex_half}]]}} {{roll=[[d100]]}}"></button>
-        	  	    <br>
+        			<input name="attr_character_dexterity_half" type="number" value="0" readonly> 	
+                    <button type="action" class="sheet-dice" name="act_dexterity"></button>
+                    <br>
        			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
         		<div class="sheet-section-row">
         			<label class="sheet-short-label">INT</label>
-        			<input name="attr_character_int" type="number" min="0" max="100">
+        			<input name="attr_character_intelligence" type="number" min="0" max="100">
         			<span>/</span>
-        			<input name="attr_character_int_half" type="number" value="0" readonly> 
-        			<button name="roll_int" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Intelligence}} {{success=[[@{character_int}]]}} {{hard=[[@{character_int_half}]]}} {{roll=[[d100]]}}"></button>
-          			 <br>
+        			<input name="attr_character_intelligence_half" type="number" value="0" readonly> 
+                    <button type="action" class="sheet-dice" name="act_intelligence"></button>
+                    <br>
        			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
         		<div class="sheet-section-row">
         			<label class="sheet-short-label">POW</label>
-        			<input name="attr_character_pow" type="number" min="0" max="100">
+        			<input name="attr_character_power" type="number" min="0" max="100">
         			<span>/</span>
-        			<input name="attr_character_pow_half" type="number" value="0" readonly> 	
-        			<button name="roll_pow" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Power}} {{success=[[@{character_pow}]]}} {{hard=[[@{character_pow_half}]]}} {{roll=[[d100]]}}"></button>
-      			    <br>
+        			<input name="attr_character_power_half" type="number" value="0" readonly> 	
+                    <button type="action" class="sheet-dice" name="act_power"></button>      			    <br>
        			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
         	</div>
@@ -173,7 +173,7 @@
         			<input name="attr_character_athletics" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_athletics_half" value="0" readonly>
-       			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Athletics}} {{success=[[@{character_athletics}]]}} {{hard=[[@{character_athletics_half}]]}} {{roll=[[d100]]}}"></button>
+       			    <button type="action" class="sheet-dice" name="act_athletics"></button> 
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
@@ -182,7 +182,7 @@
         			<input name="attr_character_drive" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_drive_half" value="0" readonly>
-       			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Drive}} {{success=[[@{character_drive}]]}} {{hard=[[@{character_drive_half}]]}} {{roll=[[d100]]}}"></button>
+       			    <button type="action" class="sheet-dice" name="act_drive"></button> 
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>    		
@@ -191,7 +191,7 @@
         			<input name="attr_character_navigate" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_navigate_half" value="0" readonly>
-       			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Navigate}} {{success=[[@{character_navigate}]]}} {{hard=[[@{character_navigate_half}]]}} {{roll=[[d100]]}}"></button>
+       			    <button type="action" class="sheet-dice" name="act_navigate"></button> 
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
@@ -200,16 +200,16 @@
         			<input name="attr_character_observation" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_observation_half" value="0" readonly>
-       			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Observation}} {{success=[[@{character_observation}]]}} {{hard=[[@{character_observation_half}]]}} {{roll=[[d100]]}}"></button>
+       			    <button type="action" class="sheet-dice" name="act_observation"></button> 
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
         		<div class="sheet-section-row">
         			<label class="sheet-long-label">Read Person</label>
-        			<input name="attr_character_readp" class="sheet-input-align-top" type="number" min="0" max="100">
+        			<input name="attr_character_read-person" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
-        			<input type="number" class="sheet-input-align-top" name="attr_character_readp_half" value="0" readonly>
-       			    <button name="roll_str" type="roll" value="&{template:rol-percent}  {{character_name=@{character_name}}} {{name=Read Person}} {{success=[[@{character_readp}]]}} {{hard=[[@{character_readp_half}]]}} {{roll=[[d100]]}}"></button>
+        			<input type="number" class="sheet-input-align-top" name="attr_character_read-person_half" value="0" readonly>
+       			    <button type="action" class="sheet-dice" name="act_read-person"></button> 
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
@@ -218,16 +218,16 @@
         			<input name="attr_character_research" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_research_half" value="0" readonly>
-       			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Research}} {{success=[[@{character_research}]]}} {{hard=[[@{character_research_half}]]}} {{roll=[[d100]]}}"></button>
+       			    <button type="action" class="sheet-dice" name="act_research"></button> 
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
         		<div class="sheet-section-row">
         			<label class="sheet-long-label">Sense Vestigia</label>
-        			<input name="attr_character_sensev" class="sheet-input-align-top" type="number" min="0" max="100">
+        			<input name="attr_character_sense-vestigia" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
-        			<input type="number" class="sheet-input-align-top" name="attr_character_sensev_half" value="0" readonly>
-       			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Sense Vestigia}} {{success=[[@{character_sensev}]]}} {{hard=[[@{character_sensev_half}]]}} {{roll=[[d100]]}}"></button>
+        			<input type="number" class="sheet-input-align-top" name="attr_character_sense-vestigia_half" value="0" readonly>
+       			    <button type="action" class="sheet-dice" name="act_sense-vestigia"></button> 
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
@@ -236,7 +236,7 @@
         			<input name="attr_character_social" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_social_half" value="0" readonly>
-       			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Social}} {{success=[[@{character_social}]]}} {{hard=[[@{character_social_half}]]}} {{roll=[[d100]]}}"></button>
+       			    <button type="action" class="sheet-dice" name="act_social"></button> 
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>    		
@@ -245,7 +245,7 @@
         			<input name="attr_character_stealth" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_stealth_half" value="0" readonly>
-       			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Stealth}} {{success=[[@{character_stealth}]]}} {{hard=[[@{character_stealth_half}]]}} {{roll=[[d100]]}}"></button>
+       			    <button type="action" class="sheet-dice" name="act_stealth"></button> 
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>    	
@@ -261,21 +261,13 @@
     	<div class="sheet-combat sheet-block">
     	    <div class="sheet-section-inner-container">
         	    <h4 class="sheet-section-head">Combat skills</h4>
-        	    
-        	    <div class="sheet-section-row">
-        	        <label class="sheet-long-label">Test</label>
-        	        <button type="action" class="sheet-dice" name="act_navigate"></button>
-        	    </div>
-        	  
-        	    
-        	    
        		    <div class="sheet-section-row">
         			<label class="sheet-long-label">Fighting</label>
         			<input name="attr_character_fighting" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_fighting_half" value="0" readonly>
-       			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Fighting}} {{success=[[@{character_fighting}]]}} {{hard=[[@{character_fighting_half}]]}} {{roll=[[d100]]}}"></button>
-       			    <br>
+        			<button type="action" class="sheet-dice" name="act_fighting"></button>
+        			<br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
         		<div class="sheet-section-row">
@@ -283,8 +275,7 @@
         			<input name="attr_character_firearms" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_firearms_half" value="0" readonly>
-       			    <button name="roll_str" type="roll" value="&{template:rol-percent} {{character_name=@{character_name}}} {{name=Firearms}} {{success=[[@{character_firearms}]]}} {{hard=[[@{character_firearms_half}]]}} {{roll=[[d100]]}}"></button>
-       			    <br>
+                    <button type="action" class="sheet-dice" name="act_firearms"></button>       			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>    		
     	    </div>
@@ -363,7 +354,7 @@
     	</div>
     	<div class="sheet-template-values">Values: {{success}} / {{hard}}</div>
     	<div class="sheet-template-result">
-    	    <span class="sheet-template-failure">{{computed::roll}}</span>
+    	    <span>{{computed::roll}}</span>
     	</div>   
     </div>
 </rolltemplate>
@@ -374,25 +365,24 @@
 
     // ==== handle updating 'half' values ====
     const halfAttrList = [
-            "character_str",
-            "character_con",
-            "character_dex",
-            "character_int",
-            "character_pow",
+            "character_strength",
+            "character_constitution",
+            "character_dexterity",
+            "character_intelligence",
+            "character_power",
             "character_athletics",
             "character_drive",
             "character_navigate",
             "character_observation",
-            "character_readp",    
+            "character_read-person",    
             "character_research",
-            "character_sensev",
+            "character_sense-vestigia",
             "character_social",  
             "character_stealth",  
             "character_fighting",  
             "character_firearms",              
     ]
     
-    // perform the update
     function updateHalfAttr(attr) {
         getAttrs([attr], function(values) {
             let srcVal = Object.values(values)[0]
@@ -411,66 +401,25 @@
     });
     
     // on change only update the one that has changed
-    on("change:character_str", function() { 
-       updateHalfAttr("character_str");
+    halfAttrList.forEach(attr => {
+    on(`change:${attr}`, function() { 
+       updateHalfAttr(attr);
+        });
     });
-    on("change:character_con", function() { 
-       updateHalfAttr("character_con");
-    });
-    on("change:character_dex", function() { 
-        updateHalfAttr("character_dex");
-    });
-    on("change:character_int", function() { 
-        updateHalfAttr("character_int");
-    });
-    on("change:character_pow", function() { 
-        updateHalfAttr("character_pow");
-    });
-    on("change:character_athletics", function() { 
-       updateHalfAttr("character_athletics");
-    });
-    on("change:character_drive", function() { 
-       updateHalfAttr("character_drive");
-    });
-    on("change:character_navigate", function() { 
-        updateHalfAttr("character_navigate");
-    });
-    on("change:character_observation", function() { 
-        updateHalfAttr("character_observation");
-    });
-    on("change:character_readp", function() { 
-        updateHalfAttr("character_readp");
-    });
-    on("change:character_research", function() { 
-       updateHalfAttr("character_research");
-    });
-    on("change:character_sensev", function() { 
-       updateHalfAttr("character_sensev");
-    });
-    on("change:character_social", function() { 
-        updateHalfAttr("character_social");
-    });
-    on("change:character_stealth", function() { 
-        updateHalfAttr("character_stealth");
-    });
-    on("change:character_fighting", function() { 
-        updateHalfAttr("character_fighting");
-    });
-    on("change:character_firearms", function() { 
-        updateHalfAttr("character_firearms");
-    });  
     
-    /* damage */
+    /* damage and damage status*/
     on("sheet:opened change:character_damage", function() { 
       getAttrs(["character_damage"], function(values) {
-            let srcVal = Object.values(values)[0]
+            let srcVal = Object.values(values)[0];
             let intval = parseInt(srcVal)||0;
-            let status = ""
-            let desc = ""
+            let fumble = 100;
+            let status = "";
+            let desc = "";
             switch (intval) {
                 case 2:
                     status = "Status: Impared"
                     desc = "Any rolls of 90 or over count as a fumble and trigger an Involuntary Action."
+                    fumble = 90;
                     break;                      
                 case 3:
                     status = "Status: Down"
@@ -479,40 +428,84 @@
                 case 4: 
                     status = "Status: Mortal wound"
                     desc = "You are down and can take no actions. You wil be dead in an hour without urgent treatment."
+                    fumble = 90;
                     break; 
                 case 5: 
                     status = "Status: Fatal blow"
                     desc = "You are dead. You can spend 30 luck points to instead have a mortal wound."
+                    fumble = 90;
                     break;                     
                     
             }
-            let destHash = {}
+            let destHash = {};
             destHash["character_status"] = status;
             destHash["character_status_desc"] = desc;
+            destHash["character_fumble"] = fumble;
             setAttrs(destHash);
        });        
     });  
     
 
     /* dice rolls */
-   const dicerolls = ['navigate']; 
+   const dicerolls = [
+       'strength',
+       'constitution',
+       'dexterity',
+       'intelligence',
+       'power',
+       'athletics',
+       'drive',
+       'observation',
+       'navigate',
+       'read-person',
+       'research',
+       'sense-vestigia',
+       'social',
+       'stealth',
+       'fighting',
+       'firearms',
+    ]; 
    
    dicerolls.forEach(roll => {
         on(`clicked:${roll}`, (info) => {
+            
+            /* Fix case and build the roll */
             let displayName = roll.replace(/^[a-z]|-[a-z]/,  c => c.toUpperCase());
-            let rollcmd = `&{template:rol-percent} {{name=${displayName}}} {{character_name=@{character_name}}} {{success=[[@{character_${roll}}]]}} {{hard=[[@{character_${roll}_half}]]}} {{roll=[[1d100]]}}`;
+            let rollcmd = `&{template:rol-percent} {{name=${displayName}}} {{character_name=@{character_name}}} {{success=[[@{character_${roll}}]]}} {{hard=[[@{character_${roll}_half}]]}} {{roll=[[d100]]}} {{fumble=[[@{character_fumble}]]}}`;
             startRoll(
                 rollcmd, (results) => {
-console.log(results);                    
-
-                const total = results.results.roll.result;
-    
-                finishRoll(
-                    results.rollId,
-                    {
-                        roll: `success: ${total}`,
+                    
+                    /* get the values we need to caluclate the status */
+                    let total = parseInt(results.results.roll.result)||0;
+                    let fumble = parseInt(results.results.fumble.result)||0;
+                    let hard =  parseInt(results.results.hard.result)||0;
+                    let success = parseInt(results.results.success.result)||0;
+                    
+                    /* build the status */
+                    let status = "Roll";
+                    if (total == 1 ) {
+                        status == "Critical";
                     }
-                );
+                    else if (total <= hard) {
+                        status = "Hard";
+                    }
+                    else if (total <= success) {
+                        status = "Success";
+                    }
+                    else if (total < fumble) {
+                        status = "Failure";
+                    }
+                    else if (total <= 100) {
+                        status = "Fumble";
+                    }
+                    
+                    /* sort out the roll */
+                    finishRoll(
+                        results.rollId,
+                        {
+                            roll: `${status}: ${total}`
+                        }
+                    );
             });
         });
    });

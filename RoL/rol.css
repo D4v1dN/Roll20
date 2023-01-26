@@ -56,17 +56,6 @@
 	background-color: rgba(0, 0, 0,0);
 }
 
-.sheet-rolltemplate-rol-percent .sheet-template-failure {
-    color: red;
-}
-
-.sheet-rolltemplate-rol-percent .sheet-template-success {
-    color: green;
-}
-
-.sheet-rolltemplate-rol-percent .sheet-template-hard {
-    color: purple;
-}
 
 /* ==== Inputs ==== */
 
