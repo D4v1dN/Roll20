@@ -23,6 +23,9 @@
     <input type="hidden" name="attr_character_status_desc" value="">  
     <input type="hidden" name="attr_character_fumble" value="100">  
 
+    <!-- Value used for dice rolls - fumble will be chnaged based on damage level -->
+    <input type="hidden" name="attr_roll_fumble" value="100">  
+    <input type="hidden" name="attr_roll_formula" value="{{?{Type|Standard,standard=[[d100cs0cf0]]|Advantage,advantage=[[2d100cs0cf0kl1]]|Disadvantage,disadvantage=[[2d100cs0cf0kh1]]}}}"> 
     
     <div class="sheet-header">
     	<span>Rivers of London - version 0.1 alpha</span> 
@@ -62,13 +65,14 @@
     	    <div class="sheet-section-inner-container">
     	    
         	    <h4 class="sheet-section-head">Characteristics</h4>
+        	    
         		<div class="sheet-section-row">
         			<label class="sheet-short-label">STR</label>
         			<input name="attr_character_strength" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_strength_half" value="0" readonly>
-                    <button type="action" class="sheet-dice" name="act_strength"></button>        			
-       			    <br>
+                    <button type="roll" name="roll_strength" value="&{template:rol} {{rollname=Strength}} {{charname=@{character_name}}} {{success=[[@{character_strength}]]}} {{hard=[[@{character_strength_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>        			
+        			<br>
        			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
         		<div class="sheet-section-row">
@@ -320,7 +324,117 @@
 </div>
 
 <!-- ==== Roll Templates ==== -->
+<rolltemplate class="sheet-rolltemplate-rol">
+    <div class="sheet-template-charname">{{charname}}</div>
+    <div class="sheet-template-container">
+    	<div class="sheet-template-rollname">{{rollname}}</div>
+    	
+    	<!-- Info about the value needed, the type of roll and the character damage status )if any) -->
+    	<div class="sheet-template-details">Target: {{success}} / {{hard}} {{#advantage}}(Advantage){{/advantage}}{{#disadvantage}}(Disadvantage){{/disadvantage}}</div>
+    	{{#status}}<div class="sheet-template-status">{{status}}</div>{{/status}}    	
 
+        <!-- build results of roll -->
+    	<div class="sheet-template-result">
+    	    
+   	        <!-- standard roll -->
+    	    {{#standard}}
+    	        Roll:
+    	        <!-- Critical -->
+    	        {{#rollTotal() standard 1}} 
+    	            <span class="sheet-template-critical"> {{standard}} (Critical)</span>
+    	        {{/rollTotal() standard 1}}
+    	        
+    	        <!-- Hard -->
+    	        {{#rollGreater() standard 1}} {{#rollBetween() standard 1 hard}} 
+    	            <span class="sheet-template-hard"> {{standard}} (Hard Success)</span>
+                {{/rollBetween() standard 1 hard}} {{/rollGreater() standard 1}} 
+                
+                <!-- Success -->
+    	        {{#rollGreater() standard hard}} {{#rollBetween() standard hard success}} {{##rollLess() standard fumble}}   
+    	            <span class="sheet-template-success"> {{standard}} (Success)</span>
+    	        {{/#rollLess() standard fumble}} {{/rollBetween() standard hard success}} {{/rollGreater() standard hard}}     	        
+                 	    
+                <!-- fail -->                 	    
+    	        {{#rollGreater() standard success}} {{#rollBetween() standard success fumble}} 
+    	            <span class="sheet-template-fail"> {{standard}} (Fail)</span>
+                {{/rollBetween() standard success fumble}} {{/rollGreater() standard success}} 
+                
+                <!-- fumble --> 
+    	        {{#rollBetween() standard fumble 100}}
+    	            <span class="sheet-template-fumble"> {{standard}} (fumble)</span>
+    	        {{/rollBetween() standard fumble 100}}
+    	    {{/standard}}
+    	    
+    	    <!-- rolling with advantage -->
+    	    {{#advantage}}
+    	        Roll:
+    	        <!-- Critical -->
+    	        {{#rollTotal() advantage 1}} 
+    	            <span class="sheet-template-critical"> {{advantage}} (Critical)</span>
+    	        {{/rollTotal() advantage 1}}
+    	        
+    	        <!-- Hard -->
+    	        {{#rollGreater() advantage 1}} {{#rollBetween() advantage 1 hard}} 
+    	            <span class="sheet-template-hard"> {{advantage}} (Hard Success)</span>
+                {{/rollBetween() advantage 1 hard}} {{/rollGreater() advantage 1}} 
+                
+                <!-- Success -->
+    	        {{#rollGreater() advantage hard}} {{#rollBetween() advantage hard success}} {{#rollLess() advantage fumble}}   
+    	            <span class="sheet-template-success"> {{advantage}} (Success)</span>
+    	        {{/rollLess() advantage fumble}} {{/rollBetween() advantage hard success}} {{/rollGreater() advantage hard}}     	        
+                 	    
+                <!-- fail -->                 	    
+    	        {{#rollGreater() advantage success}} {{#rollBetween() advantage success fumble}} 
+    	            <span class="sheet-template-fail"> {{advantage}} (Fail)</span>
+                {{/rollBetween() advantage success fumble}} {{/rollGreater() advantage success}} 
+                
+                <!-- fumble --> 
+    	        {{#rollBetween() advantage fumble 100}}
+    	            <span class="sheet-template-fumble"> {{advantage}} (fumble)</span>
+    	        {{/rollBetween() advantage fumble 100}}
+    	    {{/advantage}}
+    	    
+   	        <!-- rolling with disadvantage -->
+    	    {{#disadvantage}}
+    	        Roll:
+    	        <!-- Critical -->
+    	        {{#rollTotal() disadvantage 1}} 
+    	            <span class="sheet-template-critical"> {{disadvantage}} (Critical)</span>
+    	        {{/rollTotal() disadvantage 1}}
+    	        
+    	        <!-- Hard -->
+    	        {{#rollGreater() disadvantage 1}} {{#rollBetween() disadvantage 1 hard}} 
+    	            <span class="sheet-template-hard"> {{disadvantage}} (Hard Success)</span>
+                {{/rollBetween() disadvantage 1 hard}} {{/rollGreater() disadvantage 1}} 
+                
+                <!-- Success -->
+    	        {{#rollGreater() disadvantage hard}} {{#rollBetween() disadvantage hard success}} {{#rollLess() disadvantage fumble}}   
+    	            <span class="sheet-template-success"> {{disadvantage}} (Success)</span>
+    	        {{/rollLess() disadvantage fumble}} {{/rollBetween() disadvantage hard success}} {{/rollGreater() disadvantage hard}}     	        
+                 	    
+                <!-- fail -->                 	    
+    	        {{#rollGreater() disadvantage success}} {{#rollBetween() disadvantage success fumble}} 
+    	            <span class="sheet-template-fail"> {{disadvantage}} (Fail)</span>
+                {{/rollBetween() disadvantage success fumble}} {{/rollGreater() disadvantage success}} 
+                
+                <!-- fumble --> 
+    	        {{#rollBetween() disadvantage fumble 100}}
+    	            <span class="sheet-template-fumble"> {{disadvantage}} (fumble)</span>
+    	        {{/rollBetween() disadvantage fumble 100}}
+    	    {{/disadvantage}}    	    
+    	</div>
+    </div>    
+<!--     
+  <div class="holder {{type}} {{short}} {{language}}">{{#charimage}}
+    <div class="char-image">[Image]({{charimage}})</div>{{/charimage}}
+    <div class="header{{#charimage}} narrow{{/charimage}}">{{charname}} {{subtitle}}</div>
+    <div class="title">{{#title-text}}<span class="{{small-title}}">{{title}}</span>{{/title-text}}{{^title-text}}{{#rolltypetext}}[{{rolltypetext}}]({{rolltypeimage}}){{/rolltypetext}}{{#title-insight}}<img data-i18n-alt="insight" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-insight.png"/>{{/title-insight}}{{#title-prowess}}<img data-i18n-alt="prowess" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-prowess.png"/>{{/title-prowess}}{{#title-resolve}}<img data-i18n-alt="resolve" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-resolve.png"/>{{/title-resolve}}{{#title-hunt}}<img data-i18n-alt="hunt" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-hunt.png"/>{{/title-hunt}}{{#title-study}}<img data-i18n-alt="study" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-study.png"/>{{/title-study}}{{#title-survey}}<img data-i18n-alt="survey" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-survey.png"/>{{/title-survey}}{{#title-tinker}}<img data-i18n-alt="tinker" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-tinker.png"/>{{/title-tinker}}{{#title-finesse}}<img data-i18n-alt="finesse" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-finesse.png"/>{{/title-finesse}}{{#title-prowl}}<img data-i18n-alt="prowl" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-prowl.png"/>{{/title-prowl}}{{#title-skirmish}}<img data-i18n-alt="skirmish" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-skirmish.png"/>{{/title-skirmish}}{{#title-wreck}}<img data-i18n-alt="wreck" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-wreck.png"/>{{/title-wreck}}{{#title-attune}}<img data-i18n-alt="attune" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-attune.png"/>{{/title-attune}}{{#title-command}}<img data-i18n-alt="command" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-command.png"/>{{/title-command}}{{#title-consort}}<img data-i18n-alt="consort" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-consort.png"/>{{/title-consort}}{{#title-sway}}<img data-i18n-alt="sway" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-sway.png"/>{{/title-sway}}{{#title-fortune}}<img data-i18n-alt="fortune" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-fortune.png"/>{{/title-fortune}}{{#title-vice}}<img data-i18n-alt="vice" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-vice.png"/>{{/title-vice}}{{#title-crew_tier}}<img data-i18n-alt="crew_tier" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-crew_tier.png"/>{{/title-crew_tier}}{{#title-entanglement}}<img data-i18n-alt="entanglement" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-entanglement.png"/>{{/title-entanglement}}{{#title-cohort_quality}}<img data-i18n-alt="cohort_quality" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-cohort_quality.png"/>{{/title-cohort_quality}}{{#title-lifestyle}}<img data-i18n-alt="lifestyle" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-lifestyle.png"/>{{/title-lifestyle}}{{#title-recovery}}<img data-i18n-alt="recovery" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-recovery.png"/>{{/title-recovery}}{{#title-engagement}}<img data-i18n-alt="engagement" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-engagement.png"/>{{/title-engagement}}{{/title-text}}
+    </div>
+    <div class="dice">{{std}}</div>
+    <div class="dice">{{adv}}</div>
+    <div class="dice">{{dis}}</div>
+-->
+</rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-rol-test">
     <div class="sheet-template-charname">{{character_name}}</div>

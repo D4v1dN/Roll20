@@ -14,18 +14,18 @@
 
 /* ==== roll template ==== */
 
-.sheet-rolltemplate-rol-percent div.sheet-template-charname {
+.sheet-rolltemplate-rol div.sheet-template-charname {
     border: 0px;
     padding: 5px;
     font-weight: bold;
     font-style: italic;
 }
 
-.sheet-rolltemplate-rol-percent div.sheet-template-container {
+.sheet-rolltemplate-rol div.sheet-template-container {
 	border: 2px solid #000 !important;
 	border-radius: 3px 3px 3px 3px;
 }
-.sheet-rolltemplate-rol-percent .sheet-template-rollname {
+.sheet-rolltemplate-rol .sheet-template-rollname {
 	background-color: darkblue;
 	color: white;
 	padding: 2px;
@@ -35,20 +35,28 @@
 	font-weight: bold;
 }
 
-.sheet-rolltemplate-rol-percent .sheet-template-values {
+.sheet-rolltemplate-rol .sheet-template-details {
     background-color: lightgrey;
 	padding: 5px;
 	border-bottom: 1px solid black;
+	font-weight: bold;
 }
 
-.sheet-rolltemplate-rol-percent .sheet-template-result {
+.sheet-rolltemplate-rol .sheet-template-status {
+    background-color: lightgrey;
+	padding: 5px;
+	border-bottom: 1px solid black;
+	font-style: italic;
+}
+
+.sheet-rolltemplate-rol .sheet-template-result {
     background-color: white;
 	padding: 5px;
 	border-bottom: 1px solid black;
 	font-weight: bold;
 }
 
-.sheet-rolltemplate-rol-percent .inlinerollresult  {
+.sheet-rolltemplate-rol .inlinerollresult  {
 	display: inline-block;
 	min-width: 1.5em;
 	text-align: center;
@@ -56,6 +64,25 @@
 	background-color: rgba(0, 0, 0,0);
 }
 
+.sheet-rolltemplate-rol .sheet-template-critical {
+    color: purple;
+}
+
+.sheet-rolltemplate-rol .sheet-template-hard {
+    color: green;
+}
+
+.sheet-rolltemplate-rol .sheet-template-success {
+    color: green;
+}
+
+.sheet-rolltemplate-rol .sheet-template-fail {
+    color: black;
+}
+
+.sheet-rolltemplate-rol .sheet-template-fumble {
+    color: red;
+}
 
 /* ==== Inputs ==== */
 
