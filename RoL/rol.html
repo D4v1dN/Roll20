@@ -80,7 +80,7 @@
         			    <input name="attr_character_constitution" type="number" min="0" max="100"> 
         			    <span class="sheet-input-seperator">/</span>
             			<input name="attr_character_constitution_half" type="number" value="0" readonly> 	
-                        <button type="action" class="sheet-dice" name="act_constitution"></button>
+                        <button type="roll" name="roll_constitution" value="&{template:rol} {{rollname=Constitution}} {{charname=@{character_name}}} {{success=[[@{character_constitution}]]}} {{hard=[[@{character_constitution_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>        			
                         <br>
            			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
@@ -89,7 +89,7 @@
         			<input name="attr_character_dexterity" type="number" min="0" max="100">
         			<span>/</span>
         			<input name="attr_character_dexterity_half" type="number" value="0" readonly> 	
-                    <button type="action" class="sheet-dice" name="act_dexterity"></button>
+                    <button type="roll" name="roll_dexterity" value="&{template:rol} {{rollname=Dexterity}} {{charname=@{character_name}}} {{success=[[@{character_dexterity}]]}} {{hard=[[@{character_dexterity_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>        			
                     <br>
        			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
@@ -98,7 +98,7 @@
         			<input name="attr_character_intelligence" type="number" min="0" max="100">
         			<span>/</span>
         			<input name="attr_character_intelligence_half" type="number" value="0" readonly> 
-                    <button type="action" class="sheet-dice" name="act_intelligence"></button>
+                    <button type="roll" name="roll_intelligence" value="&{template:rol} {{rollname=Intelligence}} {{charname=@{character_name}}} {{success=[[@{character_intelligence}]]}} {{hard=[[@{character_intelligence_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>        			
                     <br>
        			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
@@ -107,7 +107,8 @@
         			<input name="attr_character_power" type="number" min="0" max="100">
         			<span>/</span>
         			<input name="attr_character_power_half" type="number" value="0" readonly> 	
-                    <button type="action" class="sheet-dice" name="act_power"></button>      			    <br>
+                    <button type="roll" name="roll_power" value="&{template:rol} {{rollname=Power}} {{charname=@{character_name}}} {{success=[[@{character_power}]]}} {{hard=[[@{character_power_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>        			
+					<br>
        			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
         	</div>
@@ -127,6 +128,7 @@
         			<input name="attr_character_luck" type="number">
         			<span>/</span>
         			<input name="attr_character_luck_current" type="number">
+        			<button type="roll" name="roll_luck" value="&{template:rol} {{rollname=Luck}} {{charname=@{character_name}}} {{success=[[@{character_luck_current}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>        			
       			    <br>
        			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-starting">Starting</span><span class="sheet-hint-current">Current</span>
         		</div>
@@ -177,7 +179,7 @@
         			<input name="attr_character_athletics" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_athletics_half" value="0" readonly>
-       			    <button type="action" class="sheet-dice" name="act_athletics"></button> 
+       			    <button type="roll" name="roll_athletics" value="&{template:rol} {{rollname=Athletics}} {{charname=@{character_name}}} {{success=[[@{character_athletics}]]}} {{hard=[[@{character_athletics_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>        			
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
@@ -186,7 +188,7 @@
         			<input name="attr_character_drive" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_drive_half" value="0" readonly>
-       			    <button type="action" class="sheet-dice" name="act_drive"></button> 
+       			    <button type="roll" name="roll_drive" value="&{template:rol} {{rollname=Drive}} {{charname=@{character_name}}} {{success=[[@{character_drive}]]}} {{hard=[[@{character_drive_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>    
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>    		
@@ -195,7 +197,7 @@
         			<input name="attr_character_navigate" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_navigate_half" value="0" readonly>
-       			    <button type="action" class="sheet-dice" name="act_navigate"></button> 
+       			    <button type="roll" name="roll_navigate" value="&{template:rol} {{rollname=Navigate}} {{charname=@{character_name}}} {{success=[[@{character_navigate}]]}} {{hard=[[@{character_navigate_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>    
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
@@ -204,7 +206,7 @@
         			<input name="attr_character_observation" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_observation_half" value="0" readonly>
-       			    <button type="action" class="sheet-dice" name="act_observation"></button> 
+       			    <button type="roll" name="roll_observation" value="&{template:rol} {{rollname=Observation}} {{charname=@{character_name}}} {{success=[[@{character_observation}]]}} {{hard=[[@{character_observation_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>    
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
@@ -213,7 +215,7 @@
         			<input name="attr_character_read-person" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_read-person_half" value="0" readonly>
-       			    <button type="action" class="sheet-dice" name="act_read-person"></button> 
+       			    <button type="roll" name="roll_read-person" value="&{template:rol} {{rollname=Read Person}} {{charname=@{character_name}}} {{success=[[@{character_read-person}]]}} {{hard=[[@{character_read-person_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>    
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
@@ -222,7 +224,7 @@
         			<input name="attr_character_research" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_research_half" value="0" readonly>
-       			    <button type="action" class="sheet-dice" name="act_research"></button> 
+       			    <button type="roll" name="roll_research" value="&{template:rol} {{rollname=Research}} {{charname=@{character_name}}} {{success=[[@{character_research}]]}} {{hard=[[@{character_research_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>    
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
@@ -231,7 +233,7 @@
         			<input name="attr_character_sense-vestigia" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_sense-vestigia_half" value="0" readonly>
-       			    <button type="action" class="sheet-dice" name="act_sense-vestigia"></button> 
+       			    <button type="roll" name="roll_sense-vestigia" value="&{template:rol} {{rollname=Sense Vestigia}} {{charname=@{character_name}}} {{success=[[@{character_sense-vestigia}]]}} {{hard=[[@{character_sense-vestigia_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>    
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
@@ -240,7 +242,7 @@
         			<input name="attr_character_social" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_social_half" value="0" readonly>
-       			    <button type="action" class="sheet-dice" name="act_social"></button> 
+       			    <button type="roll" name="roll_social" value="&{template:rol} {{rollname=Social}} {{charname=@{character_name}}} {{success=[[@{character_social}]]}} {{hard=[[@{character_social_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>    
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>    		
@@ -249,7 +251,7 @@
         			<input name="attr_character_stealth" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_stealth_half" value="0" readonly>
-       			    <button type="action" class="sheet-dice" name="act_stealth"></button> 
+       			    <button type="roll" name="roll_stealth" value="&{template:rol} {{rollname=Stealth}} {{charname=@{character_name}}} {{success=[[@{character_stealth}]]}} {{hard=[[@{character_stealth_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>    
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>    	
@@ -270,7 +272,7 @@
         			<input name="attr_character_fighting" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_fighting_half" value="0" readonly>
-        			<button type="action" class="sheet-dice" name="act_fighting"></button>
+        			<button type="roll" name="roll_fighting" value="&{template:rol} {{rollname=Fighting}} {{charname=@{character_name}}} {{success=[[@{character_fighting}]]}} {{hard=[[@{character_fighting_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>    
         			<br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
@@ -279,7 +281,7 @@
         			<input name="attr_character_firearms" class="sheet-input-align-top" type="number" min="0" max="100">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_firearms_half" value="0" readonly>
-                    <button type="action" class="sheet-dice" name="act_firearms"></button>       			    <br>
+                    <button type="roll" name="roll_firearms" value="&{template:rol} {{rollname=Firearms}} {{charname=@{character_name}}} {{success=[[@{character_firearms}]]}} {{hard=[[@{character_firearms_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>    
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>    		
     	    </div>
@@ -330,7 +332,7 @@
     	<div class="sheet-template-rollname">{{rollname}}</div>
     	
     	<!-- Info about the value needed, the type of roll and the character damage status )if any) -->
-    	<div class="sheet-template-details">Target: {{success}} / {{hard}} {{#advantage}}(Advantage){{/advantage}}{{#disadvantage}}(Disadvantage){{/disadvantage}}</div>
+    	<div class="sheet-template-details">Target: {{success}} {{#hard}}/ {{hard}}{{/hard}} {{#advantage}}(Advantage){{/advantage}}{{#disadvantage}}(Disadvantage){{/disadvantage}}</div>
     	{{#status}}<div class="sheet-template-status">{{status}}</div>{{/status}}    	
 
         <!-- build results of roll -->
@@ -350,9 +352,9 @@
                 {{/rollBetween() standard 1 hard}} {{/rollGreater() standard 1}} 
                 
                 <!-- Success -->
-    	        {{#rollGreater() standard hard}} {{#rollBetween() standard hard success}} {{##rollLess() standard fumble}}   
+    	        {{#rollGreater() standard hard}} {{#rollBetween() standard hard success}} {{#rollLess() standard fumble}}   
     	            <span class="sheet-template-success"> {{standard}} (Success)</span>
-    	        {{/#rollLess() standard fumble}} {{/rollBetween() standard hard success}} {{/rollGreater() standard hard}}     	        
+    	        {{/rollLess() standard fumble}} {{/rollBetween() standard hard success}} {{/rollGreater() standard hard}}     	        
                  	    
                 <!-- fail -->                 	    
     	        {{#rollGreater() standard success}} {{#rollBetween() standard success fumble}} 
@@ -424,54 +426,9 @@
     	    {{/disadvantage}}    	    
     	</div>
     </div>    
-<!--     
-  <div class="holder {{type}} {{short}} {{language}}">{{#charimage}}
-    <div class="char-image">[Image]({{charimage}})</div>{{/charimage}}
-    <div class="header{{#charimage}} narrow{{/charimage}}">{{charname}} {{subtitle}}</div>
-    <div class="title">{{#title-text}}<span class="{{small-title}}">{{title}}</span>{{/title-text}}{{^title-text}}{{#rolltypetext}}[{{rolltypetext}}]({{rolltypeimage}}){{/rolltypetext}}{{#title-insight}}<img data-i18n-alt="insight" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-insight.png"/>{{/title-insight}}{{#title-prowess}}<img data-i18n-alt="prowess" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-prowess.png"/>{{/title-prowess}}{{#title-resolve}}<img data-i18n-alt="resolve" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-resolve.png"/>{{/title-resolve}}{{#title-hunt}}<img data-i18n-alt="hunt" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-hunt.png"/>{{/title-hunt}}{{#title-study}}<img data-i18n-alt="study" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-study.png"/>{{/title-study}}{{#title-survey}}<img data-i18n-alt="survey" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-survey.png"/>{{/title-survey}}{{#title-tinker}}<img data-i18n-alt="tinker" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-tinker.png"/>{{/title-tinker}}{{#title-finesse}}<img data-i18n-alt="finesse" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-finesse.png"/>{{/title-finesse}}{{#title-prowl}}<img data-i18n-alt="prowl" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-prowl.png"/>{{/title-prowl}}{{#title-skirmish}}<img data-i18n-alt="skirmish" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-skirmish.png"/>{{/title-skirmish}}{{#title-wreck}}<img data-i18n-alt="wreck" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-wreck.png"/>{{/title-wreck}}{{#title-attune}}<img data-i18n-alt="attune" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-attune.png"/>{{/title-attune}}{{#title-command}}<img data-i18n-alt="command" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-command.png"/>{{/title-command}}{{#title-consort}}<img data-i18n-alt="consort" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-consort.png"/>{{/title-consort}}{{#title-sway}}<img data-i18n-alt="sway" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-sway.png"/>{{/title-sway}}{{#title-fortune}}<img data-i18n-alt="fortune" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-fortune.png"/>{{/title-fortune}}{{#title-vice}}<img data-i18n-alt="vice" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-vice.png"/>{{/title-vice}}{{#title-crew_tier}}<img data-i18n-alt="crew_tier" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-crew_tier.png"/>{{/title-crew_tier}}{{#title-entanglement}}<img data-i18n-alt="entanglement" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-entanglement.png"/>{{/title-entanglement}}{{#title-cohort_quality}}<img data-i18n-alt="cohort_quality" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-cohort_quality.png"/>{{/title-cohort_quality}}{{#title-lifestyle}}<img data-i18n-alt="lifestyle" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-lifestyle.png"/>{{/title-lifestyle}}{{#title-recovery}}<img data-i18n-alt="recovery" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-recovery.png"/>{{/title-recovery}}{{#title-engagement}}<img data-i18n-alt="engagement" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Blades%20in%20the%20Dark/Assets/rolltemplate/rolltemplate-title-engagement.png"/>{{/title-engagement}}{{/title-text}}
-    </div>
-    <div class="dice">{{std}}</div>
-    <div class="dice">{{adv}}</div>
-    <div class="dice">{{dis}}</div>
--->
-</rolltemplate>
-
-<rolltemplate class="sheet-rolltemplate-rol-test">
-    <div class="sheet-template-charname">{{character_name}}</div>
-    <div class="sheet-template-container">
-    	<div class="sheet-template-rollname">
-            {{name}}      
-    	</div>
-    	<div class="sheet-template-values">Values: {{success}} / {{hard}}</div>
-    	<div class="sheet-template-result">
-    	    {{#rollGreater() roll success}}
-    	        <span class="sheet-template-failure">Failure: {{roll}}</span>
-    	    {{/rollGreater() roll success}}
-    	    {{#^rollGreater() roll success}}
-    	        {{#rollGreater() roll hard}}
-    	            <span class="sheet-template-success">Normal success: {{roll}}</span>
-    	        {{/rollGreater() roll hard}}
-    	        {{#^rollGreater() roll hard}}
-    	            <span class="sheet-template-hard">Hard success: {{roll}}</span>
-    	        {{/^rollGreater() roll hard}}
-    	    {{/^rollGreater() roll success}}
-    	</div>    	
-    </div>
 </rolltemplate>
 
 
-<rolltemplate class="sheet-rolltemplate-rol-percent">
-    <div class="sheet-template-charname">{{character_name}}</div>
-    <div class="sheet-template-container">
-    	<div class="sheet-template-rollname">
-            {{name}}      
-    	</div>
-    	<div class="sheet-template-values">Values: {{success}} / {{hard}}</div>
-    	<div class="sheet-template-result">
-    	    <span>{{computed::roll}}</span>
-    	</div>   
-    </div>
-</rolltemplate>
 
 <!-- ==== Sheet worker ==== -->
 
@@ -558,70 +515,5 @@
             setAttrs(destHash);
        });        
     });  
-    
-
-    /* dice rolls */
-   const dicerolls = [
-       'strength',
-       'constitution',
-       'dexterity',
-       'intelligence',
-       'power',
-       'athletics',
-       'drive',
-       'observation',
-       'navigate',
-       'read-person',
-       'research',
-       'sense-vestigia',
-       'social',
-       'stealth',
-       'fighting',
-       'firearms',
-    ]; 
-   
-   dicerolls.forEach(roll => {
-        on(`clicked:${roll}`, (info) => {
-            
-            /* Fix case and build the roll */
-            let displayName = roll.replace(/^[a-z]|-[a-z]/,  c => c.toUpperCase());
-            let rollcmd = `&{template:rol-percent} {{name=${displayName}}} {{character_name=@{character_name}}} {{success=[[@{character_${roll}}]]}} {{hard=[[@{character_${roll}_half}]]}} {{roll=[[d100]]}} {{fumble=[[@{character_fumble}]]}}`;
-            startRoll(
-                rollcmd, (results) => {
-                    
-                    /* get the values we need to caluclate the status */
-                    let total = parseInt(results.results.roll.result)||0;
-                    let fumble = parseInt(results.results.fumble.result)||0;
-                    let hard =  parseInt(results.results.hard.result)||0;
-                    let success = parseInt(results.results.success.result)||0;
-                    
-                    /* build the status */
-                    let status = "Roll";
-                    if (total == 1 ) {
-                        status == "Critical";
-                    }
-                    else if (total <= hard) {
-                        status = "Hard";
-                    }
-                    else if (total <= success) {
-                        status = "Success";
-                    }
-                    else if (total < fumble) {
-                        status = "Failure";
-                    }
-                    else if (total <= 100) {
-                        status = "Fumble";
-                    }
-                    
-                    /* sort out the roll */
-                    finishRoll(
-                        results.rollId,
-                        {
-                            roll: `${status}: ${total}`
-                        }
-                    );
-            });
-        });
-   });
 
 </script>
