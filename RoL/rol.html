@@ -35,29 +35,29 @@
         	<div class="sheet-section-inner-container">
         	    <h4 class="sheet-section-head">Investigator Info</h4>
         		<div class="sheet-section-row">
-        			<label class="sheet-bio-label">Occupation</label>
-        			<input class="sheet-bio-input" name="attr_character_occupation" type="text">
+        			<label class="sheet-medium-label">Occupation</label>
+        			<input class="sheet-text-short" name="attr_character_occupation" type="text">
         		</div>
         		<div  class="sheet-section-row">
-        			<label class="sheet-bio-label">Place of birth</label>
-        			<input class="sheet-bio-input" name="attr_character_birthplace" type="text">
-        		</div>
-        		<div  class="sheet-section-row">
-        			<label class="sheet-bio-label">Residence</label>
-        			<input class="sheet-bio-input" name="attr_character_residence" type="text">
-        		</div>
-        		<div  class="sheet-section-row">
-        			<label class="sheet-bio-label">Pronoun</label>
-        			<input class="sheet-bio-input" name="attr_character_pronoun" type="text">
-        		</div>
-        		<div  class="sheet-section-row">
-        			<label class="sheet-bio-label">Age</label>
-        			<input class="sheet-bio-input" name="attr_character_age" type="text">
+        			<label class="sheet-medium-label">Birthplace</label>
+        			<input class="sheet-text-short" name="attr_character_birthplace" type="text">
         		</div>
         		<div class="sheet-section-row">
-        			<label class="sheet-bio-label">Affluence</label>
-        			<input class="sheet-bio-input" name="attr_character_affluence" type="text">
+        			<label class="sheet-medium-label">Affluence</label>
+        			<input class="sheet-text-short" name="attr_character_affluence" type="text">
         		</div>	
+        		<div  class="sheet-section-row">
+        		    <label class="sheet-medium-label">Pronoun</label>
+        			<input class="sheet-text-short" name="attr_character_pronoun" type="text">
+        		</div>
+        		<div  class="sheet-section-row">
+        			<label class="sheet-medium-label">Age</label>
+        			<input class="sheet-text-short" name="attr_character_age" type="text">
+            	</div>
+            	 <div  class="sheet-section-row">
+        			<label class="sheet-medium-label">Residence</label>
+        			<textarea class="sheet-textarea-bio" name="attr_character_residence" rows="2"></textarea>
+        		</div>
     		</div>
     	</div>
     	
@@ -67,7 +67,7 @@
         	    <h4 class="sheet-section-head">Characteristics</h4>
         	    
         		<div class="sheet-section-row">
-        			<label class="sheet-short-label">STR</label>
+        			<label class="sheet-medium-label">Strength</label>
         			<input name="attr_character_strength" class="sheet-input-align-top" type="number" min="0" max="100" value = "0">
         			<span>/</span>
         			<input type="number" class="sheet-input-align-top" name="attr_character_strength_half" value="0" readonly>
@@ -76,44 +76,44 @@
        			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
         		<div class="sheet-section-row">
-        			    <label class="sheet-short-label">CON</label>
+        			    <label class="sheet-medium-label">Constitution</label>
         			    <input name="attr_character_constitution" type="number" min="0" max="100" value = "0"> 
         			    <span class="sheet-input-seperator">/</span>
             			<input name="attr_character_constitution_half" type="number" value="0" readonly> 	
                         <button type="roll" name="roll_constitution" value="&{template:rol} {{rollname=Constitution}} {{charname=@{character_name}}} {{success=[[@{character_constitution}]]}} {{hard=[[@{character_constitution_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>        			
                         <br>
-           			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+           			    <span class="sheet-hint-medium-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
         		<div class="sheet-section-row">
-        			<label class="sheet-short-label">DEX</label>
+        			<label class="sheet-medium-label">Dexterity</label>
         			<input name="attr_character_dexterity" type="number" min="0" max="100" value = "0">
         			<span>/</span>
         			<input name="attr_character_dexterity_half" type="number" value="0" readonly> 	
                     <button type="roll" name="roll_dexterity" value="&{template:rol} {{rollname=Dexterity}} {{charname=@{character_name}}} {{success=[[@{character_dexterity}]]}} {{hard=[[@{character_dexterity_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>        			
                     <br>
-       			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+       			    <span class="sheet-hint-medium-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
         		<div class="sheet-section-row">
-        			<label class="sheet-short-label">INT</label>
+        			<label class="sheet-medium-label">Intelligence</label>
         			<input name="attr_character_intelligence" type="number" min="0" max="100" value = "0">
         			<span>/</span>
         			<input name="attr_character_intelligence_half" type="number" value="0" readonly> 
                     <button type="roll" name="roll_intelligence" value="&{template:rol} {{rollname=Intelligence}} {{charname=@{character_name}}} {{success=[[@{character_intelligence}]]}} {{hard=[[@{character_intelligence_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>        			
                     <br>
-       			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+       			    <span class="sheet-hint-medium-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
         		<div class="sheet-section-row">
-        			<label class="sheet-short-label">POW</label>
+        			<label class="sheet-medium-label">Power</label>
         			<input name="attr_character_power" type="number" min="0" max="100" value = "0">
         			<span>/</span>
         			<input name="attr_character_power_half" type="number" value="0" readonly> 	
                     <button type="roll" name="roll_power" value="&{template:rol} {{rollname=Power}} {{charname=@{character_name}}} {{success=[[@{character_power}]]}} {{hard=[[@{character_power_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>        			
 					<br>
-       			    <span class="sheet-hint-short-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+       			    <span class="sheet-hint-medium-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
         	</div>
     	</div>
-    	
+  	
     	<div class="sheet-sup sheet-block">
     	    <div class="sheet-section-inner-container">
         	    <h4 class="sheet-section-head">Suplimental info</h4>
@@ -142,7 +142,31 @@
         		</div>
         	</div>
     	</div>
-    	
+ 	
+    	<div class="sheet-health sheet-block">
+    	    <div class="sheet-section-inner-container">
+    	        <h4 class="sheet-section-head">Health</h4>
+    	        <div class="sheet-section-row">
+    	            <label class="sheet-long-label">Health</label>
+                    <select name="attr_character_damage">
+                        <option value="0" selected="selected">0: Unharmed</option>
+                        <option value="1">1: Hurt</option>
+                        <option value="2">2: Bloodied</option>
+                        <option value="3">3: Down</option>
+                        <option value="4">4: (in one attack)</option>
+                        <option value="5">5: (in one attack)</option>
+                    </select>
+                </div>
+                <div class="sheet-section-row">
+                    <input type="text" class="sheet-damage-status" name="attr_character_status" readonly>
+                </div>
+                <div class="sheet-section-row">
+                    <textarea class="sheet-damage-description" name="attr_character_status_desc" readonly></textarea>
+                </div>                
+               	        
+    	   </div>
+    	</div>
+<!--
     	<div class="sheet-notes sheet-block">
     	    <div class="sheet-section-inner-container">
         	    <h4 class="sheet-section-head">Notes</h4>
@@ -151,26 +175,20 @@
         		</div>
         	</div>
     	</div>
+-->
     	
     	<div class="sheet-advantages sheet-block">
     	    <div class="sheet-section-inner-container">
-        		<h4 class="sheet-section-head">Advantages & disadvantages</h4>
-        		<div class="sheet-2colrow sheet-adv-div">
-        		    <div class="sheet-col">
-        		        <input class="sheet-adv-input" name="attr_character_adv1" type="text">
-    		        	<input class="sheet-adv-input" name="attr_character_adv2" type="text">
-    		        	<input class="sheet-adv-input" name="attr_character_adv3" type="text">
-        		    </div>
-    
-        		    <div class="sheet-col">
-        		        <input class="sheet-adv-input" name="attr_character_adv4" type="text">
-                		<input class="sheet-adv-input" name="attr_character_adv5" type="text">
-        		        <input class="sheet-adv-input" name="attr_character_adv6" type="text">
-        		    </div>
-        		</div>
+        		<h4 class="sheet-section-head">Advantages & Disadvantages</h4>
+		        <input class="sheet-adv-input" name="attr_character_adv1" type="text">
+	        	<input class="sheet-adv-input" name="attr_character_adv2" type="text">
+	        	<input class="sheet-adv-input" name="attr_character_adv3" type="text">
+		        <input class="sheet-adv-input" name="attr_character_adv4" type="text">
+        		<input class="sheet-adv-input" name="attr_character_adv5" type="text">
+		        <input class="sheet-adv-input" name="attr_character_adv6" type="text">
         	</div>
     	</div>
-
+    	
     	<div class="sheet-common sheet-block">
     	    <div class="sheet-section-inner-container">
         	    <h4 class="sheet-section-head">Common skills</h4>
@@ -258,6 +276,35 @@
         	</div>
     	</div>
     	
+    	<div class="sheet-combat sheet-block">
+    	    <div class="sheet-section-inner-container">
+        	    <h4 class="sheet-section-head">Combat skills</h4>
+       		    <div class="sheet-section-row">
+        			<label class="sheet-long-label">Fighting</label>
+        			<input name="attr_character_fighting" class="sheet-input-align-top" type="number" min="0" max="100" value = "0">
+        			<span>/</span>
+        			<input type="number" class="sheet-input-align-top" name="attr_character_fighting_half" value="0" readonly>
+        			<button type="roll" name="roll_fighting" value="&{template:rol} {{rollname=Fighting}} {{charname=@{character_name}}} {{success=[[@{character_fighting}]]}} {{hard=[[@{character_fighting_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>    
+        			<br>
+       			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+        		</div>
+        		<div class="sheet-section-row">
+        			<label class="sheet-long-label">Firearms</label>
+        			<input name="attr_character_firearms" class="sheet-input-align-top" type="number" min="0" max="100" value = "0">
+        			<span>/</span>
+        			<input type="number" class="sheet-input-align-top" name="attr_character_firearms_half" value="0" readonly>
+                    <button type="roll" name="roll_firearms" value="&{template:rol} {{rollname=Firearms}} {{charname=@{character_name}}} {{success=[[@{character_firearms}]]}} {{hard=[[@{character_firearms_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>    
+       			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+        		</div>    		
+    	    </div>
+    	</div>
+    	
+    	<div class="sheet-weapons sheet-block">
+    	    <div class="sheet-section-inner-container">
+    	        <h4 class="sheet-section-head">Weapons</h4>
+    	   </div>
+    	</div>    	
+
     	<div class="sheet-expert sheet-block">
     	    <div class="sheet-section-inner-container">
     	        <h4 class="sheet-section-head">Expert skills</h4>
@@ -315,36 +362,10 @@
        			    <br>
        			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
         		</div>
-        		<div class="sheet-section-row">
-        			 <input class="sheet-expert-skill" name="attr_character_expert7_name" type="text">
-        			<input name="attr_character_expert7" class="sheet-input-align-top" type="number" min="0" max="100" value = "0">
-        			<span>/</span>
-        			<input type="number" class="sheet-input-align-top" name="attr_character_expert7_half" value="0" readonly>
-       			    <button type="roll" name="roll_expert7" value="&{template:rol} {{rollname=@{character_expert7_name}}} {{charname=@{character_name}}} {{success=[[@{character_expert7}]]}} {{hard=[[@{character_expert7_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>        			
-       			    <br>
-       			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
-        		</div>
-        		<div class="sheet-section-row">
-        			<input class="sheet-expert-skill" name="attr_character_expert8_name" type="text">
-        			<input name="attr_character_expert8" class="sheet-input-align-top" type="number" min="0" max="100" value = "0">
-        			<span>/</span>
-        			<input type="number" class="sheet-input-align-top" name="attr_character_expert8_half" value="0" readonly>
-       			    <button type="roll" name="roll_expert8" value="&{template:rol} {{rollname=@{character_expert8_name}}} {{charname=@{character_name}}} {{success=[[@{character_expert8}]]}} {{hard=[[@{character_expert1_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>        			
-       			    <br>
-       			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
-        		</div>
-        		<div class="sheet-section-row">
-        			 <input class="sheet-expert-skill" name="attr_character_expert9_name" type="text">
-        			<input name="attr_character_expert9" class="sheet-input-align-top" type="number" min="0" max="100" value = "0">
-        			<span>/</span>
-        			<input type="number" class="sheet-input-align-top" name="attr_character_expert9_half" value="0" readonly>
-       			    <button type="roll" name="roll_expert1" value="&{template:rol} {{rollname=@{character_expert9_name}}} {{charname=@{character_name}}} {{success=[[@{character_expert9}]]}} {{hard=[[@{character_expert9_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}} @{roll_formula}"></button>        			
-       			    <br>
-       			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
-        		</div>        		
     	   </div>
     	</div>
-    	
+
+<!--
     	<div class="sheet-combat sheet-block">
     	    <div class="sheet-section-inner-container">
         	    <h4 class="sheet-section-head">Combat skills</h4>
@@ -367,43 +388,21 @@
         		</div>    		
     	    </div>
     	</div>
-    	
-    	<div class="sheet-damage sheet-block">
-    	    <div class="sheet-section-inner-container">
-    	        <h4 class="sheet-section-head">Damage</h4>
-    	        <div class="sheet-section-row">
-    	            <label class="sheet-long-label">Damage</label>
-                    <select name="attr_character_damage">
-                        <option value="0" selected="selected">0: Unharmed</option>
-                        <option value="1">1: Hurt</option>
-                        <option value="2">2: Bloodied</option>
-                        <option value="3">3: Down</option>
-                        <option value="4">4: (in one attack)</option>
-                        <option value="5">5: (in one attack)</option>
-                    </select>
-                </div>
-                <div class="sheet-section-row">
-                    <input type="text" class="sheet-damage-status" name="attr_character_status" readonly>
-                </div>
-                <div class="sheet-section-row">
-                    <textarea class="sheet-damage-description" name="attr_character_status_desc" readonly></textarea>
-                </div>                
-               	        
-    	   </div>
-    	</div>
-    	
-    	<div class="sheet-weapons sheet-block">
-    	    <div class="sheet-section-inner-container">
-    	        <h4 class="sheet-section-head">Weapons</h4>
-    	   </div>
-    	</div>
-    	
+-->
+
+
+
+<!--
+
+-->
+<!--
     	<div class="sheet-magic sheet-block">
     	    <div class="sheet-section-inner-container">
     	        <h4 class="sheet-section-head">Magic</h4>
     	   </div>
     	</div>
     </div>
+-->
 </div>
 
 <!-- ==== Roll Templates ==== -->
