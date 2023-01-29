@@ -12,686 +12,20 @@
 }
 
 
-/* ==== roll template ==== */
 
-.sheet-rolltemplate-rol div.sheet-template-charname {
-    border: 0px;
-    padding: 5px;
-    font-weight: bold;
-    font-style: italic;
-}
-
-.sheet-rolltemplate-rol div.sheet-template-container {
-	border: 2px solid #000 !important;
-	border-radius: 3px 3px 3px 3px;
-}
-.sheet-rolltemplate-rol .sheet-template-rollname {
-	background-color: darkblue;
-	color: white;
-	padding: 2px;
-	border-bottom: 1px solid black;
-	line-height: 1.6em;
-	font-size: 1.2em;
-	font-weight: bold;
-}
-
-.sheet-rolltemplate-rol .sheet-template-details {
-    background-color: lightgrey;
-	padding: 5px;
-	border-bottom: 1px solid black;
-	font-weight: bold;
-}
-
-.sheet-rolltemplate-rol .sheet-template-status {
-    background-color: lightgrey;
-	padding: 5px;
-	border-bottom: 1px solid black;
-	font-style: italic;
-}
-
-.sheet-rolltemplate-rol .sheet-template-result {
-    background-color: white;
-	padding: 5px;
-	border-bottom: 1px solid black;
-	font-weight: bold;
-}
-
-.sheet-rolltemplate-rol .inlinerollresult  {
-	display: inline-block;
-	min-width: 1.5em;
-	text-align: center;
-	border: 0px;
-	background-color: rgba(0, 0, 0,0);
-}
-
-.sheet-rolltemplate-rol .sheet-template-critical {
-    color: purple;
-}
-
-.sheet-rolltemplate-rol .sheet-template-hard {
-    color: green;
-}
-
-.sheet-rolltemplate-rol .sheet-template-success {
-    color: green;
-}
-
-.sheet-rolltemplate-rol .sheet-template-fail {
-    color: black;
-}
-
-.sheet-rolltemplate-rol .sheet-template-fumble {
-    color: red;
-}
-
-/* ==== Inputs ==== */
-
-
-
-.sheet-textarea-div{
-    width: 95%;
-}
-
-
-input[type="text"] {
-  background-color: transparent;
-  border-style: none none solid none;
-  border-color: grey;
-}
-
-input[type="number"] {
-  background-color: transparent;
-  border-style: none none solid none;
-  border-color: grey;
-  width: 3em;
-}
-
-
-
-input.sheet-text-long {
-	width:380px;
-}
-
-input.sheet-text-short {
-	width:100px;
-}
-
-input[type="text"].sheet-damage-status  {
-    color: red;
-	border-style: none;
-}
-
-select {
-  background-color: transparent;
-  border-style: none none solid none;
-  border-color: grey;
-  width: 10em;  
-}
-
-textarea {
-    background-color: transparent;
-    margin: 0 0 0 0;
-	resize: none;
-	background-attachment: local;
-    background-image:
-	linear-gradient(to right, aliceblue 10px, transparent 10px),
-	linear-gradient(to left, aliceblue 10px, transparent 10px),
-	repeating-linear-gradient(aliceblue, aliceblue 30px, #ccc 30px, #ccc 31px, aliceblue 31px);
-    line-height: 31px;
-	border: 0px;
-	padding: 1px 1px 1px 1px;
-}
-
-
-textarea.sheet-textarea-notes {
-    height: 100px;
-}
-
-textarea.sheet-damage-description  {
-	border-style: none;
-	background-color: transparent;
-	height: 40px;
-	line-height: 20px;
-	font-size: 12px;
-	background-image: none;
-	margin-left: 2px;
-	width: 98%;
-}
-
-input[type="checkbox"].sheet-checkbox {
-  border-style: solid black;
-  border-radius: 0px;
-}
-
-input.sheet-adv-input {
-    width: 99%;
-}
-
-input.sheet-expert-skill {
-    width: 115px;
-    font-weight: bold;
-    margin-left: 5px;
-    margin-right: 10px;
-}
-
-/* no longer needed */
-/*
-.charsheet button.sheet-dice {
-  border: none;
-  border: 1px solid lightgrey;
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 20%), 0 1px 2px rgb(0 0 0 / 5%);
-  background-image: linear-gradient(to bottom, #FFFFFF , #e6e6e6);
-  font-size: 1.3em;
-  text-align: center;
-  padding: 4px;
-  margin: 4px 2px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.charsheet button.sheet-dice:after {
-    font-family: dicefontd20;
-    content:'t';    
-}
-
-.charsheet button.sheet-dice:hover {
-    background-image: linear-gradient(to bottom, #e6e6e6 , #e6e6e6);
-}
-
-.charsheet button.sheet-dice:active {
-    background-image: none;
-    box-shadow: inset 0 2px 4px rgb(0 0 0 / 15%), 0 1px 2px rgb(0 0 0 / 5%);
-    background-color: #e6e6e6;
-}
-
-*/
-
-/* ==== General section stuff  ==== */
-
-.charsheet div.sheet-header{
-  display: flex;
-  padding: 0px;
-  border: 0px;
-}
-
-h4.sheet-section-head {
-   color: white;
-   background-color: midnightblue;
-   padding-left: 2px;
-   padding-right: 2px;
-   margin: 0px 0px 0px 0px;
-   text-align: left;
-   vertical-align: top;
-   font-weight: normal;
-   font-style: normal;
-   height: 1.5em;
-}
-
-div.sheet-section-row {
-    vertical-align: top;
-}
-
-div.sheet-section-col2-left {
-    width: 50%;
-    float: left;
-    margin-right: 5px;
-    padding: 0px;
-}
-
-div.sheet-section-col2right {
-    width: 50%;
-    float: right;
-    margin-left: 5px;
-    padding: 0px;
-}
-
-label.sheet-short-label {
-   display: inline-block;
-   width: 50px;
-   vertical-align: middle;
-   margin-left: 5px;
-   margin-bottom: 0px;
-   font-size: 1em;
-}
-
-label.sheet-long-label {
-   display: inline-block;
-   width: 100px;
-   vertical-align: middle;
-   margin-left: 5px;
-   margin-bottom: 0px;
-   font-size: 1em;
-}
-
-.sheet-hint-short-label {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 80px;
-    vertical-align: top;
-}
-
-label.sheet-medium-label {
-   display: inline-block;
-   width: 100px;
-   vertical-align: middle;
-   margin-left: 5px;
-   margin-bottom: 0px;
-   font-size: 1em;
-}
-
-.sheet-hint-long-label {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 125px;
-    vertical-align: top;
-}
-
-.sheet-hint-full {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 25px;
-    vertical-align: top;
-}
-
-.sheet-hint-half {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 45px;
-    vertical-align: top;
-}
-
-.sheet-hint-starting {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 12px;
-    vertical-align: top;
-}
-
-.sheet-hint-current {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 35px;
-    vertical-align: top;
-}
-
-
-
-/* ==== Section specific ==== */
-
-.sheet-adv-div {
-    margin-left: 10px;    
-}
-
-
-/* ==== Grid definition ==== */
+/* 
+ * ==== Sheet layout ==== 
+ */
+ 
 .charsheet .sheet-grid-section{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows:  2fr 1fr 1fr 1fr 2fr 1fr 1fr;
-  grid-template-areas:"bio bio bio bio stats stats"
-                      "advantages advantages advantages advantages advantages advantages"
-                      "damage damage combat combat sup sup"
-					  "common common expert expert weapons weapons"
-                      "common common expert expert weapons weapons"
-					  "magic magic magic magic magic magic"
-					  "notes notes notes notes notes notes";
-  grid-gap: 2px;
-}
-
-.charsheet div.sheet-block{
-  display: grid;
-  padding: 0px;
-  border: 1px solid lightsteelblue;
-}
-
-.charsheet div.sheet-bio{
-  grid-area: bio;
-}
-
-.charsheet div.sheet-stats{
-  grid-area: stats;
-}.charsheet {
-    background-color: aliceblue;
-    border: 0px;
-    color:black;
-    width: 840px;
-	margin: 2px;
-	line-height: 1.0;
-}
-
-.dummy{
-	/*incase BOM decides to screw up css */
-}
-
-
-/* ==== roll template ==== */
-
-.sheet-rolltemplate-rol div.sheet-template-charname {
-    border: 0px;
-    padding: 5px;
-    font-weight: bold;
-    font-style: italic;
-}
-
-.sheet-rolltemplate-rol div.sheet-template-container {
-	border: 2px solid #000 !important;
-	border-radius: 3px 3px 3px 3px;
-}
-.sheet-rolltemplate-rol .sheet-template-rollname {
-	background-color: darkblue;
-	color: white;
-	padding: 2px;
-	border-bottom: 1px solid black;
-	line-height: 1.6em;
-	font-size: 1.2em;
-	font-weight: bold;
-}
-
-.sheet-rolltemplate-rol .sheet-template-details {
-    background-color: lightgrey;
-	padding: 5px;
-	border-bottom: 1px solid black;
-	font-weight: bold;
-}
-
-.sheet-rolltemplate-rol .sheet-template-status {
-    background-color: lightgrey;
-	padding: 5px;
-	border-bottom: 1px solid black;
-	font-style: italic;
-}
-
-.sheet-rolltemplate-rol .sheet-template-result {
-    background-color: white;
-	padding: 5px;
-	border-bottom: 1px solid black;
-	font-weight: bold;
-}
-
-.sheet-rolltemplate-rol .inlinerollresult  {
-	display: inline-block;
-	min-width: 1.5em;
-	text-align: center;
-	border: 0px;
-	background-color: rgba(0, 0, 0,0);
-}
-
-.sheet-rolltemplate-rol .sheet-template-critical {
-    color: purple;
-}
-
-.sheet-rolltemplate-rol .sheet-template-hard {
-    color: green;
-}
-
-.sheet-rolltemplate-rol .sheet-template-success {
-    color: green;
-}
-
-.sheet-rolltemplate-rol .sheet-template-fail {
-    color: black;
-}
-
-.sheet-rolltemplate-rol .sheet-template-fumble {
-    color: red;
-}
-
-/* ==== Inputs ==== */
-
-
-
-.sheet-textarea-div{
-    width: 95%;
-}
-
-
-input[type="text"] {
-  background-color: transparent;
-  border-style: none none solid none;
-  border-color: grey;
-}
-
-input[type="number"] {
-  background-color: transparent;
-  border-style: none none solid none;
-  border-color: grey;
-  width: 3em;
-}
-
-
-
-input.sheet-text-long {
-	width:380px;
-	vertical-align: text-top;
-}
-
-
-input.sheet-text-short {
-	width:170px;
-	vertical-align: text-top;
-}
-
-input[type="text"].sheet-damage-status  {
-    color: red;
-	border-style: none;
-}
-
-select {
-  background-color: transparent;
-  border-style: none none solid none;
-  border-color: grey;
-  width: 10em;  
-}
-
-textarea {
-    background-color: transparent;
-    margin: 0 0 0 0;
-	resize: none;
-	background-attachment: local;
-    background-image:
-	linear-gradient(to right, aliceblue 10px, transparent 10px),
-	linear-gradient(to left, aliceblue 10px, transparent 10px),
-	repeating-linear-gradient(aliceblue, aliceblue 30px, #ccc 30px, #ccc 31px, aliceblue 31px);
-    line-height: 31px;
-	border: 0px;
-	padding: 1px 1px 1px 1px;
-}
-
-
-textarea.sheet-textarea-notes {
-    height: 100px;
-}
-
-textarea.sheet-textarea-bio {
-    background-color: transparent;
-    width:170px;
-    height: auto;
-    background-image: none;
-    border-bottom: 1px solid black;
-}
-
-
-textarea.sheet-damage-description  {
-	border-style: none;
-	background-color: transparent;
-	height: 40px;
-	line-height: 20px;
-	font-size: 12px;
-	background-image: none;
-	margin-left: 2px;
-	width: 98%;
-}
-
-input[type="checkbox"].sheet-checkbox {
-  border-style: solid black;
-  border-radius: 0px;
-}
-
-input.sheet-adv-input {
-    width: 99%;
-}
-
-input.sheet-expert-skill {
-    width: 115px;
-    font-weight: bold;
-    margin-left: 5px;
-    margin-right: 10px;
-}
-
-/* no longer needed */
-/*
-.charsheet button.sheet-dice {
-  border: none;
-  border: 1px solid lightgrey;
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 20%), 0 1px 2px rgb(0 0 0 / 5%);
-  background-image: linear-gradient(to bottom, #FFFFFF , #e6e6e6);
-  font-size: 1.3em;
-  text-align: center;
-  padding: 4px;
-  margin: 4px 2px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.charsheet button.sheet-dice:after {
-    font-family: dicefontd20;
-    content:'t';    
-}
-
-.charsheet button.sheet-dice:hover {
-    background-image: linear-gradient(to bottom, #e6e6e6 , #e6e6e6);
-}
-
-.charsheet button.sheet-dice:active {
-    background-image: none;
-    box-shadow: inset 0 2px 4px rgb(0 0 0 / 15%), 0 1px 2px rgb(0 0 0 / 5%);
-    background-color: #e6e6e6;
-}
-
-*/
-
-/* ==== General section stuff  ==== */
-
-.charsheet div.sheet-header{
-  display: flex;
-  padding: 0px;
-  border: 0px;
-}
-
-h4.sheet-section-head {
-   color: white;
-   background-color: midnightblue;
-   padding-left: 2px;
-   padding-right: 2px;
-   margin: 0px 0px 0px 0px;
-   text-align: left;
-   vertical-align: top;
-   font-weight: normal;
-   font-style: normal;
-   height: 1.5em;
-}
-
-div.sheet-section-row {
-    vertical-align: top;
-}
-
-
-label.sheet-short-label {
-   display: inline-block;
-   width: 50px;
-   vertical-align: top;
-   padding-top: 8px;
-   margin: 0px 5px 0px 5px;
-   font-size: 1em;
-}
-
-label.sheet-medium-label {
-   display: inline-block;
-   width: 80px;
-   vertical-align: top;
-   padding-top: 8px;
-   margin: 0px 5px 0px 5px;
-   font-size: 1em;
-}
-
-label.sheet-long-label {
-   display: inline-block;
-   width: 100px;
-   vertical-align: top;
-   padding-top: 8px;
-   margin: 0px 5px 0px 5px;
-   font-size: 1em;
-}
-
-.sheet-hint-short-label {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 60px;
-    vertical-align: top;
-}
-
-.sheet-hint-medium-label {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 110px;
-    vertical-align: top;
-}
-
-.sheet-hint-long-label {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 125px;
-    vertical-align: top;
-}
-
-.sheet-hint-full {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 25px;
-    vertical-align: top;
-}
-
-.sheet-hint-half {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 45px;
-    vertical-align: top;
-}
-
-.sheet-hint-starting {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 12px;
-    vertical-align: top;
-}
-
-.sheet-hint-current {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 35px;
-    vertical-align: top;
-}
-
-
-
-/* ==== Section specific ==== */
-
-.sheet-adv-div {
-    margin-left: 10px;    
-}
-
-
-/* ==== Grid definition ==== */
-.charsheet .sheet-grid-section{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows:  1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows:  1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas:  "bio bio stats stats sup sup"
                         "bio bio stats stats health health"
                         "common common expert expert advantages advantages"
                         "common common expert expert advantages advantages"
                         "common common expert expert combat combat"
-                        "weapons weapons weapons weapons weapons weapons"
                         "weapons weapons weapons weapons weapons weapons"
                       ;
   grid-gap: 2px;
@@ -751,39 +85,384 @@ label.sheet-long-label {
   grid-area: magic;
 }
 
-.charsheet div.sheet-sup{
-  grid-area: sup;
+
+/*
+ * ==== Sheet header ===== 
+ */
+.charsheet div.sheet-header{
+  padding: 0px;
+  border: 0px;
 }
 
-.charsheet div.sheet-notes{
-  grid-area: notes;
+.sheet-game-name {
+    font-size: 20px;
+    font-style: oblique;
+    font-weight: bold;
+    margin: 0px 10px 2px 0px;
+    color: darkblue;
+    vertical-align: text-bottom;
+    text-shadow: -6px 7px 10px rgb(7 90 240 / 50%), 20px 20px 20px rgb(18 85 224 / 40%), 30px 30px 30px rgb(0 0 0 / 10%);
 }
 
-.charsheet div.sheet-advantages{
-  grid-area: advantages;
+.sheet-version {
+    color: lightgrey;
+    margin: 0px 5px 2px 5px;
+    vertical-align: text-bottom;
 }
 
-.charsheet div.sheet-common{
-  grid-area: common;
+/* 
+ * ==== Sheet controls ==== 
+ */
+.sheet-controls-paging {
+    float:right;
+    margin: 0px 5px 2px 5px;
+    vertical-align: text-bottom;    
 }
 
-.charsheet div.sheet-expert{
-  grid-area: expert;
+/* 
+ *==== General section stuff  ==== 
+ */
+
+h4.sheet-section-head {
+   color: white;
+   background-color: midnightblue;
+   padding-left: 2px;
+   padding-right: 2px;
+   margin: 0px 0px 0px 0px;
+   text-align: left;
+   vertical-align: top;
+   font-weight: normal;
+   font-style: normal;
+   height: 1.5em;
 }
 
-.charsheet div.sheet-combat{
-  grid-area: combat;
-  justify-content: flex-start;
+div.sheet-section-row {
+    vertical-align: top;
 }
 
-.charsheet div.sheet-damage{
-  grid-area: damage;
+label.sheet-short-label {
+   display: inline-block;
+   width: 50px;
+   vertical-align: top;
+   padding-top: 8px;
+   margin: 0px 5px 0px 5px;
+   font-size: 1em;
 }
 
-.charsheet div.sheet-weapons{
-  grid-area: weapons;
+label.sheet-medium-label {
+   display: inline-block;
+   width: 80px;
+   vertical-align: top;
+   padding-top: 8px;
+   margin: 0px 5px 0px 5px;
+   font-size: 1em;
 }
 
-.charsheet div.sheet-magic{
-  grid-area: magic;
+label.sheet-long-label {
+   display: inline-block;
+   width: 100px;
+   vertical-align: top;
+   padding-top: 8px;
+   margin: 0px 5px 0px 5px;
+   font-size: 1em;
+}
+
+
+/* 
+ * Text hints
+ * TODO - need a better way to do the hint stuff 
+ */
+.sheet-hint-short-label {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 60px;
+    vertical-align: top;
+}
+
+.sheet-hint-medium-label {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 110px;
+    vertical-align: top;
+}
+
+.sheet-hint-long-label {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 125px;
+    vertical-align: top;
+}
+
+.sheet-hint-full {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 25px;
+    vertical-align: top;
+}
+
+.sheet-hint-half {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 45px;
+    vertical-align: top;
+}
+
+.sheet-hint-starting {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 12px;
+    vertical-align: top;
+}
+
+.sheet-hint-current {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 35px;
+    vertical-align: top;
+}
+
+.sheet-hint-weapon-name {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 140px;
+    vertical-align: top;
+}
+
+.sheet-hint-weapon-type {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 89px;
+    vertical-align: top;
+}
+
+.sheet-hint-weapon-damage {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 25px;
+    vertical-align: top;
+}
+
+.sheet-hint-weapon-range {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 23px;
+    vertical-align: top;
+}
+
+.sheet-hint-armour-regular {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 15px;
+    vertical-align: top;  
+}
+
+.sheet-hint-armour-balistic {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 38px;
+    vertical-align: top;  
+}
+
+/*
+ * ==== General Inputs ==== 
+ */
+
+
+input[type="text"] {
+  background-color: transparent;
+  border-style: none none solid none;
+  border-color: grey;
+}
+
+input[type="number"] {
+  background-color: transparent;
+  border-style: none none solid none;
+  border-color: grey;
+  width: 3em;
+}
+
+
+
+input.sheet-text-long {
+	width:380px;
+	/*vertical-align: text-top;*/
+}
+
+
+input.sheet-text-short {
+	width:170px;
+	/*vertical-align: text-top;*/
+}
+
+input.sheet-weapon-name {
+    margin-left: 5px;
+    width: 170px;
+}
+
+input.sheet-weapon-damage {
+    margin-left: 5px;
+    width: 30px;
+}
+
+select.sheet-weapon-type {
+    margin-left: 5px;
+    width: 90px;
+}
+
+input.sheet-weapon-range {
+    margin-left: 5px;
+    width: 40px;
+}
+
+input.sheet-armour-regular {
+    width: 3.5em;
+}
+
+input.sheet-armour-balistic {
+    width: 3.5em;
+    margin-left: 10px;
+}
+
+select {
+  background-color: transparent;
+  border-style: none none solid none;
+  border-color: grey;
+  width: 10em;  
+}
+
+textarea {
+    background-color: transparent;
+    margin: 0 0 0 0;
+	resize: none;
+	background-attachment: local;
+    background-image:
+	linear-gradient(to right, aliceblue 10px, transparent 10px),
+	linear-gradient(to left, aliceblue 10px, transparent 10px),
+	repeating-linear-gradient(aliceblue, aliceblue 30px, #ccc 30px, #ccc 31px, aliceblue 31px);
+    line-height: 31px;
+	border: 0px;
+	padding: 1px 1px 1px 1px;
+}
+
+input[type="checkbox"].sheet-checkbox {
+  border-style: solid black;
+  border-radius: 0px;
+}
+
+
+
+/*
+ * ==== Specific Inputs ==== 
+ */
+ 
+input.sheet-adv-input {
+    width: 95%;
+    margin-top: 3px;
+    margin-left: 5px;
+}
+
+input.sheet-expert-skill {
+    width: 115px;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+textarea.sheet-textarea-bio {
+    background-color: transparent;
+    width:170px;
+    height: auto;
+    background-image: none;
+    border-bottom: 1px solid black;
+}
+
+textarea.sheet-damage-description  {
+	border-style: none;
+	background-color: transparent;
+	height: 40px;
+	line-height: 20px;
+	font-size: 12px;
+	background-image: none;
+	margin-left: 2px;
+	width: 98%;
+} 
+ 
+input[type="text"].sheet-damage-status  {
+    color: red;
+	border-style: none;
+} 
+
+
+/* 
+ * ==== roll template ==== 
+ */
+
+.sheet-rolltemplate-rol div.sheet-template-charname {
+    border: 0px;
+    padding: 5px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.sheet-rolltemplate-rol div.sheet-template-container {
+	border: 2px solid #000 !important;
+	border-radius: 3px 3px 3px 3px;
+}
+.sheet-rolltemplate-rol .sheet-template-rollname {
+	background-color: darkblue;
+	color: white;
+	padding: 2px;
+	border-bottom: 1px solid black;
+	line-height: 1.6em;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.sheet-rolltemplate-rol .sheet-template-details {
+    background-color: lightgrey;
+	padding: 5px;
+	border-bottom: 1px solid black;
+	font-weight: bold;
+}
+
+.sheet-rolltemplate-rol .sheet-template-status {
+    background-color: lightgrey;
+	padding: 5px;
+	border-bottom: 1px solid black;
+	font-style: italic;
+}
+
+.sheet-rolltemplate-rol .sheet-template-result {
+    background-color: white;
+	padding: 5px;
+	border-bottom: 1px solid black;
+	font-weight: bold;
+}
+
+.sheet-rolltemplate-rol .inlinerollresult  {
+	display: inline-block;
+	min-width: 1.5em;
+	text-align: center;
+	border: 0px;
+	background-color: rgba(0, 0, 0,0);
+}
+
+.sheet-rolltemplate-rol .sheet-template-critical {
+    color: purple;
+}
+
+.sheet-rolltemplate-rol .sheet-template-hard {
+    color: green;
+}
+
+.sheet-rolltemplate-rol .sheet-template-success {
+    color: green;
+}
+
+.sheet-rolltemplate-rol .sheet-template-fail {
+    color: black;
+}
+
+.sheet-rolltemplate-rol .sheet-template-fumble {
+    color: red;
 }
