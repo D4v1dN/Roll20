@@ -98,7 +98,7 @@
     font-size: 20px;
     font-style: oblique;
     font-weight: bold;
-    margin: 0px 10px 2px 0px;
+    margin: 0px 10px 2px 10px;
     color: darkblue;
     vertical-align: text-bottom;
     text-shadow: -6px 7px 10px rgb(7 90 240 / 50%), 20px 20px 20px rgb(18 85 224 / 40%), 30px 30px 30px rgb(0 0 0 / 10%);
@@ -350,6 +350,20 @@ input[type="checkbox"].sheet-checkbox {
 }
 
 
+/* 
+ * ==== 'roll' buttons ====
+ */
+
+button#sheet-damage-strength:before {
+    font-family: 'pictos custom';
+    content: 't';
+}
+
+button#sheet-damage-dexterity:before {
+    font-family: 'pictos custom';
+    content: 't';
+}
+
 
 /*
  * ==== Specific Inputs ==== 
@@ -387,29 +401,38 @@ textarea.sheet-damage-description  {
 	width: 98%;
 } 
  
+
 input[type="text"].sheet-damage-status  {
     color: red;
 	border-style: none;
 } 
 
+/*  ==== stuff for roll templates ==== */
 
-/* 
- * ==== roll template ==== 
- */
-
-.sheet-rolltemplate-rol div.sheet-template-charname {
-    border: 0px;
-    padding: 5px;
-    font-weight: bold;
-    font-style: italic;
+ .sheet-rolltemplate-rol .sheet-template-charname {
+	padding: 5px;
+	font-style: italic;
+	font-weight: bold;
 }
+
 
 .sheet-rolltemplate-rol div.sheet-template-container {
 	border: 2px solid #000 !important;
 	border-radius: 3px 3px 3px 3px;
 }
-.sheet-rolltemplate-rol .sheet-template-rollname {
+
+.sheet-rolltemplate-rol .sheet-template-rollname-skill {
 	background-color: darkblue;
+	color: white;
+	padding: 2px;
+	border-bottom: 1px solid black;
+	line-height: 1.6em;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.sheet-rolltemplate-rol .sheet-template-rollname-damage {
+	background-color: darkred;
 	color: white;
 	padding: 2px;
 	border-bottom: 1px solid black;
