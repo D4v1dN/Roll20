@@ -11,13 +11,41 @@
 	/*incase BOM decides to screw up css */
 }
 
+/* 
+ * ==== Sheet controls ==== 
+ */
+ .sheet-select-spacer {
+     margin-left: 300px;
+ }
+.sheet-select-radio {
+    margin: 0px 10px 0px 5px;
+    vertical-align: text-bottom;   
+}
+
+.sheet-select-label {
+    margin: 0px 10px 0px 5px;
+    vertical-align: text-bottom;    
+}
+
+
+.sheet-magic-page,
+.sheet-stats-page {
+  margin-top: 5px;
+  display: none;
+}
+
+ /* Not a fan of controlling dynamic visibilty via CSS but it seems to be the way it is done for Roll 20? */
+#sheet-show-stats:checked ~ .sheet-stats-page,
+#sheet-show-extras:checked ~ .sheet-magic-page {
+    display: block;
+}
 
 
 /* 
  * ==== Sheet layout ==== 
  */
  
-.charsheet .sheet-grid-section{
+.charsheet .sheet-grid-section-stats{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows:  1fr 1fr 1fr 1fr 1fr 1fr;
@@ -30,6 +58,8 @@
                       ;
   grid-gap: 2px;
 }
+
+
 
 .charsheet div.sheet-block{
   display: grid;
@@ -86,6 +116,21 @@
 }
 
 
+.charsheet .sheet-grid-section-magic {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows:  1fr 1fr;
+  grid-template-areas:  "notes notes notes notes notes notes"
+                        "notes notes notes notes notes notes"
+                      ;
+  grid-gap: 2px;
+}
+
+.charsheet div.sheet-notes{
+  grid-area: notes;
+}
+
+
 /*
  * ==== Sheet header ===== 
  */
@@ -110,14 +155,6 @@
     vertical-align: text-bottom;
 }
 
-/* 
- * ==== Sheet controls ==== 
- */
-.sheet-controls-paging {
-    float:right;
-    margin: 0px 5px 2px 5px;
-    vertical-align: text-bottom;    
-}
 
 /* 
  *==== General section stuff  ==== 
