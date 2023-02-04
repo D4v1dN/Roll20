@@ -14,7 +14,7 @@
 /* 
  * ==== Sheet controls ==== 
  */
- .sheet-select-spacer {
+.sheet-select-spacer {
      margin-left: 170px;
  }
 .sheet-select-radio {
@@ -33,11 +33,6 @@
 .sheet-equipment-page {
   margin-top: 5px;
   display: none;
-}
-
-
-.sheet-contact-state:checked ~ input.sheet-contact-details {
-    color: red;
 }
 
 
@@ -400,6 +395,30 @@ textarea {
 input[type="checkbox"].sheet-checkbox {
   border-style: solid black;
   border-radius: 0px;
+}
+
+.sheet-contacts input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    z-index: 1;
+    margin-top: 6px;
+}
+
+/* Fake checkbox */
+.sheet-contacts input[type="checkbox"] + span::before {
+    font-family: 'pictos';
+    content: 'k';
+    width: 15px;
+}
+
+/* Styles unique to fake checkbox (checked) */
+.sheet-contacts input[type="checkbox"]:checked + span::before {
+    font-family: 'pictos';
+    content: '*';
+    width: 15px;
 }
 
 
