@@ -43,13 +43,16 @@
 	
 	<!-- for the CSS magic to work this needs to be at the same level as the page divs -->
 	<span class="sheet-select-spacer">&nbsp;</span>
-    <input class="sheet-select-radio" id="sheet-show-stats" name="attr_tab" type="radio" value="main" checked="checked"/><span class="sheet-select-label">Main Page</span>
-    <input class="sheet-select-radio" id="sheet-show-extras" name="attr_tab" type="radio" value="Extras"/><span class="sheet-select-label">Extras</span>
+    <input class="sheet-select-radio" id="sheet-show-stats" name="attr_tab" type="radio" value="main" checked="checked"/><span class="sheet-select-label">BIO &amp; Skills</span>
+    <input class="sheet-select-radio" id="sheet-show-contacts" name="attr_tab" type="radio" value="contacts"/><span class="sheet-select-label">Contacts &amp; Magic</span>
+    <input class="sheet-select-radio" id="sheet-show-equipment" name="attr_tab" type="radio" value="equipment"/><span class="sheet-select-label">Equipment &amp; Notes</span>
 
 	
-	<!-- Investigator biography -->
+	<!-- Main charcater sheet page -->
 	<div class="sheet-stats-page">
-        <div class="sheet-grid-section-stats">	
+        <div class="sheet-grid-section-stats">
+            
+            <!-- Investigator biography -->	
         	<div class="sheet-bio sheet-block">
             	<div class="sheet-section-inner-container">
             	    <h4 class="sheet-section-head">Investigator Info</h4>
@@ -479,13 +482,55 @@
         </div>
     </div>	
     
-    <div class="sheet-magic-page">
+    <!-- Secondary charcater sheet page -->
+    <div class="sheet-contacts-page">
     	<div class="sheet-grid-section-magic">	
-    		<div class="sheet-notes sheet-block">
-    	    <div class="sheet-section-inner-container">
-    	        <h4 class="sheet-section-head">Notes</h4>
-    	   </div>
-    	</div>
+    	
+           	<!-- contacts -->
+        	<div class="sheet-contacts sheet-block">
+        	    <div class="sheet-section-inner-container">
+        	       <h4 class="sheet-section-head">Contacts</h4>
+    	           <div class="sheet-2colrow sheet-contacts-div">
+    	                <div class="sheet-col">
+                	        <div class="sheet-section-row">
+                    		    <input class="sheet-contact-state" name="attr_character_contact1_state" type="checkbox">
+                    			<input class="sheet-contact-details" name="attr_character_contact1_details" type="text">
+                     		</div>
+                	        <div class="sheet-section-row">
+                    		    <input class="sheet-contact-state" name="attr_character_contact2_state" type="checkbox">
+                    			<input class="sheet-contact-details" name="attr_character_contac2_details" type="text">
+                     		</div>
+                	        <div class="sheet-section-row">
+                    		    <input class="sheet-contact-state" name="attr_character_contact3_state" type="checkbox">
+                    			<input class="sheet-contact-details" name="attr_character_contac3_details" type="text">
+                     		</div>
+                	        <div class="sheet-section-row">
+                    		    <input class="sheet-contact-state" name="attr_character_contact4_state" type="checkbox">
+                    			<input class="sheet-contact-details" name="attr_character_contact4_details" type="text">
+                     		</div>                     		
+                     	</div>
+    	                <div class="sheet-col">
+                	        <div class="sheet-section-row">
+                    		    <input class="sheet-contact-state" name="attr_character_contact5_state" type="checkbox">
+                    			<input class="sheet-contact-details" name="attr_character_contact5_details" type="text">
+                     		</div>
+                	        <div class="sheet-section-row">
+                    		    <input class="sheet-contact-state" name="attr_character_contact6_state" type="checkbox">
+                    			<input class="sheet-contact-details" name="attr_character_contact6_details" type="text">
+                     		</div>
+                	        <div class="sheet-section-row">
+                    		    <input class="sheet-contact-state" name="attr_character_contact7_state" type="checkbox">
+                    			<input class="sheet-contact-details" name="attr_character_contact7_details" type="text">
+                     		</div>
+                	        <div class="sheet-section-row">
+                    		    <input class="sheet-contact-state" name="attr_character_contact8_state" type="checkbox">
+                    			<input class="sheet-contact-details" name="attr_character_contact8_details" type="text">
+                     		</div>                     		
+                     	</div>
+                    </div>
+               	</div>                       	
+        	</div>
+        </div>
     </div>
 </div>
 

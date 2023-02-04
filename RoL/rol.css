@@ -15,7 +15,7 @@
  * ==== Sheet controls ==== 
  */
  .sheet-select-spacer {
-     margin-left: 300px;
+     margin-left: 170px;
  }
 .sheet-select-radio {
     margin: 0px 10px 0px 5px;
@@ -28,15 +28,23 @@
 }
 
 
-.sheet-magic-page,
-.sheet-stats-page {
+.sheet-stats-page,
+.sheet-contacts-page,
+.sheet-equipment-page {
   margin-top: 5px;
   display: none;
 }
 
+
+.sheet-contact-state:checked ~ input.sheet-contact-details {
+    color: red;
+}
+
+
  /* Not a fan of controlling dynamic visibilty via CSS but it seems to be the way it is done for Roll 20? */
 #sheet-show-stats:checked ~ .sheet-stats-page,
-#sheet-show-extras:checked ~ .sheet-magic-page {
+#sheet-show-contacts:checked ~ .sheet-contacts-page,
+#sheet-show-equipment:checked ~ .sheet-equipment-page {
     display: block;
 }
 
@@ -120,14 +128,13 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows:  1fr 1fr;
-  grid-template-areas:  "notes notes notes notes notes notes"
-                        "notes notes notes notes notes notes"
+  grid-template-areas:  "contacts contacts contacts contacts contacts contacts"
                       ;
   grid-gap: 2px;
 }
 
-.charsheet div.sheet-notes{
-  grid-area: notes;
+.charsheet div.sheet-contacts{
+  grid-area: contacts;
 }
 
 
@@ -300,6 +307,9 @@ label.sheet-long-label {
     vertical-align: top;  
 }
 
+.sheet-contacts-div {
+    margin-left: 5px;
+}
 /*
  * ==== General Inputs ==== 
  */
@@ -359,6 +369,12 @@ input.sheet-armour-balistic {
     width: 3.5em;
     margin-left: 10px;
 }
+
+input.sheet-contact-details {
+    margin-left: 5px;
+    width: 370px;
+}
+
 
 select {
   background-color: transparent;
@@ -446,7 +462,7 @@ input[type="text"].sheet-damage-status  {
 
 /*  ==== stuff for roll templates ==== */
 
- .sheet-rolltemplate-rol .sheet-template-charname {
+.sheet-rolltemplate-rol .sheet-template-charname {
 	padding: 5px;
 	font-style: italic;
 	font-weight: bold;
