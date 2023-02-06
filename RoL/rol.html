@@ -38,21 +38,30 @@
 	<input type="hidden" name="attr_roll_skill_description" value="For opposed rolls the greater success wins, ties go to the initiator.">  
     <input type="hidden" name="attr_roll_damage_formula" value="{{?{Type|Standard,standard=[[d100cs0cf0]]|Advantage,advantage=[[2d100cs0cf0kl1]]|Disadvantage,disadvantage=[[2d100cs0cf0kh1]]}}}"> 
     
+     
     <!-- character sheet header -->
-	<span class="sheet-game-name">Rivers of London</span> <span class="sheet-version">version 0.1a</span> 
+    <div class="sheet-header-bar">
+    	<span class="sheet-game-name">Rivers of London</span> <span class="sheet-version">version 0.1a</span> 
+    	
+    	<!-- sheet controll buttons -->
+    	<div class="sheet-page-control">
+    	    <!-- need to mirror the hidden attribute here for CSS magic to change effects on buttons to match selected page -->
+    	    <input type="hidden" class="sheet-page-toggle" name="attr_pagename"  title="@{pagename}" value = "stats">
+        	<button type="action" class="sheet-page-btn" id="sheet-btn-stats" name="act_stats" autofocus>Stats &amp; Skills</button>
+        	<button type="action" class="sheet-page-btn" id="sheet-btn-contacts" name="act_contacts">Contacts &amp; Magic</button>
+        	<button type="action" class="sheet-page-btn" id="sheet-btn-equipment" name="act_equipment">Equipment &amp; Notes</button>
+        </div>
+    </div>
 	
-	<!-- for the CSS magic to work this needs to be at the same level as the page divs -->
-	<span class="sheet-select-spacer">&nbsp;</span>
-    <input class="sheet-select-radio" id="sheet-show-stats" name="attr_tab" type="radio" value="main" checked="checked"/><span class="sheet-select-label">BIO &amp; Skills</span>
-    <input class="sheet-select-radio" id="sheet-show-contacts" name="attr_tab" type="radio" value="contacts"/><span class="sheet-select-label">Contacts &amp; Magic</span>
-    <input class="sheet-select-radio" id="sheet-show-equipment" name="attr_tab" type="radio" value="equipment"/><span class="sheet-select-label">Equipment &amp; Notes</span>
+	 <!-- input used for CSS page hiding/showing magic - must be at same level as page divs -->
+    <input type="hidden" class="sheet-page-toggle" name="attr_pagename"  value="stats"/>
 
-	
+
 	<!-- Main charcater sheet page -->
 	<div class="sheet-stats-page">
         <div class="sheet-grid-section-stats">
             
-            <!-- Investigator biography -->	
+            <!-- Investigator stats & skills -->	
         	<div class="sheet-bio sheet-block">
             	<div class="sheet-section-inner-container">
             	    <h4 class="sheet-section-head">Investigator Info</h4>
@@ -78,7 +87,7 @@
                 	</div>
                 	 <div  class="sheet-section-row">
             			<label class="sheet-medium-label">Residence</label>
-            			<textarea class="sheet-textarea-bio" name="attr_character_residence" rows="2"></textarea>
+            			<textarea class="sheet-textarea-stats" name="attr_character_residence" rows="2"></textarea>
             		</div>
         		</div>
         	</div>
@@ -337,7 +346,7 @@
             			<input type="number" class="sheet-input-align-top" name="attr_character_expert1_half" value="0" readonly>
            			    <button type="roll" name="roll_expert1" value="&{template:rol} {{rollname=@{character_expert1_name}}} {{charname=@{character_name}}} {{success=[[@{character_expert1}]]}} {{hard=[[@{character_expert1_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>        			
            			    <br>
-           			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+           			    <span class="sheet-hint-expert-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
             		</div>
             		<div class="sheet-section-row">
             			<input class="sheet-expert-skill" name="attr_character_expert2_name" type="text">
@@ -346,7 +355,7 @@
             			<input type="number" class="sheet-input-align-top" name="attr_character_expert2_half" value="0" readonly>
            			    <button type="roll" name="roll_expert2" value="&{template:rol} {{rollname=@{character_expert1_name}}} {{charname=@{character_name}}} {{success=[[@{character_expert2}]]}} {{hard=[[@{character_expert2_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>        			
            			    <br>
-           			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+           			    <span class="sheet-hint-expert-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
             		</div>
             		<div class="sheet-section-row">
             			<input class="sheet-expert-skill" name="attr_character_expert3_name" type="text">
@@ -355,7 +364,7 @@
             			<input type="number" class="sheet-input-align-top" name="attr_character_expert3_half" value="0" readonly>
            			    <button type="roll" name="roll_expert3" value="&{template:rol} {{rollname=@{character_expert3_name}}} {{charname=@{character_name}}} {{success=[[@{character_expert3}]]}} {{hard=[[@{character_expert3_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>        			
            			    <br>
-           			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+           			    <span class="sheet-hint-expert-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
             		</div>
             		<div class="sheet-section-row">
             			<input class="sheet-expert-skill" name="attr_character_expert4_name" type="text">
@@ -364,7 +373,7 @@
             			<input type="number" class="sheet-input-align-top" name="attr_character_expert4_half" value="0" readonly>
            			    <button type="roll" name="roll_expert4" value="&{template:rol} {{rollname=@{character_expert4_name}}} {{charname=@{character_name}}} {{success=[[@{character_expert4}]]}} {{hard=[[@{character_expert4_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>        			
            			    <br>
-           			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+           			    <span class="sheet-hint-expert-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
             		</div>
             		<div class="sheet-section-row">
             			<input class="sheet-expert-skill" name="attr_character_expert5_name" type="text">
@@ -373,7 +382,7 @@
             			<input type="number" class="sheet-input-align-top" name="attr_character_expert5_half" value="0" readonly>
            			    <button type="roll" name="roll_expert5" value="&{template:rol} {{rollname=@{character_expert5_name}}} {{charname=@{character_name}}} {{success=[[@{character_expert5}]]}} {{hard=[[@{character_expert5_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>        			
            			    <br>
-           			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+           			    <span class="sheet-hint-expert-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
             		</div>
             		<div class="sheet-section-row">
             			<input class="sheet-expert-skill" name="attr_character_expert6_name" type="text">
@@ -382,7 +391,7 @@
             			<input type="number" class="sheet-input-align-top" name="attr_character_expert6_half" value="0" readonly>
            			    <button type="roll" name="roll_expert6" value="&{template:rol} {{rollname=@{character_expert6_name}}} {{charname=@{character_name}}} {{success=[[@{character_expert6}]]}} {{hard=[[@{character_expert6_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>        			
            			    <br>
-           			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+           			    <span class="sheet-hint-expert-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
             		</div>
             		<div class="sheet-section-row">
             			<input class="sheet-expert-skill" name="attr_character_expert7_name" type="text">
@@ -391,7 +400,7 @@
             			<input type="number" class="sheet-input-align-top" name="attr_character_expert7_half" value="0" readonly>
            			    <button type="roll" name="roll_expert7" value="&{template:rol} {{rollname=@{character_expert7_name}}} {{charname=@{character_name}}} {{success=[[@{character_expert7}]]}} {{hard=[[@{character_expert7_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>        			
            			    <br>
-           			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+           			    <span class="sheet-hint-expert-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
             		</div>
             		<div class="sheet-section-row">
             			<input class="sheet-expert-skill" name="attr_character_expert8_name" type="text">
@@ -400,7 +409,7 @@
             			<input type="number" class="sheet-input-align-top" name="attr_character_expert8_half" value="0" readonly>
            			    <button type="roll" name="roll_expert8" value="&{template:rol-skill} {{rollname=@{character_expert8_name}}} {{charname=@{character_name}}} {{success=[[@{character_expert8}]]}} {{hard=[[@{character_expert1_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>        			
            			    <br>
-           			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+           			    <span class="sheet-hint-expert-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
             		</div>
             		<div class="sheet-section-row">
             			<input class="sheet-expert-skill" name="attr_character_expert9_name" type="text">
@@ -409,7 +418,7 @@
             			<input type="number" class="sheet-input-align-top" name="attr_character_expert9_half" value="0" readonly>
            			    <button type="roll" name="roll_expert9" value="&{template:rol} {{rollname=@{character_expert9_name}}} {{charname=@{character_name}}} {{success=[[@{character_expert9}]]}} {{hard=[[@{character_expert9_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>        			
            			    <br>
-           			    <span class="sheet-hint-long-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
+           			    <span class="sheet-hint-expert-label">&nbsp;</span><span class="sheet-hint-full">Full</span><span class="sheet-hint-half">Half</span>
             		</div>        		        		
         	   </div>
         	</div>
@@ -421,59 +430,49 @@
         	        <div class="sheet-2colrow sheet-adv-div">
         	            <div class="sheet-col">
                 	       <div class="sheet-section-row">
-                    		   <input class="sheet-weapon-name" name="attr_character_weapon1_name" type="text">
-                	           <select class = "sheet-weapon-type" name="attr_character_weapon1_type">
-                                    <option value="0" selected="selected">Normal</option>
-                                    <option value="1">Signature</option>
-                                    <option value="2">Bonus</option>
-                                    <option value="2">Penulty</option>
-                                </select>        			
+                    		    <input class="sheet-weapon-name" name="attr_character_weapon1_name" type="text">
                     			<input class="sheet-weapon-damage" name="attr_character_weapon1_damage" type="text">
                     			<input class="sheet-weapon-range" name="attr_character_weapon1_range" type="text">       			    
                     			<br>
-                   			    <span class="sheet-hint-weapon-name">name</span><span class="sheet-hint-weapon-type">Type</span><span class="sheet-hint-weapon-damage">Damage</span><span class="sheet-hint-weapon-range">Range</span>
+                   			    <span class="sheet-hint-weapon-name">name</span><span class="sheet-hint-weapon-damage">Damage</span><span class="sheet-hint-weapon-range">Range</span>
                     		</div>
                 	       <div class="sheet-section-row">
-                    		   <input class="sheet-weapon-name" name="attr_character_weapon2_name" type="text">
-                	           <select class = "sheet-weapon-type" name="attr_character_weapon2_type">
-                                    <option value="0" selected="selected">Normal</option>
-                                    <option value="1">Signature</option>
-                                    <option value="2">Bonus</option>
-                                    <option value="2">Penulty</option>
-                                </select>        			
+                    		    <input class="sheet-weapon-name" name="attr_character_weapon2_name" type="text">
                     			<input class="sheet-weapon-damage" name="attr_character_weapon2_damage" type="text">
                     			<input class="sheet-weapon-range" name="attr_character_weapon2_range" type="text">       			    
                     			<br>
-                   			    <span class="sheet-hint-weapon-name">name</span><span class="sheet-hint-weapon-type">Type</span><span class="sheet-hint-weapon-damage">Damage</span><span class="sheet-hint-weapon-range">Range</span>
-                    		</div>
-                    	</div> 
-                        <div class="sheet-col">
-                            <div class="sheet-section-row">
-                    		   <input class="sheet-weapon-name" name="attr_character_weapon3_name" type="text">
-                	           <select class = "sheet-weapon-type" name="attr_character_weapon3_type">
-                                    <option value="0" selected="selected">Normal</option>
-                                    <option value="1">Signature</option>
-                                    <option value="2">Bonus</option>
-                                    <option value="2">Penulty</option>
-                                </select>        			
-                    			<input class="sheet-weapon-damage" name="attr_character_weapon3_damage" type="text">
-                    			<input class="sheet-weapon-range" name="attr_character_weapon3_range" type="text">       			    
-                    			<br>
-                   			    <span class="sheet-hint-weapon-name">name</span><span class="sheet-hint-weapon-type">Type</span><span class="sheet-hint-weapon-damage">Damage</span><span class="sheet-hint-weapon-range">Range</span>
+                   			    <span class="sheet-hint-weapon-name">name</span><span class="sheet-hint-weapon-damage">Damage</span><span class="sheet-hint-weapon-range">Range</span>
                     		</div>
                 	       <div class="sheet-section-row">
-                    		   <input class="sheet-weapon-name" name="attr_character_weapon4_name" type="text">
-                	           <select class = "sheet-weapon-type" name="attr_character_weapon4_type">
-                                    <option value="0" selected="selected">Normal</option>
-                                    <option value="1">Signature</option>
-                                    <option value="2">Bonus</option>
-                                    <option value="2">Penulty</option>
-                                </select>        			
+                    		    <input class="sheet-weapon-name" name="attr_character_weapon4_name" type="text">
                     			<input class="sheet-weapon-damage" name="attr_character_weapon4_damage" type="text">
                     			<input class="sheet-weapon-range" name="attr_character_weapon4_range" type="text">       			    
                     			<br>
-                   			    <span class="sheet-hint-weapon-name">name</span><span class="sheet-hint-weapon-type">Type</span><span class="sheet-hint-weapon-damage">Damage</span><span class="sheet-hint-weapon-range">Range</span>
+                   			    <span class="sheet-hint-weapon-name">name</span><span class="sheet-hint-weapon-damage">Damage</span><span class="sheet-hint-weapon-range">Range</span>
+                    	    </div>                    		
+                    	</div> 
+                        <div class="sheet-col">
+                            <div class="sheet-section-row">
+                    		    <input class="sheet-weapon-name" name="attr_character_weapon3_name" type="text">
+                    			<input class="sheet-weapon-damage" name="attr_character_weapon3_damage" type="text">
+                    			<input class="sheet-weapon-range" name="attr_character_weapon3_range" type="text">       			    
+                    			<br>
+                   			    <span class="sheet-hint-weapon-name">name</span><span class="sheet-hint-weapon-damage">Damage</span><span class="sheet-hint-weapon-range">Range</span>
+                    		</div>
+                	       <div class="sheet-section-row">
+                    		    <input class="sheet-weapon-name" name="attr_character_weapon4_name" type="text">
+                    			<input class="sheet-weapon-damage" name="attr_character_weapon4_damage" type="text">
+                    			<input class="sheet-weapon-range" name="attr_character_weapon4_range" type="text">       			    
+                    			<br>
+                   			    <span class="sheet-hint-weapon-name">name</span><span class="sheet-hint-weapon-damage">Damage</span><span class="sheet-hint-weapon-range">Range</span>
                     	    </div>
+                	       <div class="sheet-section-row">
+                    		    <input class="sheet-weapon-name" name="attr_character_weapon4_name" type="text">
+                    			<input class="sheet-weapon-damage" name="attr_character_weapon4_damage" type="text">
+                    			<input class="sheet-weapon-range" name="attr_character_weapon4_range" type="text">       			    
+                    			<br>
+                   			    <span class="sheet-hint-weapon-name">name</span><span class="sheet-hint-weapon-damage">Damage</span><span class="sheet-hint-weapon-range">Range</span>
+                    	    </div>                    	    
                        	</div>                       	
                     </div>
     
@@ -482,7 +481,7 @@
         </div>
     </div>	
     
-    <!-- Secondary charcater sheet page -->
+    <!-- contacts sheet page -->
     <div class="sheet-contacts-page">
     	<div class="sheet-grid-section-magic">	
     	
@@ -532,6 +531,10 @@
         	</div>
         </div>
     </div>
+	
+	    <!-- contacts sheet page -->
+    <div class="sheet-equipment-page">
+	</div
 </div>
 
 
@@ -750,6 +753,14 @@
        });        
     });  
     
-    on("clicked:")
+    const buttonlist = ["stats","contacts","equipment"];
+    buttonlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            console.log(button)
+            setAttrs({
+                pagename: button
+            });
+        });
+    });
 
 </script>

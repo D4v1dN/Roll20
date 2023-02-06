@@ -14,6 +14,12 @@
 /* 
  * ==== Sheet controls ==== 
  */
+ 
+ .sheet-header-bar = {
+    margin-right: 5px;
+    height: 25px;
+ }
+ 
 .sheet-select-spacer {
      margin-left: 170px;
  }
@@ -27,6 +33,28 @@
     vertical-align: text-bottom;    
 }
 
+.sheet-page-control {
+    float: right;
+}
+
+#sheet-btn-stats,
+#sheet-btn-contacts,
+#sheet-btn-equipment
+{
+	border: 1px solid darkgrey;
+	border-radius: 3px;
+	color: gray;
+}
+
+
+.charsheet .sheet-page-toggle[value="stats"] ~ #sheet-btn-stats,
+.charsheet .sheet-page-toggle[value="contacts"] ~ #sheet-btn-contacts,
+.charsheet .sheet-page-toggle[value="equipment"] ~ #sheet-btn-equipment {
+    background: white;
+    color: black;
+}
+
+
 
 .sheet-stats-page,
 .sheet-contacts-page,
@@ -37,11 +65,12 @@
 
 
  /* Not a fan of controlling dynamic visibilty via CSS but it seems to be the way it is done for Roll 20? */
-#sheet-show-stats:checked ~ .sheet-stats-page,
-#sheet-show-contacts:checked ~ .sheet-contacts-page,
-#sheet-show-equipment:checked ~ .sheet-equipment-page {
+.charsheet .sheet-page-toggle[value="stats"] ~ div.sheet-stats-page,
+.charsheet .sheet-page-toggle[value="contacts"] ~ div.sheet-contacts-page,
+.charsheet .sheet-page-toggle[value="equipment"] ~ div.sheet-equipment-page {
     display: block;
 }
+
 
 
 /* 
@@ -136,11 +165,6 @@
 /*
  * ==== Sheet header ===== 
  */
-.charsheet div.sheet-header{
-  padding: 0px;
-  border: 0px;
-}
-
 .sheet-game-name {
     font-size: 20px;
     font-style: oblique;
@@ -221,7 +245,7 @@ label.sheet-long-label {
 .sheet-hint-medium-label {
     font-size: 0.5em;
     font-style: italic;
-    margin-left: 110px;
+    margin-left: 107px;
     vertical-align: top;
 }
 
@@ -229,6 +253,13 @@ label.sheet-long-label {
     font-size: 0.5em;
     font-style: italic;
     margin-left: 125px;
+    vertical-align: top;
+}
+
+.sheet-hint-expert-label {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 135px;
     vertical-align: top;
 }
 
@@ -249,7 +280,7 @@ label.sheet-long-label {
 .sheet-hint-starting {
     font-size: 0.5em;
     font-style: italic;
-    margin-left: 12px;
+    margin-left: 30px;
     vertical-align: top;
 }
 
@@ -263,28 +294,21 @@ label.sheet-long-label {
 .sheet-hint-weapon-name {
     font-size: 0.5em;
     font-style: italic;
-    margin-left: 140px;
-    vertical-align: top;
-}
-
-.sheet-hint-weapon-type {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 89px;
+    margin-left: 270px;
     vertical-align: top;
 }
 
 .sheet-hint-weapon-damage {
     font-size: 0.5em;
     font-style: italic;
-    margin-left: 25px;
+    margin-left: 20px;
     vertical-align: top;
 }
 
 .sheet-hint-weapon-range {
     font-size: 0.5em;
     font-style: italic;
-    margin-left: 23px;
+    margin-left: 25px;
     vertical-align: top;
 }
 
@@ -338,17 +362,12 @@ input.sheet-text-short {
 
 input.sheet-weapon-name {
     margin-left: 5px;
-    width: 170px;
+    width: 290px;
 }
 
 input.sheet-weapon-damage {
     margin-left: 5px;
     width: 30px;
-}
-
-select.sheet-weapon-type {
-    margin-left: 5px;
-    width: 90px;
 }
 
 input.sheet-weapon-range {
@@ -454,7 +473,7 @@ input.sheet-expert-skill {
     margin-right: 10px;
 }
 
-textarea.sheet-textarea-bio {
+textarea.sheet-textarea-stats {
     background-color: transparent;
     width:170px;
     height: auto;
