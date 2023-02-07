@@ -44,6 +44,7 @@
 	border: 1px solid darkgrey;
 	border-radius: 3px;
 	color: gray;
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
 }
 
 
@@ -52,6 +53,7 @@
 .charsheet .sheet-page-toggle[value="equipment"] ~ #sheet-btn-equipment {
     background: white;
     color: black;
+    box-shadow: inset 0px 5px 10px 0px rgba(0,0,0,0.3);
 }
 
 
@@ -191,7 +193,7 @@ h4.sheet-section-head {
    background-color: midnightblue;
    padding-left: 2px;
    padding-right: 2px;
-   margin: 0px 0px 0px 0px;
+   margin: 0px 0px 5px 0px;
    text-align: left;
    vertical-align: top;
    font-weight: normal;
