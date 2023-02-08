@@ -57,6 +57,31 @@
 }
 
 
+#sheet-btn-human,
+#sheet-btn-demimonde
+{
+	border: 1px solid steelblue;
+	border-radius: 3px;
+	color: grey;
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
+}
+
+
+.charsheet .sheet-demimonde-toggle[value="human"] ~ #sheet-btn-human,
+.charsheet .sheet-demimonde-toggle[value="demimonde"] ~ #sheet-btn-demimonde {
+    background: white;
+    color: black;
+    box-shadow: inset 0px 5px 10px 0px rgba(0,0,0,0.3);
+}
+
+.charsheet .sheet-demimonde-toggle[value="demimonde"] ~ .sheet-human-only {
+    display: none;
+}
+
+.charsheet .sheet-demimonde-toggle[value="human"] ~ .sheet-demimonde-only {
+    display: none;
+}
+
 
 .sheet-stats-page,
 .sheet-contacts-page,
@@ -72,7 +97,6 @@
 .charsheet .sheet-page-toggle[value="equipment"] ~ div.sheet-equipment-page {
     display: block;
 }
-
 
 
 /* 
@@ -155,12 +179,18 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows:  1fr 1fr;
   grid-template-areas:  "contacts contacts contacts contacts contacts contacts"
+                        "magic magic magic magic magic magic"
                       ;
   grid-gap: 2px;
 }
 
 .charsheet div.sheet-contacts{
   grid-area: contacts;
+}
+
+
+.charsheet div.sheet-magic{
+  grid-area: ,agic;
 }
 
 
@@ -183,7 +213,10 @@
     vertical-align: text-bottom;
 }
 
-
+.sheet-demimonde-control {
+    margin-left: 10px;
+    margin-top: 20px;
+}
 /* 
  *==== General section stuff  ==== 
  */
@@ -346,7 +379,7 @@ input[type="number"] {
   background-color: transparent;
   border-style: none none solid none;
   border-color: grey;
-  width: 3em;
+  width: 3.5em;
 }
 
 
@@ -391,6 +424,15 @@ input.sheet-contact-details {
     width: 370px;
 }
 
+
+input[type="number"].sheet-magic-order {
+    width: 30px !important;
+}
+
+
+input.sheet-magic-name {
+    width: 345px;
+}
 
 select {
   background-color: transparent;
@@ -442,7 +484,6 @@ input[type="checkbox"].sheet-checkbox {
     width: 15px;
 }
 
-
 /* 
  * ==== 'roll' buttons ====
  */
@@ -455,6 +496,11 @@ button#sheet-damage-strength:before {
 button#sheet-damage-dexterity:before {
     font-family: 'pictos custom';
     content: 't';
+}
+
+input#sheet-checkbox-demimode {
+    vertical-align: bottom;
+    margin: 2px;
 }
 
 
