@@ -33,6 +33,15 @@
     vertical-align: text-bottom;    
 }
 
+.sheet-manifestation-cost-section {
+    display: block;
+    margin: 5px;
+}
+
+.sheet-manifestation-cost-item {
+   display: block;
+}
+
 .sheet-page-control {
     float: right;
 }
@@ -177,7 +186,7 @@
 .charsheet .sheet-grid-section-magic {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows:  1fr 1fr;
+  grid-template-rows:  1fr 2fr;
   grid-template-areas:  "contacts contacts contacts contacts contacts contacts"
                         "magic magic magic magic magic magic"
                       ;
@@ -361,6 +370,31 @@ label.sheet-long-label {
     vertical-align: top;  
 }
 
+input.sheet-magic-mastery {
+    width: 25px;
+    margin-left: 5px;
+}
+
+.sheet-hint-mastery {
+    width 25px;    
+}
+
+.sheet-hint-order {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 35px;
+    vertical-align: top;   
+}
+
+.sheet-hint-magic-name {
+    font-size: 0.5em;
+    font-style: italic;
+    margin-left: 315px;
+    vertical-align: top;   
+}
+
+
+
 .sheet-contacts-div {
     margin-left: 5px;
 }
@@ -431,7 +465,7 @@ input[type="number"].sheet-magic-order {
 
 
 input.sheet-magic-name {
-    width: 345px;
+    width: 330px;
 }
 
 select {
@@ -538,6 +572,15 @@ textarea.sheet-damage-description  {
 	background-image: none;
 	margin-left: 2px;
 	width: 98%;
+} 
+ 
+textarea.sheet-afinity  {
+	height: 40px;
+	line-height: 20px;
+	font-size: 12px;
+	margin-left: 2px;
+	width: 98%;
+	height: 12em;
 } 
  
 
