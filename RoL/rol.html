@@ -48,6 +48,7 @@
         	<button type="action" class="sheet-page-btn" id="sheet-btn-stats" name="act_stats" autofocus>Stats &amp; Skills</button>
         	<button type="action" class="sheet-page-btn" id="sheet-btn-contacts" name="act_contacts">Contacts &amp; Magic</button>
         	<button type="action" class="sheet-page-btn" id="sheet-btn-equipment" name="act_equipment">Equipment &amp; Notes</button>
+        	<input class="sheet-lock-state" name="attr_character_lock_state" type="checkbox"><span></span>
         </div>
     </div>
 	
@@ -679,9 +680,30 @@
         </div>
     </div>
 	
-	    <!-- contacts sheet page -->
+	    <!-- Equipment sheet page -->
     <div class="sheet-equipment-page">
-	</div
+    	<div class="sheet-grid-section-equipment">	
+    	
+           	<!-- equipment -->
+        	<div class="sheet-equipment sheet-block">
+        	    <div class="sheet-section-inner-container">
+                	<h4 class="sheet-section-head">Equipment</h4>
+                    <div class="sheet-section-row">
+                         <textarea class="sheet-equipment"></textarea>
+                    </div>
+                </div>
+            </div>
+           	<!-- notes -->
+        	<div class="sheet-notes sheet-block">
+        	    <div class="sheet-section-inner-container">
+                	<h4 class="sheet-section-head">Case files</h4>
+                    <div class="sheet-section-row">
+                         <textarea class="sheet-notes"></textarea>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
 </div>
 
 

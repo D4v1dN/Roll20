@@ -203,7 +203,27 @@
 
 
 .charsheet div.sheet-magic{
-  grid-area: ,agic;
+  grid-area: magic;
+}
+
+
+.charsheet .sheet-grid-section-equipment {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows:  2fr 2fr;
+  grid-template-areas:  "equipment equipment equipment notes notes notes"
+                        "equipment equipment equipment notes notes notes"
+                      ;
+  grid-gap: 2px;
+}
+
+.charsheet div.sheet-equipment{
+  grid-area: equipment;
+}
+
+
+.charsheet div.sheet-notes{
+  grid-area: notes;
 }
 
 
@@ -469,17 +489,47 @@ input[type="checkbox"].sheet-checkbox {
     margin-top: 6px;
 }
 
-/* Fake checkbox */
+
+/* Contacts checkbox icons */
 .sheet-contacts input[type="checkbox"] + span::before {
     font-family: 'pictos';
     content: 'k';
     width: 15px;
 }
 
-/* Styles unique to fake checkbox (checked) */
 .sheet-contacts input[type="checkbox"]:checked + span::before {
     font-family: 'pictos';
     content: '*';
+    width: 15px;
+}
+
+input[type="checkbox"].sheet-lock-state {
+    position: absolute;
+    opacity: 0;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    z-index: 1;
+    margin-top: 6px;  
+}
+
+/* Lock checkbox icons */
+input[type="checkbox"].sheet-lock-state {
+    display: inline-block;
+    width: 20px;
+    margin-left: 10px;
+    font-size: 1.2em;
+}
+
+input[type="checkbox"].sheet-lock-state  + span::before {
+    font-family: 'pictos';
+    content: ')';
+    width: 15px;
+}
+
+input[type="checkbox"].sheet-lock-state:checked + span::before {
+    font-family: 'pictos';
+    content: '(';
     width: 15px;
 }
 
@@ -557,6 +607,24 @@ textarea.sheet-signare {
     padding-right: 10px;
 	width: 95%;
 	height: 5em; 
+}
+
+textarea.sheet-equipment  {
+    border: 1px solid #ededed;
+    margin-left: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+	width: 93%;
+	height: 36em;
+} 
+ 
+textarea.sheet-notes {
+    border: 1px solid #ededed;
+    margin-left: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+	width: 93%;
+	height: 36em; 
 }
 
 input[type="text"].sheet-damage-status  {
