@@ -34,8 +34,12 @@
 }
 
 .sheet-manifestation-cost-section {
-    display: block;
-    margin: 5px;
+   display: block;
+   margin: 30px;
+   background-color: rgba(180,180,180,0.18);
+   padding: 10px;
+   border-radius:5px;
+   
 }
 
 .sheet-manifestation-cost-item {
@@ -243,131 +247,101 @@ h4.sheet-section-head {
    height: 1.5em;
 }
 
+h3.sheet-subsection-head {
+    color: darkblue;
+    font-size: 14px;
+    margin: 5px;
+}
+
 div.sheet-section-row {
     vertical-align: top;
 }
 
-label.sheet-short-label {
+label.sheet-label {
    display: inline-block;
+   vertical-align: top;
+   padding-top: 8px;
+   margin: 0px 5px 0px 5px;
+   font-size: 1em;
+}
+
+label.sheet-label-short-width {
    width: 50px;
-   vertical-align: top;
-   padding-top: 8px;
-   margin: 0px 5px 0px 5px;
-   font-size: 1em;
 }
 
-label.sheet-medium-label {
-   display: inline-block;
+label.sheet-label-medium-width {
    width: 80px;
-   vertical-align: top;
-   padding-top: 8px;
-   margin: 0px 5px 0px 5px;
-   font-size: 1em;
 }
 
-label.sheet-long-label {
-   display: inline-block;
+label.sheet-label-long-width {
    width: 100px;
-   vertical-align: top;
-   padding-top: 8px;
-   margin: 0px 5px 0px 5px;
-   font-size: 1em;
 }
 
+.sheet-contacts-div {
+    margin-left: 5px;
+}
 
 /* 
  * Text hints
  * TODO - need a better way to do the hint stuff 
  */
-.sheet-hint-short-label {
+.sheet-hint {
     font-size: 0.5em;
     font-style: italic;
-    margin-left: 60px;
     vertical-align: top;
+    display: inline-block;
+    text-align: right;
+}
+.sheet-hint-short-width {
+    width: 70px;
 }
 
-.sheet-hint-medium-label {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 107px;
-    vertical-align: top;
+.sheet-hint-medium-width {
+    width: 100px;
 }
 
-.sheet-hint-long-label {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 125px;
-    vertical-align: top;
+.sheet-hint-long-width {
+    width: 120px;
 }
 
-.sheet-hint-expert-label {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 135px;
-    vertical-align: top;
+.sheet-hint-xlong-label {
+    width: 130px;
 }
 
 .sheet-hint-full {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 25px;
-    vertical-align: top;
+    width: 45px;
 }
 
 .sheet-hint-half {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 45px;
-    vertical-align: top;
+    width: 55px;
 }
 
 .sheet-hint-starting {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 30px;
-    vertical-align: top;
+    width: 45px;
 }
 
 .sheet-hint-current {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 35px;
-    vertical-align: top;
+    width: 55px;
 }
 
 .sheet-hint-weapon-name {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 270px;
-    vertical-align: top;
+    width: 290px;
 }
 
 .sheet-hint-weapon-damage {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 20px;
-    vertical-align: top;
+    width: 40px;
 }
 
 .sheet-hint-weapon-range {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 25px;
-    vertical-align: top;
+    width: 47px;
 }
 
 .sheet-hint-armour-regular {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 15px;
-    vertical-align: top;  
+    width: 45px;  
 }
 
 .sheet-hint-armour-balistic {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 38px;
-    vertical-align: top;  
+    width: 60px;  
 }
 
 input.sheet-magic-mastery {
@@ -380,24 +354,15 @@ input.sheet-magic-mastery {
 }
 
 .sheet-hint-order {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 35px;
-    vertical-align: top;   
+    width: 55px;   
 }
 
 .sheet-hint-magic-name {
-    font-size: 0.5em;
-    font-style: italic;
-    margin-left: 315px;
-    vertical-align: top;   
+    width: 335px;   
 }
 
 
 
-.sheet-contacts-div {
-    margin-left: 5px;
-}
 /*
  * ==== General Inputs ==== 
  */
@@ -555,10 +520,12 @@ input.sheet-expert-skill {
     margin-right: 10px;
 }
 
-textarea.sheet-textarea-stats {
+textarea.sheet-textarea-residence {
     background-color: transparent;
+    line-height: 1.3em;
+    margin-top:5px;
     width:170px;
-    height: auto;
+    height: 4.5em;
     background-image: none;
     border-bottom: 1px solid black;
 }
@@ -575,14 +542,22 @@ textarea.sheet-damage-description  {
 } 
  
 textarea.sheet-afinity  {
-	height: 40px;
-	line-height: 20px;
-	font-size: 12px;
-	margin-left: 2px;
-	width: 98%;
+    border: 1px solid #ededed;
+    margin-left: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+	width: 97%;
 	height: 12em;
 } 
  
+textarea.sheet-signare {
+    border: 1px solid #ededed;
+    margin-left: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+	width: 95%;
+	height: 5em; 
+}
 
 input[type="text"].sheet-damage-status  {
     color: red;
