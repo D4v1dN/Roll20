@@ -48,7 +48,7 @@
         	<button type="action" class="sheet-page-btn" id="sheet-btn-stats" name="act_stats" autofocus>Stats &amp; Skills</button>
         	<button type="action" class="sheet-page-btn" id="sheet-btn-contacts" name="act_contacts">Contacts &amp; Magic</button>
         	<button type="action" class="sheet-page-btn" id="sheet-btn-equipment" name="act_equipment">Equipment &amp; Notes</button>
-        	<input class="sheet-lock-state" name="attr_character_lock_state" type="checkbox"><span></span>
+        	<div class="sheet-lock-icon"><input class="sheet-lock-state" name="attr_character_lock_state" type="checkbox"><span></span></div>
         </div>
     </div>
 	
@@ -65,26 +65,43 @@
             	<div class="sheet-section-inner-container">
             	    <h4 class="sheet-section-head">Investigator Info</h4>
             		<div class="sheet-section-row">
+            		    <input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
+            		    
             			<label class="sheet-label sheet-label-medium-width">Occupation</label>
-            			<input class="sheet-text-short" name="attr_character_occupation" type="text">
+            			<input class="sheet-text-short sheet-text-edit" name="attr_character_occupation" type="text">
+            			<input class="sheet-text-short sheet-text-readonly" name="attr_character_occupation" type="text" readonly>
             		</div>
             		<div  class="sheet-section-row">
+            		    <input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
+            		    
             			<label class="sheet-label sheet-label-medium-width">Birthplace</label>
-            			<input class="sheet-text-short" name="attr_character_birthplace" type="text">
+            			<input class="sheet-text-short sheet-text-edit" name="attr_character_birthplace" type="text">
+            			<input class="sheet-text-short sheet-text-readonly" name="attr_character_birthplace" type="text" readonly>
             		</div>
             		<div class="sheet-section-row">
+            		    <input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
+            		    
             			<label class="sheet-label sheet-label-medium-width">Affluence</label>
-            			<input class="sheet-text-short" name="attr_character_affluence" type="text">
+            			<input class="sheet-text-short sheet-text-edit" name="attr_character_affluence" type="text">
+            			<input class="sheet-text-short sheet-text-readonly" name="attr_character_affluence" type="text" readonly>
             		</div>	
             		<div  class="sheet-section-row">
+            		    <input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
+            		    
             		    <label class="sheet-label sheet-label-medium-width">Pronoun</label>
-            			<input class="sheet-text-short" name="attr_character_pronoun" type="text">
+            			<input class="sheet-text-short sheet-text-edit" name="attr_character_pronoun" type="text">
+            			<input class="sheet-text-short sheet-text-readonly" name="attr_character_pronoun" type="text" readonly>
             		</div>
             		<div  class="sheet-section-row">
+            		    <input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
+            		    
             			<label class="sheet-label sheet-label-medium-width">Age</label>
-            			<input class="sheet-text-short" name="attr_character_age" type="text">
+            			<input class="sheet-text-short sheet-text-edit" name="attr_character_age" type="text">
+            			<input class="sheet-text-short sheet-text-readonly" name="attr_character_age" type="text" readonly>
                 	</div>
                 	<div  class="sheet-section-row">
+                	    <input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
+                	    
             			<label class="sheet-label sheet-label-medium-width">Residence</label>
             			<textarea class="sheet-textarea-residence" name="attr_character_residence" rows="2"></textarea>
             		</div>

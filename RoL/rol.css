@@ -95,7 +95,6 @@
     display: none;
 }
 
-
 .sheet-stats-page,
 .sheet-contacts-page,
 .sheet-equipment-page {
@@ -103,12 +102,32 @@
   display: none;
 }
 
-
  /* Not a fan of controlling dynamic visibilty via CSS but it seems to be the way it is done for Roll 20? */
 .charsheet .sheet-page-toggle[value="stats"] ~ div.sheet-stats-page,
 .charsheet .sheet-page-toggle[value="contacts"] ~ div.sheet-contacts-page,
 .charsheet .sheet-page-toggle[value="equipment"] ~ div.sheet-equipment-page {
     display: block;
+}
+
+.sheet-lock-icon {
+    display: inline-block;
+    width: 20px;
+    padding-left: 5px;
+}
+
+
+
+.sheet-text-readonly,
+.sheet-text-edit {
+  display: none;
+}
+
+.charsheet .sheet-lock-state[value="on"] ~ input.sheet-text-readonly {
+    display: inline-block;
+}
+
+.charsheet .sheet-lock-state[value="0"] ~ input.sheet-text-edit {
+     display: inline-block;
 }
 
 
@@ -516,21 +535,20 @@ input[type="checkbox"].sheet-lock-state {
 /* Lock checkbox icons */
 input[type="checkbox"].sheet-lock-state {
     display: inline-block;
-    width: 20px;
-    margin-left: 10px;
-    font-size: 1.2em;
 }
 
 input[type="checkbox"].sheet-lock-state  + span::before {
     font-family: 'pictos';
     content: ')';
     width: 15px;
+    font-size: 15px;
 }
 
 input[type="checkbox"].sheet-lock-state:checked + span::before {
     font-family: 'pictos';
     content: '(';
     width: 15px;
+    font-size: 15px;
 }
 
 /* 
