@@ -110,11 +110,18 @@
                 	    <!-- spacer -->
             		</div>            		
                 	<div class="sheet-section-row">
-                	    <div class="sheet-demimonde-control">
-                    	    <!-- need to mirror the hidden attribute here for CSS magic to change effects on buttons to match selected page -->
-                    	    <input type="hidden" class="sheet-demimonde-toggle" name="attr_demimonde"  title="@{demimonde}" value = "human">
-                        	<button type="action" class="sheet-page-btn" id="sheet-btn-human" name="act_human" autofocus>Human</button>
-                        	<button type="action" class="sheet-page-btn" id="sheet-btn-demimonde" name="act_demimonde">Demi-monde</button>
+                	    <input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
+                	    
+                	    <div class="sheet-demimonde-control sheet-section-unlocked">
+                	         <label class="sheet-label sheet-label-medium-width">Type</label>
+                	         <select name="attr_demimonde" class="sheet-dropdown-edit">
+                	             <option value="Human">Human</option>
+                	             <option value="Demi-Monde">Demi-Monde</option>
+                	         </select>
+                    	</div>
+                    	<div class="sheet-demimonde-control  sheet-section-locked">
+                    	    <label class="sheet-label sheet-label-medium-width">Type</label>
+                    	    <input class="sheet-text-short sheet-dropdown-value" name="attr_demimonde" type="text" readonly>
                     	</div>
                     </div>
         		</div>
@@ -949,14 +956,5 @@
         });
     });
     
-    const racebuttonlist = ["human","demimonde"];
-    racebuttonlist.forEach(button => {
-        on(`clicked:${button}`, function() {
-            console.log(button)
-            setAttrs({
-                demimonde: button
-            });
-        });
-    });    
 
 </script>

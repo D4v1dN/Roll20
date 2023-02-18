@@ -70,28 +70,11 @@
 }
 
 
-#sheet-btn-human,
-#sheet-btn-demimonde
-{
-	border: 1px solid steelblue;
-	border-radius: 3px;
-	color: grey;
-	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
-}
-
-
-.charsheet .sheet-demimonde-toggle[value="human"] ~ #sheet-btn-human,
-.charsheet .sheet-demimonde-toggle[value="demimonde"] ~ #sheet-btn-demimonde {
-    background: white;
-    color: black;
-    box-shadow: inset 0px 5px 10px 0px rgba(0,0,0,0.3);
-}
-
-.charsheet .sheet-demimonde-toggle[value="demimonde"] ~ .sheet-human-only {
+.charsheet .sheet-demimonde-toggle[value="Demi-Monde"] ~ .sheet-human-only {
     display: none;
 }
 
-.charsheet .sheet-demimonde-toggle[value="human"] ~ .sheet-demimonde-only {
+.charsheet .sheet-demimonde-toggle[value="Human"] ~ .sheet-demimonde-only {
     display: none;
 }
 
@@ -115,28 +98,37 @@
     padding-left: 5px;
 }
 
-
-
-.sheet-text-readonly,
-.sheet-text-edit {
-  display: none;
+.sheet-text-edit,
+.sheet-text-readonly {
+      display: none;
 }
 
 .charsheet .sheet-lock-state[value="on"] ~ input.sheet-text-readonly,
 .charsheet .sheet-lock-state[value="on"] ~ textarea.sheet-text-readonly {
-    display: inline-block;
     border-color: #ddd;
+    display: inline-block;
 }
 
 .charsheet .sheet-lock-state[value="0"] ~ input.sheet-text-edit,
 .charsheet .sheet-lock-state[value="0"] ~ textarea.sheet-text-edit {
-    display: inline-block;
     border-color: rgba(0,0,0,0);
     box-shadow: inset 1px 1px 1px lightgrey;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255,255,255,0.5);  
+    display: inline-block;
 }
 
 
+.sheet-section-unlocked,
+.sheet-section-locked {
+  display: none;
+}
+
+.charsheet .sheet-lock-state[value="on"] ~ div.sheet-section-locked {
+    display: inline-block;
+}
+.charsheet .sheet-lock-state[value="0"] ~ div.sheet-section-unlocked {
+    display: inline-block;
+}
 /* 
  * ==== Sheet layout ==== 
  */
@@ -272,8 +264,12 @@
 }
 
 .sheet-demimonde-control {
-    margin-left: 10px;
-    margin-top: 20px;
+    margin: 10px 5px 5px 10px;
+    width: 250px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #8080800f;
+    
 }
 /* 
  *==== General section stuff  ==== 
@@ -485,6 +481,16 @@ select {
   border-style: none none solid none;
   border-color: grey;
   width: 10em;  
+}
+
+select.sheet-dropdown-edit {
+    border-color: rgba(0,0,0,0);
+    box-shadow: inset 1px 1px 1px lightgrey;
+    background-color: rgba(255,255,255,0.5);  
+}
+
+input.sheet-dropdown-value {
+    width: 10em;    
 }
 
 textarea {
