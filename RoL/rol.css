@@ -122,12 +122,18 @@
   display: none;
 }
 
-.charsheet .sheet-lock-state[value="on"] ~ input.sheet-text-readonly {
+.charsheet .sheet-lock-state[value="on"] ~ input.sheet-text-readonly,
+.charsheet .sheet-lock-state[value="on"] ~ textarea.sheet-text-readonly {
     display: inline-block;
+    border-color: #ddd;
 }
 
-.charsheet .sheet-lock-state[value="0"] ~ input.sheet-text-edit {
-     display: inline-block;
+.charsheet .sheet-lock-state[value="0"] ~ input.sheet-text-edit,
+.charsheet .sheet-lock-state[value="0"] ~ textarea.sheet-text-edit {
+    display: inline-block;
+    border-color: rgba(0,0,0,0);
+    box-shadow: inset 1px 1px 1px lightgrey;
+    background-color: rgba(255,255,255,0.5);
 }
 
 
@@ -299,7 +305,7 @@ div.sheet-section-row {
 label.sheet-label {
    display: inline-block;
    vertical-align: top;
-   padding-top: 8px;
+   padding-top: 6px;
    margin: 0px 5px 0px 5px;
    font-size: 1em;
 }
@@ -411,6 +417,8 @@ input[type="text"] {
   background-color: transparent;
   border-style: none none solid none;
   border-color: grey;
+    padding: 2px 4px 2px 4px;
+    margin: 2px 0px 2px 0px;   
 }
 
 input[type="number"] {
@@ -591,11 +599,14 @@ input.sheet-expert-skill {
 textarea.sheet-textarea-residence {
     background-color: transparent;
     line-height: 1.3em;
-    margin-top:5px;
-    width:170px;
+
+    width:160px;
     height: 4.5em;
     background-image: none;
     border-bottom: 1px solid black;
+    
+    padding: 2px 4px 2px 4px;
+    margin: 2px 5px 2px 0px; 
 }
 
 textarea.sheet-damage-description  {
