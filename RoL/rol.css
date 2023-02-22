@@ -412,7 +412,7 @@ input.sheet-magic-mastery {
 input[type="text"] {
   background-color: transparent;
   border-style: none none solid none;
-  border-color: grey;
+  border-color: #ddd;
     padding: 2px 4px 2px 4px;
     margin: 2px 0px 2px 0px;   
 }
@@ -420,7 +420,7 @@ input[type="text"] {
 input[type="number"] {
   background-color: transparent;
   border-style: none none solid none;
-  border-color: grey;
+  border-color: #ddd;
   width: 3.5em;
 }
 
