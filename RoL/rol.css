@@ -117,6 +117,16 @@
     display: inline-block;
 }
 
+
+.charsheet .sheet-lock-state[value="0"] ~ input[type="checkbox"] + span {    
+    box-shadow: inset 1px 1px 1px lightgrey;
+    background-color: rgba(255,255,255,0.5);  
+
+}
+.charsheet .sheet-lock-state[value="on"] ~ input[type="checkbox"] {    
+    display: none;
+}
+
 .charsheet .sheet-text-always-edit {
     border-color: rgba(0,0,0,0);
     box-shadow: inset 1px 1px 1px lightgrey;
@@ -279,6 +289,11 @@
     background-color: #80808006;
     
 }
+
+.sheet-damage-dscription {
+    margin: 0px 5px 0px 5px;
+}
+
 /* 
  *==== General section stuff  ==== 
  */
@@ -530,16 +545,20 @@ input[type="checkbox"].sheet-checkbox {
     height: 15px;
     cursor: pointer;
     z-index: 1;
-    margin-top: 6px;
+    margin-top: 4px;
 }
 
+.sheet-contacts input[type="checkbox"] + span {
+    padding: 1px;
+	vertical-align: text-top;
+}
 
 /* Contacts checkbox icons */
 .sheet-contacts input[type="checkbox"] + span::before {
     font-family: 'pictos';
     content: 'k';
     width: 15px;
-}
+} 
 
 .sheet-contacts input[type="checkbox"]:checked + span::before {
     font-family: 'pictos';
