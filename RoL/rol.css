@@ -99,9 +99,11 @@
 }
 
 .sheet-text-edit,
+.sheet-textarea-edit,
 .sheet-text-readonly {
       display: none;
 }
+
 
 .charsheet .sheet-lock-state[value="on"] ~ input.sheet-text-readonly,
 .charsheet .sheet-lock-state[value="on"] ~ textarea.sheet-text-readonly {
@@ -112,10 +114,22 @@
 .charsheet .sheet-lock-state[value="0"] ~ input.sheet-text-edit,
 .charsheet .sheet-lock-state[value="0"] ~ textarea.sheet-text-edit {
     border-color: rgba(0,0,0,0);
+    background-color: rgba(255,255,255,0.5); 
     box-shadow: inset 1px 1px 1px lightgrey;
-    background-color: rgba(255,255,255,0.5);  
     display: inline-block;
 }
+
+.charsheet .sheet-lock-state[value="0"] ~ textarea.sheet-textarea-edit {
+    border-color: rgba(0,0,0,0);
+    box-shadow: inset 1px 1px 1px lightgrey;
+    display: inline-block;
+    background-image:
+	linear-gradient(to right, rgba(255,255,255,0.5) 10px, transparent 10px),
+	linear-gradient(to left, rgba(255,255,255,0.5) 10px, transparent 10px),
+	repeating-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5) 30px, #ddd 30px, #ddd 31px, rgba(255,255,255,0.5) 31px);	
+}
+
+
 
 
 .charsheet .sheet-lock-state[value="0"] ~ input[type="checkbox"] + span {    
@@ -345,6 +359,10 @@ label.sheet-label-long-width {
     margin-left: 5px;
 }
 
+.sheet-spells-div {
+    margin-left: 5px;
+}
+
 /* 
  * Text hints
  * TODO - need a better way to do the hint stuff 
@@ -418,7 +436,7 @@ input.sheet-magic-mastery {
 }
 
 .sheet-hint-order {
-    width: 55px;   
+    width: 40px;   
 }
 
 .sheet-hint-magic-name {
@@ -551,20 +569,57 @@ input[type="checkbox"].sheet-checkbox {
 .sheet-contacts input[type="checkbox"] + span {
     padding: 1px;
 	vertical-align: text-top;
+	width: 12px;
+    display: inline-block;
+    text-align: center;
 }
 
 /* Contacts checkbox icons */
 .sheet-contacts input[type="checkbox"] + span::before {
     font-family: 'pictos';
     content: 'k';
-    width: 15px;
+    /*width: 15px;*/
 } 
 
 .sheet-contacts input[type="checkbox"]:checked + span::before {
     font-family: 'pictos';
     content: '*';
-    width: 15px;
+     /*width: 15px;*/
 }
+
+.sheet-spells input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    z-index: 1;
+    margin-top: 4px;
+}
+
+.sheet-spells input[type="checkbox"] + span {
+    padding: 1px;
+	vertical-align: text-top;
+	width: 12px;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Contacts checkbox icons */
+.sheet-spells input[type="checkbox"] + span::before {
+    /* font-family: 'pictos'; */
+    content: ' ';
+	display: inline-block;
+    /*width: 15px;*/
+} 
+
+.sheet-spells input[type="checkbox"]:checked + span::before {
+    font-family: 'pictos';
+    content: 'S';
+     /*width: 15px;*/
+}
+
+
 
 input[type="checkbox"].sheet-lock-state {
     position: absolute;
@@ -584,14 +639,14 @@ input[type="checkbox"].sheet-lock-state {
 input[type="checkbox"].sheet-lock-state  + span::before {
     font-family: 'pictos';
     content: ')';
-    width: 15px;
+     /*width: 15px;*/
     font-size: 15px;
 }
 
 input[type="checkbox"].sheet-lock-state:checked + span::before {
     font-family: 'pictos';
     content: '(';
-    width: 15px;
+     /*width: 15px;*/
     font-size: 15px;
 }
 
