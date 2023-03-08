@@ -711,13 +711,13 @@ textarea.sheet-damage-description  {
 	width: 98%;
 } 
  
-textarea.sheet-afinity  {
+textarea.sheet-affinity  {
     border: 1px solid #ededed;
     margin-left: 5px;
     padding-left: 10px;
     padding-right: 10px;
 	width: 97%;
-	height: 12em;
+	height: 17em;
 } 
  
 textarea.sheet-signare {
