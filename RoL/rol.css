@@ -70,12 +70,22 @@
 }
 
 
+.sheet-demimonde-only {
+	display: none;
+}
+
 .charsheet .sheet-demimonde-toggle[value="Demi-Monde"] ~ .sheet-human-only {
     display: none;
 }
 
+.charsheet .sheet-demimonde-toggle[value="Demi-Monde"] ~ .sheet-demimonde-only {
+    display: inline-block;
+}
 .charsheet .sheet-demimonde-toggle[value="Human"] ~ .sheet-demimonde-only {
     display: none;
+}
+.charsheet .sheet-demimonde-toggle[value="Human"] ~ .sheet-human-only {
+    display: inline-block;
 }
 
 .sheet-stats-page,
@@ -98,17 +108,38 @@
     padding-left: 5px;
 }
 
-.sheet-text-edit,
-.sheet-textarea-edit,
+
 .sheet-text-readonly {
       display: none;
 }
 
+.sheet-text-edit,
+.sheet-textarea-edit {
+    border-color: rgba(0,0,0,0);
+    background-color: rgba(255,255,255,0.5); 
+    box-shadow: inset 1px 1px 1px lightgrey;	
+	display: inline-block;
+}
+
+.sheet-textarea-edit {
+	border-color: rgba(0,0,0,0);
+    box-shadow: inset 1px 1px 1px lightgrey;
+    background-image:
+	linear-gradient(to right, rgba(255,255,255,0.5) 10px, transparent 10px),
+	linear-gradient(to left, rgba(255,255,255,0.5) 10px, transparent 10px),
+	repeating-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5) 30px, #ddd 30px, #ddd 31px, rgba(255,255,255,0.5) 31px);		
+}
 
 .charsheet .sheet-lock-state[value="on"] ~ input.sheet-text-readonly,
 .charsheet .sheet-lock-state[value="on"] ~ textarea.sheet-text-readonly {
+	background-color: transparent;
     border-color: #ddd;
     display: inline-block;
+}
+
+.charsheet .sheet-lock-state[value="on"] ~ input.sheet-text-edit,
+.charsheet .sheet-lock-state[value="on"] ~ textarea.sheet-text-edit {
+    display: none;
 }
 
 .charsheet .sheet-lock-state[value="0"] ~ input.sheet-text-edit,
@@ -119,16 +150,35 @@
     display: inline-block;
 }
 
-.charsheet .sheet-lock-state[value="0"] ~ textarea.sheet-textarea-edit {
-    border-color: rgba(0,0,0,0);
-    box-shadow: inset 1px 1px 1px lightgrey;
-    display: inline-block;
-    background-image:
-	linear-gradient(to right, rgba(255,255,255,0.5) 10px, transparent 10px),
-	linear-gradient(to left, rgba(255,255,255,0.5) 10px, transparent 10px),
-	repeating-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5) 30px, #ddd 30px, #ddd 31px, rgba(255,255,255,0.5) 31px);	
+.charsheet .sheet-lock-state[value="0"] ~ input.sheet-text-readonly,
+.charsheet .sheet-lock-state[value="0"] ~ textarea.sheet-text-readonly {
+    display: none;
 }
 
+
+
+.charsheet .sheet-lock-state[value="0"] ~ textarea.sheet-textarea-edit {
+
+    display: inline-block;
+    /*
+	border-color: rgba(0,0,0,0);
+    box-shadow: inset 1px 1px 1px lightgrey;
+	background-image:
+	linear-gradient(to right, rgba(255,255,255,0.5) 10px, transparent 10px),
+	linear-gradient(to left, rgba(255,255,255,0.5) 10px, transparent 10px),
+	repeating-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5) 30px, #ddd 30px, #ddd 31px, rgba(255,255,255,0.5) 31px);	*/
+}
+.charsheet .sheet-lock-state[value="on"] ~ textarea.sheet-textarea-edit {
+
+    display: none;
+    /*
+	border-color: rgba(0,0,0,0);
+    box-shadow: inset 1px 1px 1px lightgrey;
+	background-image:
+	linear-gradient(to right, rgba(255,255,255,0.5) 10px, transparent 10px),
+	linear-gradient(to left, rgba(255,255,255,0.5) 10px, transparent 10px),
+	repeating-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5) 30px, #ddd 30px, #ddd 31px, rgba(255,255,255,0.5) 31px);	*/
+}
 
 
 
@@ -150,7 +200,10 @@
 
 
 
-.sheet-section-unlocked,
+.sheet-section-unlocked {
+    display: inline-block;
+}
+
 .sheet-section-locked {
   display: none;
 }
@@ -158,8 +211,16 @@
 .charsheet .sheet-lock-state[value="on"] ~ div.sheet-section-locked {
     display: inline-block;
 }
+.charsheet .sheet-lock-state[value="on"] ~ div.sheet-section-unlocked {
+    display: none;
+}
+
 .charsheet .sheet-lock-state[value="0"] ~ div.sheet-section-unlocked {
     display: inline-block;
+}
+
+.charsheet .sheet-lock-state[value="0"] ~ div.sheet-section-locked {
+    display: none;
 }
 /* 
  * ==== Sheet layout ==== 
@@ -301,7 +362,6 @@
     padding: 5px;
     border-radius: 5px;
     background-color: #80808006;
-    
 }
 
 .sheet-damage-dscription {
@@ -451,15 +511,15 @@ input.sheet-magic-mastery {
 
 
 input[type="text"] {
-  background-color: transparent;
+  /*background-color: transparent; */
   border-style: none none solid none;
-  border-color: #ddd;
-    padding: 2px 4px 2px 4px;
-    margin: 2px 0px 2px 0px;   
+  /*border-color: #ddd; */
+  padding: 2px 4px 2px 4px;
+  margin: 2px 0px 2px 0px;   
 }
 
 input[type="number"] {
-  background-color: transparent;
+  /*background-color: transparent;*/
   border-style: none none solid none;
   border-color: #ddd;
   width: 3.5em;
@@ -551,6 +611,10 @@ textarea {
 	padding: 1px 1px 1px 1px;
 }
 
+input[readonly] {
+  background-color: transparent;
+}
+
 input[type="checkbox"].sheet-checkbox {
   border-style: solid black;
   border-radius: 0px;
@@ -566,7 +630,25 @@ input[type="checkbox"].sheet-checkbox {
     margin-top: 4px;
 }
 
+.sheet-spells input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    z-index: 1;
+    margin-top: 4px;
+}
+
 .sheet-contacts input[type="checkbox"] + span {
+    padding: 1px;
+	vertical-align: text-top;
+	width: 12px;
+    display: inline-block;
+    text-align: center;
+}
+
+.sheet-spells input[type="checkbox"] + span {
     padding: 1px;
 	vertical-align: text-top;
 	width: 12px;
@@ -587,37 +669,22 @@ input[type="checkbox"].sheet-checkbox {
      /*width: 15px;*/
 }
 
-.sheet-spells input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-    width: 15px;
-    height: 15px;
-    cursor: pointer;
-    z-index: 1;
-    margin-top: 4px;
-}
 
-.sheet-spells input[type="checkbox"] + span {
-    padding: 1px;
-	vertical-align: text-top;
-	width: 12px;
-    display: inline-block;
-    text-align: center;
-}
-
-/* Contacts checkbox icons */
+/* spell checkbox icons */
 .sheet-spells input[type="checkbox"] + span::before {
-    /* font-family: 'pictos'; */
-    content: ' ';
+    content: 'U';
 	display: inline-block;
+	font-weight: Bold;
     /*width: 15px;*/
 } 
 
 .sheet-spells input[type="checkbox"]:checked + span::before {
-    font-family: 'pictos';
-    content: 'S';
+    content: 'M';
      /*width: 15px;*/
+	font-weight: Bold;
 }
+
+
 
 
 
@@ -688,13 +755,13 @@ input.sheet-expert-skill {
 }
 
 textarea.sheet-textarea-residence {
-    background-color: transparent;
+    /*background-color: transparent;*/
     line-height: 1.3em;
 
     width:160px;
     height: 4.5em;
     background-image: none;
-    border-bottom: 1px solid black;
+    /*border-bottom: 1px solid black;*/
     
     padding: 2px 4px 2px 4px;
     margin: 2px 5px 2px 0px; 
@@ -748,6 +815,7 @@ textarea.sheet-notes {
 }
 
 input[type="text"].sheet-damage-status  {
+	background-color: transparent;
     color: red;
 	border-style: none;
 } 

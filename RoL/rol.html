@@ -1,37 +1,34 @@
 
 <!-- ==== Sheet definition ==== -->
-
+	
     <!-- Hidden attributes for calculated values -->
-    <input type="hidden" name="attr_character_strength_half" value=""> 	
-    <input type="hidden" name="attr_character_constitution_half" value=""> 	
-    <input type="hidden" name="attr_character_dexterity_half" value=""> 	
-    <input type="hidden" name="attr_character_intelligence_half" value=""> 	
-    <input type="hidden" name="attr_character_power_half" value=""> 	
-    <input type="hidden" name="attr_character_athletics_half" value=""> 	
-    <input type="hidden" name="attr_character_drive_half" value=""> 	
-    <input type="hidden" name="attr_character_navigate_half" value=""> 	
-    <input type="hidden" name="attr_character_observation_half" value=""> 	
-    <input type="hidden" name="attr_character_read-person_half" value=""> 	
-    <input type="hidden" name="attr_character_research_half" value=""> 	
-    <input type="hidden" name="attr_character_sense-vestigia_half" value=""> 	
-    <input type="hidden" name="attr_character_social_half" value=""> 	
-    <input type="hidden" name="attr_character_stealth_half" value=""> 
-	<input type="hidden" name="attr_character_expert1_half" value=""> 
-	<input type="hidden" name="attr_character_expert2_half" value=""> 
-	<input type="hidden" name="attr_character_expert3_half" value=""> 
-	<input type="hidden" name="attr_character_expert4_half" value=""> 
-	<input type="hidden" name="attr_character_expert5_half" value=""> 
-	<input type="hidden" name="attr_character_expert6_half" value=""> 
-	<input type="hidden" name="attr_character_expert7_half" value=""> 
-	<input type="hidden" name="attr_character_expert8_half" value=""> 
-	<input type="hidden" name="attr_character_expert9_half" value="">	
-    <input type="hidden" name="attr_character_fighting_half" value=""> 	
-    <input type="hidden" name="attr_character_firearms_half" value=""> 	
+    <input type="hidden" name="attr_character_strength_half" value="0"> 	
+    <input type="hidden" name="attr_character_constitution_half" value="0"> 	
+    <input type="hidden" name="attr_character_dexterity_half" value="0"> 	
+    <input type="hidden" name="attr_character_intelligence_half" value="0"> 	
+    <input type="hidden" name="attr_character_power_half" value="0"> 	
+    <input type="hidden" name="attr_character_athletics_half" value="0"> 	
+    <input type="hidden" name="attr_character_drive_half" value="0"> 	
+    <input type="hidden" name="attr_character_navigate_half" value="0"> 	
+    <input type="hidden" name="attr_character_observation_half" value="0"> 	
+    <input type="hidden" name="attr_character_read-person_half" value="0"> 	
+    <input type="hidden" name="attr_character_research_half" value="0"> 	
+    <input type="hidden" name="attr_character_sense-vestigia_half" value="0"> 	
+    <input type="hidden" name="attr_character_social_half" value="0"> 	
+    <input type="hidden" name="attr_character_stealth_half" value="0"> 
+	<input type="hidden" name="attr_character_expert1_half" value="0"> 
+	<input type="hidden" name="attr_character_expert2_half" value="0"> 
+	<input type="hidden" name="attr_character_expert3_half" value="0"> 
+	<input type="hidden" name="attr_character_expert4_half" value="0"> 
+	<input type="hidden" name="attr_character_expert5_half" value="0"> 
+	<input type="hidden" name="attr_character_expert6_half" value="0"> 
+	<input type="hidden" name="attr_character_expert7_half" value="0"> 
+	<input type="hidden" name="attr_character_expert8_half" value="0"> 
+	<input type="hidden" name="attr_character_expert9_half" value="0">	
+    <input type="hidden" name="attr_character_fighting_half" value="0"> 	
+    <input type="hidden" name="attr_character_firearms_half" value="0"> 	
     <input type="hidden" name="attr_character_status" value=""> 
     <input type="hidden" name="attr_character_status_desc" value="">  
-	
-	<!-- hidden attrbiutes for other values needing a starting value -->
-	<input type="hidden" name="attr_character_demimonde" value="">  
 
     <!-- Value used for dice rolls - fumble will be changed based on damage level -->
     <input type="hidden" name="attr_roll_fumble" value="100">  
@@ -117,14 +114,14 @@
                 	    
                 	    <div class="sheet-demimonde-control sheet-section-unlocked">
                 	         <label class="sheet-label sheet-label-medium-width">Type</label>
-                	         <select name="attr_character_demimonde" class="sheet-dropdown-edit">
-                	             <option value="Human" Select="Selected">Human</option>
+                	         <select name="attr_demimonde" class="sheet-dropdown-edit">
+                	             <option value="Human">Human</option>
                 	             <option value="Demi-Monde">Demi-Monde</option>
                 	         </select>
                     	</div>
                     	<div class="sheet-demimonde-control  sheet-section-locked">
                     	    <label class="sheet-label sheet-label-medium-width">Type</label>
-                    	    <input class="sheet-text-short sheet-dropdown-value" name="attr_character_demimonde" type="text" readonly>
+                    	    <input class="sheet-text-short sheet-dropdown-value" name="attr_demimonde" type="text" readonly>
                     	</div>
                     </div>
         		</div>
@@ -188,8 +185,8 @@
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 						
             			<label class="sheet-label sheet-label-medium-width">Power</label>
-            			<input name="attr_character_power" class="sheet-stat-input sheet-text-edit" type="number" min="0" max="100" value = "0" readonly>
-						<input name="attr_character_power" class="sheet-stat-input sheet-text-readonly" type="number" min="0" max="100" value = "0">
+            			<input name="attr_character_power" class="sheet-stat-input sheet-text-edit" type="number" min="0" max="100" value = "0">
+						<input name="attr_character_power" class="sheet-stat-input sheet-text-readonly" type="number" min="0" max="100" value = "0" readonly>
             			<span>/</span>
             			<input name="attr_character_power_half" class="sheet-stat-input" type="number" value="0" readonly> 	
                         <button type="roll" name="roll_power" value="&{template:rol} {{rollname=Power}} {{charname=@{character_name}}} {{success=[[@{character_power}]]}} {{hard=[[@{character_power_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>        			
@@ -684,7 +681,7 @@
 								
                     			<input class="sheet-contact-state" name="attr_character_contact2_state" type="checkbox"><span></span>	
 								<input class="sheet-contact-details sheet-text-edit" name="attr_character_contact2_details" type="text">
-								<input class="sheet-contact-details sheet-text-readonly" name="attr_character_contact2_details" type="text">                            										    
+								<input class="sheet-contact-details sheet-text-readonly" name="attr_character_contact2_details" type="text" readonly>                            										    
                      		</div>
                 	        <div class="sheet-section-row">
 								<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
@@ -1114,16 +1111,9 @@
        });
     }
     
-    // on sheet open update calculated values and set all and set stearing values
+    // on shee open update all
     on("sheet:opened", function() { 
         halfAttrList.forEach(updateHalfAttr);
-		getAttrs(["character_demimonde"], function(values) {
-			let demimonde = Object.values(values)[0]
-			console.log(demimonde)
-			let destHash = {};
-            destHash["character_demimonde"] = demimonde ? demimonde : "Human";
-			setAttrs(destHash);
-		})
     });
     
     // on change only update the one that has changed
@@ -1133,8 +1123,6 @@
         });
     });
     
-
-	
     /* damage and damage status*/
     on("sheet:opened change:character_damage", function() { 
       getAttrs(["character_damage"], function(values) {
@@ -1173,7 +1161,6 @@
        });        
     });  
     
-	/* Page button change */
     const pagebuttonlist = ["stats","contacts","equipment"];
     pagebuttonlist.forEach(button => {
         on(`clicked:${button}`, function() {
