@@ -29,6 +29,10 @@
     <input type="hidden" name="attr_character_firearms_half" value="0"> 	
     <input type="hidden" name="attr_character_status" value=""> 
     <input type="hidden" name="attr_character_status_desc" value="">  
+	
+	<input type="hidden" name="attr_character_statstotal" value = "0">
+	
+	
 
     <!-- Value used for dice rolls - fumble will be changed based on damage level -->
     <input type="hidden" name="attr_roll_fumble" value="100">  
@@ -193,6 +197,15 @@
     					<br>
            			    <span class="sheet-hint sheet-hint-medium-width"/><span class="sheet-hint sheet-hint-full">Full</span><span class="sheet-hint sheet-hint-half">Half</span>
             		</div>
+					<div class="sheet-section-row">
+						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
+						
+						<div class="sheet-total-section">														
+							<label class="sheet-label sheet-label-medium-width">Total</label>
+							<input name="attr_character_statstotal" class="sheet-stat-total" type="number" readonly>
+						</div>			
+					</div>
+					
             	</div>
         	</div>
       	
@@ -551,7 +564,7 @@
             			<input name="attr_character_expert8" class="sheet-stat-input sheet-text-readonly" type="number" min="0" max="100" value = "0" readonly>
             			<span>/</span>
             			<input type="number" class="sheet-stat-input" name="attr_character_expert8_half" value="0" readonly>
-           			    <button type="roll" name="roll_expert8" value="&{template:rol-skill} {{rollname=@{character_expert8_name}}} {{charname=@{character_name}}} {{success=[[@{character_expert8}]]}} {{hard=[[@{character_expert1_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>        			
+           			    <button type="roll" name="roll_expert8" value="&{template:rol} {{rollname=@{character_expert8_name}}} {{charname=@{character_name}}} {{success=[[@{character_expert8}]]}} {{hard=[[@{character_expert1_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>        			
            			    <br>
            			    <span class="sheet-hint sheet-hint-xlong-label"/><span class="sheet-hint sheet-hint-full">Full</span><span class="sheet-hint sheet-hint-half">Half</span>
             		</div>
@@ -1111,18 +1124,46 @@
        });
     }
     
+	
+    const statAttrList = [
+            "character_strength",
+            "character_constitution",
+            "character_dexterity",
+            "character_intelligence",
+            "character_power",
+	]
+	
+	function updateStatTotal() {
+	console.log("total ...")
+		getAttrs(statAttrList, function(values) {
+			let total = 0
+			statAttrList.forEach(stat => {
+	console.log(stat)
+			    total += parseInt(values[stat])||0
+			});
+	console.log(total)
+			let destHash = {}
+            destHash["character_statstotal"] = total
+			setAttrs(destHash);
+		});
+	}
+	
+	
     // on shee open update all
     on("sheet:opened", function() { 
         halfAttrList.forEach(updateHalfAttr);
+		updateStatTotal();
     });
     
-    // on change only update the one that has changed
+    // on change only update the one that has changed & total
     halfAttrList.forEach(attr => {
     on(`change:${attr}`, function() { 
        updateHalfAttr(attr);
+	   updateStatTotal();
         });
     });
     
+	
     /* damage and damage status*/
     on("sheet:opened change:character_damage", function() { 
       getAttrs(["character_damage"], function(values) {

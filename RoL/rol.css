@@ -42,6 +42,10 @@
    
 }
 
+.sheet-total-section {
+   margin-top: 10px;
+}
+
 .sheet-manifestation-cost-item {
    display: block;
 }
@@ -138,8 +142,13 @@
 }
 
 .charsheet .sheet-lock-state[value="on"] ~ input.sheet-text-edit,
-.charsheet .sheet-lock-state[value="on"] ~ textarea.sheet-text-edit {
+.charsheet .sheet-lock-state[value="on"] ~ textarea.sheet-text-edit,
+.charsheet .sheet-lock-state[value="on"] ~ .sheet-total-section {
     display: none;
+}
+
+.charsheet .sheet-lock-state[value="0"] ~ .sheet-total-section {
+    display: inline-block;;
 }
 
 .charsheet .sheet-lock-state[value="0"] ~ input.sheet-text-edit,
