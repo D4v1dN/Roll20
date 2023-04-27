@@ -28,6 +28,7 @@
     vertical-align: text-bottom;   
 }
 
+
 .sheet-select-label {
     margin: 0px 10px 0px 5px;
     vertical-align: text-bottom;    
@@ -54,6 +55,7 @@
     float: right;
 }
 
+
 #sheet-btn-stats,
 #sheet-btn-contacts,
 #sheet-btn-equipment
@@ -63,7 +65,6 @@
 	color: gray;
 	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.3);
 }
-
 
 .charsheet .sheet-page-toggle[value="stats"] ~ #sheet-btn-stats,
 .charsheet .sheet-page-toggle[value="contacts"] ~ #sheet-btn-contacts,
@@ -78,17 +79,22 @@
 	display: none;
 }
 
-.charsheet .sheet-demimonde-toggle[value="Demi-Monde"] ~ .sheet-human-only {
+.sheet-human-magic-only {
+	display: none;
+}
+
+.charsheet .sheet-demimonde-toggle.not([value="Demi-Monde"]) ~ .sheet-demimonde-only {
     display: none;
 }
 
 .charsheet .sheet-demimonde-toggle[value="Demi-Monde"] ~ .sheet-demimonde-only {
     display: inline-block;
 }
-.charsheet .sheet-demimonde-toggle[value="Human"] ~ .sheet-demimonde-only {
+
+.charsheet .sheet-demimonde-toggle.not([value="Human-Magic"]) ~ .sheet-human-magic-only {
     display: none;
 }
-.charsheet .sheet-demimonde-toggle[value="Human"] ~ .sheet-human-only {
+.charsheet .sheet-demimonde-toggle[value="Human-Magic"] ~ .sheet-human-magic-only {
     display: inline-block;
 }
 
@@ -133,6 +139,7 @@
 	linear-gradient(to left, rgba(255,255,255,0.5) 10px, transparent 10px),
 	repeating-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5) 30px, #ddd 30px, #ddd 31px, rgba(255,255,255,0.5) 31px);		
 }
+
 
 .charsheet .sheet-lock-state[value="on"] ~ input.sheet-text-readonly,
 .charsheet .sheet-lock-state[value="on"] ~ textarea.sheet-text-readonly {
@@ -404,12 +411,29 @@ div.sheet-section-row {
     vertical-align: top;
 }
 
+div.sheet-section-spacer {
+	height: 1.5em;
+}
+
 label.sheet-label {
    display: inline-block;
    vertical-align: top;
    padding-top: 6px;
    margin: 0px 5px 0px 5px;
    font-size: 1em;
+}
+
+label.sheet-label-underline {
+   display: inline-block;
+   vertical-align: top;
+   padding-top: 6px;
+   margin: 0px 5px 0px 5px;
+   font-size: 1em;
+   margin-right: 10px;
+   padding-left: 4px;
+   border-bottom: 1px solid;
+   border-color: #ddd;
+   border-radius: 3px;
 }
 
 label.sheet-label-short-width {
@@ -512,7 +536,12 @@ input.sheet-magic-mastery {
     width: 335px;   
 }
 
-
+.sheet-magic-skill {
+    margin: 0px 2px 0px 5px;
+    padding: 5px;
+    background-color: #80808006;
+    border-radius: 5px;
+}
 
 /*
  * ==== General Inputs ==== 
@@ -649,6 +678,16 @@ input[type="checkbox"].sheet-checkbox {
     margin-top: 4px;
 }
 
+.sheet-expert input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    z-index: 1;
+    margin-top: 4px;
+}
+
 .sheet-contacts input[type="checkbox"] + span {
     padding: 1px;
 	vertical-align: text-top;
@@ -658,6 +697,14 @@ input[type="checkbox"].sheet-checkbox {
 }
 
 .sheet-spells input[type="checkbox"] + span {
+    padding: 1px;
+	vertical-align: text-top;
+	width: 12px;
+    display: inline-block;
+    text-align: center;
+}
+
+.sheet-expert input[type="checkbox"] + span {
     padding: 1px;
 	vertical-align: text-top;
 	width: 12px;
@@ -681,18 +728,30 @@ input[type="checkbox"].sheet-checkbox {
 
 /* spell checkbox icons */
 .sheet-spells input[type="checkbox"] + span::before {
-    content: 'U';
+	/*font-family: 'pictos';*/
+    content: ' ';
 	display: inline-block;
 	font-weight: Bold;
     /*width: 15px;*/
 } 
 
 .sheet-spells input[type="checkbox"]:checked + span::before {
-    content: 'M';
+	font-family: 'pictos';
+    content: '3';
      /*width: 15px;*/
 	font-weight: Bold;
 }
 
+/* magic checkbox icons */
+.sheet-expert input[type="checkbox"] + span::before {
+    font-family: 'pictos';
+    content: '*';
+} 
+
+.sheet-expert input[type="checkbox"]:checked + span::before {
+    font-family: 'pictos';
+    content: '3';
+}
 
 
 
@@ -750,10 +809,12 @@ input#sheet-checkbox-demimode {
  * ==== Specific Inputs ==== 
  */
  
+ 
 input.sheet-adv-input {
     width: 95%;
     margin-top: 3px;
     margin-left: 5px;
+	font-weight: bold;
 }
 
 input.sheet-expert-skill {
@@ -786,6 +847,27 @@ textarea.sheet-damage-description  {
 	margin-left: 2px;
 	width: 98%;
 } 
+
+textarea.sheet-minor-effect {
+	height: 220px;
+	margin-left: 5px;
+}
+textarea.sheet-major-effect {
+	height: 220px;
+	margin-right: 5px;
+}
+
+input.sheet-affinity-input {
+	width: 260px;
+}
+
+input.sheet-luckrefresh-input {
+	width: 260px;
+}
+
+input.sheet-vestigia-input {
+	width: 693px;
+}
  
 textarea.sheet-affinity  {
     border: 1px solid #ededed;
@@ -860,6 +942,7 @@ input[type="text"].sheet-damage-status  {
 	border-bottom: 1px solid black;
 	line-height: 1.6em;
 	font-size: 1.2em;
+	font-weight: bold;
 	font-weight: bold;
 }
 

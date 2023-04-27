@@ -7,15 +7,15 @@
     <input type="hidden" name="attr_character_dexterity_half" value="0"> 	
     <input type="hidden" name="attr_character_intelligence_half" value="0"> 	
     <input type="hidden" name="attr_character_power_half" value="0"> 	
-    <input type="hidden" name="attr_character_athletics_half" value="0"> 	
-    <input type="hidden" name="attr_character_drive_half" value="0"> 	
-    <input type="hidden" name="attr_character_navigate_half" value="0"> 	
-    <input type="hidden" name="attr_character_observation_half" value="0"> 	
-    <input type="hidden" name="attr_character_read-person_half" value="0"> 	
-    <input type="hidden" name="attr_character_research_half" value="0"> 	
-    <input type="hidden" name="attr_character_sense-vestigia_half" value="0"> 	
-    <input type="hidden" name="attr_character_social_half" value="0"> 	
-    <input type="hidden" name="attr_character_stealth_half" value="0"> 
+    <input type="hidden" name="attr_character_athletics_half" value="30"> 	
+    <input type="hidden" name="attr_character_drive_half" value="30"> 	
+    <input type="hidden" name="attr_character_navigate_half" value="30"> 	
+    <input type="hidden" name="attr_character_observation_half" value="30"> 	
+    <input type="hidden" name="attr_character_read-person_half" value="30"> 	
+    <input type="hidden" name="attr_character_research_half" value="30"> 	
+    <input type="hidden" name="attr_character_sense-vestigia_half" value="30"> 	
+    <input type="hidden" name="attr_character_social_half" value="30"> 	
+    <input type="hidden" name="attr_character_stealth_half" value="30"> 
 	<input type="hidden" name="attr_character_expert1_half" value="0"> 
 	<input type="hidden" name="attr_character_expert2_half" value="0"> 
 	<input type="hidden" name="attr_character_expert3_half" value="0"> 
@@ -29,7 +29,7 @@
     <input type="hidden" name="attr_character_firearms_half" value="0"> 	
     <input type="hidden" name="attr_character_status" value=""> 
     <input type="hidden" name="attr_character_status_desc" value="">  
-	
+	<input type="hidden" name="attr_character_magic_half" value="30"> 
 	<input type="hidden" name="attr_character_statstotal" value = "0">
 	
 	
@@ -109,10 +109,7 @@
             			<label class="sheet-label sheet-label-medium-width">Residence</label>
             			<textarea class="sheet-textarea-residence sheet-text-edit" name="attr_character_residence"></textarea>
             			<textarea class="sheet-textarea-residence sheet-text-readonly" name="attr_character_residence" readonly></textarea>
-            		</div>
-                	<div  class="sheet-section-row">
-                	    <!-- spacer -->
-            		</div>            		
+            		</div>           		
                 	<div class="sheet-section-row">
                 	    <input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
                 	    
@@ -120,6 +117,7 @@
                 	         <label class="sheet-label sheet-label-medium-width">Type</label>
                 	         <select name="attr_demimonde" class="sheet-dropdown-edit">
                 	             <option value="Human">Human</option>
+								  <option value="Human-Magic">Human - Magic</option>
                 	             <option value="Demi-Monde">Demi-Monde</option>
                 	         </select>
                     	</div>
@@ -220,8 +218,8 @@
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 					
             			<label class="sheet-label sheet-label-short-width">MOV</label>
-            			<input name="attr_character_mov" class="sheet-stat-input sheet-text-edit" type="number" value = "0">
-						<input name="attr_character_mov" class="sheet-stat-input sheet-text-readonly" type="number" value = "0" readonly>
+            			<input name="attr_character_mov" class="sheet-stat-input sheet-text-edit" type="number" value = "0" min="0">
+						<input name="attr_character_mov" class="sheet-stat-input sheet-text-readonly" type="number" value = "0" min="0" readonly>
             			<br>
            			    <span class="sheet-hint sheet-hint-short-width"/>
             		</div>
@@ -229,22 +227,22 @@
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 						
             			<label class="sheet-label sheet-label-short-width">Luck</label>
-            			<input name="attr_character_luck" class="sheet-stat-input sheet-text-edit" type="number" value = "0">
-						<input name="attr_character_luck" class="sheet-stat-input sheet-text-readonly" type="number" value = "0" readonly>
+            			<input name="attr_character_luck" class="sheet-stat-input sheet-text-edit" type="number" value = "0" min="0" max="100">
+						<input name="attr_character_luck" class="sheet-stat-input sheet-text-readonly" type="number" value = "0" min="0"  max="100" readonly>
             			<span>/</span>
-            			<input name="attr_character_luck_current" class="sheet-stat-input sheet-text-always-edit" type="number" value = "0">
+            			<input name="attr_character_luck_current" class="sheet-stat-input sheet-text-always-edit" type="number" value = "0" min="0" max="100">
             			<button type="roll" name="roll_luck" value="&{template:rol} {{rollname=Luck}} {{charname=@{character_name}}} {{success=[[@{character_luck_current}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>        			
           			    <br>
            			    <span class="sheet-hint sheet-hint-short-width"/><span class="sheet-hint sheet-hint-starting">Starting</span><span class="sheet-hint sheet-hint-current">Current</span>
             		</div>
-            		<div class="sheet-section-row sheet-human-only">
+            		<div class="sheet-section-row sheet-human-magic-only">
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 						
             			<label class="sheet-label sheet-label-short-width">Magic</label>
-            			<input name="attr_character_magicpts" class="sheet-stat-input sheet-text-edit" type="number" value = "0">
-						<input name="attr_character_magicpts" class="sheet-stat-input sheet-text-readonly" type="number" value = "0" readonly>
+            			<input name="attr_character_magicpts" class="sheet-stat-input sheet-text-edit" type="number" value = "0" min="0" max="100">
+						<input name="attr_character_magicpts" class="sheet-stat-input sheet-text-readonly" type="number" value = "0" min="0" max="100" readonly>
             			<span>/</span>
-            			<input name="attr_character_magicpts_current" class="sheet-stat-input sheet-text-always-edit" type="number" value = "0">
+            			<input name="attr_character_magicpts_current" class="sheet-stat-input sheet-text-always-edit" type="number" value="0" min="0" max="100">
           			    <br>
            			    <span class="sheet-hint sheet-hint-short-width"/><span class="sheet-hint sheet-hint-starting">Starting</span><span class="sheet-hint sheet-hint-current">Current</span>  			
             		</div>
@@ -282,8 +280,11 @@
         	    <div class="sheet-section-inner-container">
             		<h4 class="sheet-section-head">Advantages & Disadvantages</h4>
 					<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
-					
-    		        <input class="sheet-adv-input sheet-text-edit" name="attr_character_adv1" type="text">
+					<input type="hidden" class="sheet-demimonde-toggle" name="attr_demimonde"  title="@{demimonde}" value = "human">
+					<!--div class="sheet-section-row sheet-human-magic-only" -->
+						<input class="sheet-adv-input sheet-human-magic-only" name="attr_character_magic" type="text" value="Magic (Newtonian)" readonly>
+					<!-- /div -->
+					<input class="sheet-adv-input sheet-text-edit" name="attr_character_adv1" type="text">
     	        	<input class="sheet-adv-input sheet-text-edit" name="attr_character_adv2" type="text">
     	        	<input class="sheet-adv-input sheet-text-edit" name="attr_character_adv3" type="text">
     		        <input class="sheet-adv-input sheet-text-edit" name="attr_character_adv4" type="text">
@@ -291,7 +292,7 @@
     		        <input class="sheet-adv-input sheet-text-edit" name="attr_character_adv6" type="text">
     		        <input class="sheet-adv-input sheet-text-edit" name="attr_character_adv7" type="text">
     		        <input class="sheet-adv-input sheet-text-edit" name="attr_character_adv8" type="text">
-					<input class="sheet-adv-input sheet-text-edit" name="attr_character_adv9" type="text">
+					<!--input class="sheet-adv-input sheet-text-edit" name="attr_character_adv9" type="text" -->
 					<input class="sheet-adv-input sheet-text-readonly" name="attr_character_adv1" type="text" readonly>
     	        	<input class="sheet-adv-input sheet-text-readonly" name="attr_character_adv2" type="text" readonly>
     	        	<input class="sheet-adv-input sheet-text-readonly" name="attr_character_adv3" type="text" readonly>
@@ -300,7 +301,7 @@
     		        <input class="sheet-adv-input sheet-text-readonly" name="attr_character_adv6" type="text" readonly>
     		        <input class="sheet-adv-input sheet-text-readonly" name="attr_character_adv7" type="text" readonly>
     		        <input class="sheet-adv-input sheet-text-readonly" name="attr_character_adv8" type="text" readonly>
-					<input class="sheet-adv-input sheet-text-readonly" name="attr_character_adv9" type="text" readonly>
+					<!--input class="sheet-adv-input sheet-text-readonly" name="attr_character_adv9" type="text" readonly -->
             	</div>
         	</div>
         	
@@ -312,10 +313,10 @@
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 						
             			<label class="sheet-label sheet-label-long-width">Athletics</label>
-            			<input name="attr_character_athletics" class="sheet-stat-input sheet-text-edit" type="number" min="0" max="100" value = "0">
-						<input name="attr_character_athletics" class="sheet-stat-input sheet-text-readonly" type="number" min="0" max="100" value = "0" readonly>
+            			<input name="attr_character_athletics" class="sheet-stat-input sheet-text-edit" type="number" min="30" max="100" value = "30">
+						<input name="attr_character_athletics" class="sheet-stat-input sheet-text-readonly" type="number" min="30" max="100" value = "30" readonly>
             			<span>/</span>
-            			<input type="number" class="sheet-stat-input" name="attr_character_athletics_half" value="0" readonly>
+            			<input type="number" class="sheet-stat-input" name="attr_character_athletics_half" value="15" readonly>
            			    <button type="roll" name="roll_athletics" value="&{template:rol} {{rollname=Athletics}} {{charname=@{character_name}}} {{success=[[@{character_athletics}]]}} {{hard=[[@{character_athletics_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>        			
            			    <br>
            			    <span class="sheet-hint sheet-hint-long-width"/><span class="sheet-hint sheet-hint-full">Full</span><span class="sheet-hint sheet-hint-half">Half</span>
@@ -324,10 +325,10 @@
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 						
             			<label class="sheet-label sheet-label-long-width">Drive</label>
-            			<input name="attr_character_drive" class="sheet-stat-input sheet-text-edit" type="number" min="0" max="100" value = "0">
-						<input name="attr_character_drive" class="sheet-stat-input sheet-text-readonly" type="number" min="0" max="100" value = "0" readonly>
+            			<input name="attr_character_drive" class="sheet-stat-input sheet-text-edit" type="number" min="30" max="100" value = "30">
+						<input name="attr_character_drive" class="sheet-stat-input sheet-text-readonly" type="number" min="30" max="100" value = "30" readonly>
             			<span>/</span>
-            			<input type="number" class="sheet-stat-input" name="attr_character_drive_half" value="0" readonly>
+            			<input type="number" class="sheet-stat-input" name="attr_character_drive_half" value="15" readonly>
            			    <button type="roll" name="roll_drive" value="&{template:rol} {{rollname=Drive}} {{charname=@{character_name}}} {{success=[[@{character_drive}]]}} {{hard=[[@{character_drive_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>    
            			    <br>
            			    <span class="sheet-hint sheet-hint-long-width"/><span class="sheet-hint sheet-hint-full">Full</span><span class="sheet-hint sheet-hint-half">Half</span>
@@ -336,10 +337,10 @@
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 						
             			<label class="sheet-label sheet-label-long-width">Navigate</label>
-            			<input name="attr_character_navigate" class="sheet-stat-input sheet-text-edit" type="number" min="0" max="100" value = "0">
-						<input name="attr_character_navigate" class="sheet-stat-input sheet-text-readonly" type="number" min="0" max="100" value = "0" readonly>
+            			<input name="attr_character_navigate" class="sheet-stat-input sheet-text-edit" type="number" min="30" max="100" value = "30">
+						<input name="attr_character_navigate" class="sheet-stat-input sheet-text-readonly" type="number" min="30" max="100" value = "30" readonly>
             			<span>/</span>
-            			<input type="number" class="sheet-stat-input" name="attr_character_navigate_half" value="0" readonly>
+            			<input type="number" class="sheet-stat-input" name="attr_character_navigate_half" value="15" readonly>
            			    <button type="roll" name="roll_navigate" value="&{template:rol} {{rollname=Navigate}} {{charname=@{character_name}}} {{success=[[@{character_navigate}]]}} {{hard=[[@{character_navigate_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>    
            			    <br>
            			    <span class="sheet-hint sheet-hint-long-width"/><span class="sheet-hint sheet-hint-full">Full</span><span class="sheet-hint sheet-hint-half">Half</span>
@@ -348,10 +349,10 @@
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 						
             			<label class="sheet-label sheet-label-long-width">Observation</label>
-            			<input name="attr_character_observation" class="sheet-stat-input sheet-text-edit" type="number" min="0" max="100" value = "0">
-						<input name="attr_character_observation" class="sheet-stat-input sheet-text-readonly" type="number" min="0" max="100" value = "0" readonly>
+            			<input name="attr_character_observation" class="sheet-stat-input sheet-text-edit" type="number" min="30" max="100" value = "30">
+						<input name="attr_character_observation" class="sheet-stat-input sheet-text-readonly" type="number" min="30" max="100" value = "30" readonly>
             			<span>/</span>
-            			<input type="number" class="sheet-stat-input" name="attr_character_observation_half" value="0" readonly>
+            			<input type="number" class="sheet-stat-input" name="attr_character_observation_half" value="15" readonly>
            			    <button type="roll" name="roll_observation" value="&{template:rol} {{rollname=Observation}} {{charname=@{character_name}}} {{success=[[@{character_observation}]]}} {{hard=[[@{character_observation_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>    
            			    <br>
            			    <span class="sheet-hint sheet-hint-long-width"/><span class="sheet-hint sheet-hint-full">Full</span><span class="sheet-hint sheet-hint-half">Half</span>
@@ -360,10 +361,10 @@
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 						
             			<label class="sheet-label sheet-label-long-width">Read Person</label>
-            			<input name="attr_character_read-person" class="sheet-stat-input sheet-text-edit" type="number" min="0" max="100" value = "0">
-						<input name="attr_character_read-person" class="sheet-stat-input sheet-text-readonly" type="number" min="0" max="100" value = "0" readonly>
+            			<input name="attr_character_read-person" class="sheet-stat-input sheet-text-edit" type="number" min="30" max="100" value = "30">
+						<input name="attr_character_read-person" class="sheet-stat-input sheet-text-readonly" type="number" min="30" max="100" value = "30" readonly>
             			<span>/</span>
-            			<input type="number" class="sheet-stat-input" name="attr_character_read-person_half" value="0" readonly>
+            			<input type="number" class="sheet-stat-input" name="attr_character_read-person_half" value="15" readonly>
            			    <button type="roll" name="roll_read-person" value="&{template:rol} {{rollname=Read Person}} {{charname=@{character_name}}} {{success=[[@{character_read-person}]]}} {{hard=[[@{character_read-person_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>    
            			    <br>
            			    <span class="sheet-hint sheet-hint-long-width"/><span class="sheet-hint sheet-hint-full">Full</span><span class="sheet-hint sheet-hint-half">Half</span>
@@ -372,10 +373,10 @@
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 						
             			<label class="sheet-label sheet-label-long-width">Research</label>
-            			<input name="attr_character_research" class="sheet-stat-input sheet-text-edit" type="number" min="0" max="100" value = "0">
-						<input name="attr_character_research" class="sheet-stat-input sheet-text-readonly" type="number" min="0" max="100" value = "0" readonly>
+            			<input name="attr_character_research" class="sheet-stat-input sheet-text-edit" type="number" min="30" max="100" value = "30">
+						<input name="attr_character_research" class="sheet-stat-input sheet-text-readonly" type="number" min="30" max="100" value = "30" readonly>
             			<span>/</span>
-            			<input type="number" class="sheet-stat-input" name="attr_character_research_half" value="0" readonly>
+            			<input type="number" class="sheet-stat-input" name="attr_character_research_half" value="15" readonly>
            			    <button type="roll" name="roll_research" value="&{template:rol} {{rollname=Research}} {{charname=@{character_name}}} {{success=[[@{character_research}]]}} {{hard=[[@{character_research_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>    
            			    <br>
            			    <span class="sheet-hint sheet-hint-long-width"/><span class="sheet-hint sheet-hint-full">Full</span><span class="sheet-hint sheet-hint-half">Half</span>
@@ -384,10 +385,10 @@
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 						
             			<label class="sheet-label sheet-label-long-width">Sense Vestigia</label>
-            			<input name="attr_character_sense-vestigia" class="sheet-stat-input sheet-text-edit" type="number" min="0" max="100" value = "0">
-						<input name="attr_character_sense-vestigia" class="sheet-stat-input sheet-text-readonly" type="number" min="0" max="100" value = "0" readonly>
+            			<input name="attr_character_sense-vestigia" class="sheet-stat-input sheet-text-edit" type="number" min="30" max="100" value = "30">
+						<input name="attr_character_sense-vestigia" class="sheet-stat-input sheet-text-readonly" type="number" min="30" max="100" value = "30" readonly>
             			<span>/</span>
-            			<input type="number" class="sheet-stat-input" name="attr_character_sense-vestigia_half" value="0" readonly>
+            			<input type="number" class="sheet-stat-input" name="attr_character_sense-vestigia_half" value="15" readonly>
            			    <button type="roll" name="roll_sense-vestigia" value="&{template:rol} {{rollname=Sense Vestigia}} {{charname=@{character_name}}} {{success=[[@{character_sense-vestigia}]]}} {{hard=[[@{character_sense-vestigia_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>    
            			    <br>
            			    <span class="sheet-hint sheet-hint-long-width"/><span class="sheet-hint sheet-hint-full">Full</span><span class="sheet-hint sheet-hint-half">Half</span>
@@ -396,10 +397,10 @@
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 						
             			<label class="sheet-label sheet-label-long-width">Social</label>
-            			<input name="attr_character_social" class="sheet-stat-input sheet-text-edit" type="number" min="0" max="100" value = "0">
-						<input name="attr_character_social" class="sheet-stat-input sheet-text-readonly" type="number" min="0" max="100" value = "0" readonly>
+            			<input name="attr_character_social" class="sheet-stat-input sheet-text-edit" type="number" min="30" max="100" value = "30">
+						<input name="attr_character_social" class="sheet-stat-input sheet-text-readonly" type="number" min="30" max="100" value = "30" readonly>
             			<span>/</span>
-            			<input type="number" class="sheet-stat-input" name="attr_character_social_half" value="0" readonly>
+            			<input type="number" class="sheet-stat-input" name="attr_character_social_half" value="15" readonly>
            			    <button type="roll" name="roll_social" value="&{template:rol} {{rollname=Social}} {{charname=@{character_name}}} {{success=[[@{character_social}]]}} {{hard=[[@{character_social_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>    
            			    <br>
            			    <span class="sheet-hint sheet-hint-long-width"/><span class="sheet-hint sheet-hint-full">Full</span><span class="sheet-hint sheet-hint-half">Half</span>
@@ -408,14 +409,14 @@
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 						
             			<label class="sheet-label sheet-label-long-width">Stealth</label>
-            			<input name="attr_character_stealth" class="sheet-stat-input sheet-text-edit" type="number" min="0" max="100" value = "0">
-						<input name="attr_character_stealth" class="sheet-stat-input sheet-text-readonly" type="number" min="0" max="100" value = "0" readonly>
+            			<input name="attr_character_stealth" class="sheet-stat-input sheet-text-edit" type="number" min="30" max="100" value = "30">
+						<input name="attr_character_stealth" class="sheet-stat-input sheet-text-readonly" type="number" min="30" max="100" value = "30" readonly>
             			<span>/</span>
-            			<input type="number" class="sheet-stat-input" name="attr_character_stealth_half" value="0" readonly>
+            			<input type="number" class="sheet-stat-input" name="attr_character_stealth_half" value="15" readonly>
            			    <button type="roll" name="roll_stealth" value="&{template:rol} {{rollname=Stealth}} {{charname=@{character_name}}} {{success=[[@{character_stealth}]]}} {{hard=[[@{character_stealth_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>    
            			    <br>
            			    <span class="sheet-hint sheet-hint-long-width"/><span class="sheet-hint sheet-hint-full">Full</span><span class="sheet-hint sheet-hint-half">Half</span>
-            		</div>    	
+            		</div>    				
             	</div>
         	</div>
         	
@@ -427,10 +428,10 @@
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 						
             			<label class="sheet-label sheet-label-long-width">Fighting</label>
-            			<input name="attr_character_fighting" class="sheet-stat-input sheet-text-edit" type="number" min="0" max="100" value = "0">
-						<input name="attr_character_fighting" class="sheet-stat-input sheet-text-readonly" type="number" min="0" max="100" value = "0" readonly>
+            			<input name="attr_character_fighting" class="sheet-stat-input sheet-text-edit" type="number" min="30" max="100" value = "30">
+						<input name="attr_character_fighting" class="sheet-stat-input sheet-text-readonly" type="number" min="30" max="100" value = "30" readonly>
             			<span>/</span>
-            			<input type="number" class="sheet-stat-input" name="attr_character_fighting_half" value="0" readonly>
+            			<input type="number" class="sheet-stat-input" name="attr_character_fighting_half" value="15" readonly>
             			<button type="roll" name="roll_fighting" value="&{template:rol} {{rollname=Fighting}} {{charname=@{character_name}}} {{success=[[@{character_fighting}]]}} {{hard=[[@{character_fighting_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>    
             			<br>
            			    <span class="sheet-hint sheet-hint-long-width"/><span class="sheet-hint sheet-hint-full">Full</span><span class="sheet-hint sheet-hint-half">Half</span>
@@ -439,10 +440,10 @@
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 						
             			<label class="sheet-label sheet-label-long-width">Firearms</label>
-            			<input name="attr_character_firearms" class="sheet-stat-input sheet-text-edit" type="number" min="0" max="100" value = "0">
-						<input name="attr_character_firearms" class="sheet-stat-input sheet-text-readonly" type="number" min="0" max="100" value = "0" readonly>
+            			<input name="attr_character_firearms" class="sheet-stat-input sheet-text-edit" type="number" min="30" max="100" value = "30">
+						<input name="attr_character_firearms" class="sheet-stat-input sheet-text-readonly" type="number" min="30" max="100" value = "30" readonly>
             			<span>/</span>
-            			<input type="number" class="sheet-stat-input" name="attr_character_firearms_half" value="0" readonly>
+            			<input type="number" class="sheet-stat-input" name="attr_character_firearms_half" value="15" readonly>
                         <button type="roll" name="roll_firearms" value="&{template:rol} {{rollname=Firearms}} {{charname=@{character_name}}} {{success=[[@{character_firearms}]]}} {{hard=[[@{character_firearms_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>    
            			    <span class="sheet-hint sheet-hint-long-width"/><span class="sheet-hint sheet-hint-full">Full</span><span class="sheet-hint sheet-hint-half">Half</span>
             		</div>    
@@ -464,6 +465,19 @@
         	<div class="sheet-expert sheet-block">
         	    <div class="sheet-section-inner-container">
         	        <h4 class="sheet-section-head">Expert skills</h4>
+					
+					<input type="hidden" class="sheet-demimonde-toggle" name="attr_demimonde"  title="@{demimonde}" value = "human">
+					<div class="sheet-section-row sheet-human-magic-only">
+						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
+            			<label class="sheet-label-underline sheet-label-long-width">Magic</label>
+            			<input name="attr_character_magic" class="sheet-stat-input sheet-text-edit sheet-magic-specific" type="number" min="60" max="100" value = "60">
+						<input name="attr_character_magic" class="sheet-stat-input sheet-text-readonly sheet-magic-specific" type="number" min="60" max="100" value = "60" readonly>
+            			<span>/</span>
+            			<input type="number" class="sheet-stat-input sheet-magic-specific" name="attr_character_magic_half" value="30" readonly>
+           			    <button type="roll" name="roll_magic" value="&{template:rol} {{rollname=Magic}} {{charname=@{character_name}}} {{success=[[@{character_magic}]]}} {{hard=[[@{character_magic_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>    
+           			    <br>
+           			    <span class="sheet-hint sheet-hint-long-width sheet-magic-specific"/><span class="sheet-hint sheet-hint-full sheet-magic-specific">Full</span><span class="sheet-hint sheet-hint-half sheet-magic-specific">Half</span>
+            		</div> 					
             		<div class="sheet-section-row">
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 						
@@ -568,7 +582,7 @@
            			    <br>
            			    <span class="sheet-hint sheet-hint-xlong-label"/><span class="sheet-hint sheet-hint-full">Full</span><span class="sheet-hint sheet-hint-half">Half</span>
             		</div>
-            		<div class="sheet-section-row">
+            		<!--div class="sheet-section-row">
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 						
             			<input class="sheet-expert-skill sheet-text-edit" name="attr_character_expert9_name" type="text">
@@ -580,7 +594,7 @@
            			    <button type="roll" name="roll_expert9" value="&{template:rol} {{rollname=@{character_expert9_name}}} {{charname=@{character_name}}} {{success=[[@{character_expert9}]]}} {{hard=[[@{character_expert9_half}]]}} {{fumble=[[@{character_fumble}]]}} {{status=@{character_status}}}  @{roll_skill_formula}"></button>        			
            			    <br>
            			    <span class="sheet-hint sheet-hint-xlong-label"/><span class="sheet-hint sheet-hint-full">Full</span><span class="sheet-hint sheet-hint-half">Half</span>
-            		</div>        		        		
+            		</div -->   	
         	   </div>
         	</div>
         	
@@ -763,7 +777,7 @@
         	<!-- MAGIC -->
         	<div class="sheet-magic sheet-block">
         	    <input type="hidden" class="sheet-demimonde-toggle" name="attr_demimonde"  title="@{demimonde}" value = "human">
-        	    <div class="sheet-section-inner-container sheet-human-only">
+        	    <div class="sheet-section-inner-container sheet-human-magic-only">
             		<h4 class="sheet-section-head">Magic</h4>
             		
             		<!-- signare  -->
@@ -900,27 +914,59 @@
             	</div>
                 <div class="sheet-section-inner-container sheet-demimonde-only">
             		<h4 class="sheet-section-head">Demi-monde details</h4>
-            		<div class="sheet-subsection">
-            		    <h3 class="sheet-subsection-head">Affinity</h3>
-                		<div class="sheet-2colrow">
-                		    <div class="sheet-col"> 
-                        		<div class="sheet-section-row">
+					<div class="sheet-2colrow">
+						<div class="sheet-col"> 
+							<div class="sheet-section-row">
+								<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
+								
+								<label class="sheet-label sheet-label-long-width">Affinity</label>
+								<input name="attr_character_affinity" class="sheet-affinity-input sheet-text-edit" type="text">
+								<input name="attr_character_affinity" class="sheet-affinity-input sheet-text-readonly" type="text" readonly>
+							</div>
+						</div>
+						<div class="sheet-col"> 
+							<div class="sheet-section-row">
+								<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
+								
+								<label class="sheet-label sheet-label-long-width">Luck Refresh</label>
+								<input name="attr_character_luckrefresh" class="sheet-luckrefresh-input sheet-text-edit" type="text">
+								<input name="attr_character_luckrefresh" class="sheet-luckrefresh-input sheet-text-readonly" type="text" readonly>
+							</div>
+						</div>
+					</div>
+					<div class="sheet-section-row">
+						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
+				
+						<label class="sheet-label sheet-label-long-width">Vestigia (if any)</label>
+						<input name="attr_character_vestigia" class="sheet-vestigia-input sheet-text-edit" type="text">
+						<input name="attr_character_vestigia" class="sheet-vestigia-input sheet-text-readonly" type="text" readonly>
+					</div>		
+					<div  class="sheet-section-spacer">
+                	    <!-- spacer -->
+            		</div> 
+                	<div class="sheet-2colrow">
+						<div class="sheet-col"> 
+							<div class="sheet-section-row">
+								<div class="sheet-subsection">
+									<h3 class="sheet-subsection-head">Example Minor Effects (5 luck)</h3>										
 									<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 									
-                        		    <textarea class="sheet-affinity sheet-textarea-edit" name="attr_character_affinity"></textarea>
-									<textarea class="sheet-affinity sheet-text-readonly" name="attr_character_affinity" readonly></textarea>
-                        		</div>
-                    		</div>
-                		    <div class="sheet-col"> 
-                        		<div class="sheet-section-row">
-                        		    <div class="sheet-manifestation-cost-section">
-                            		    <span class="sheet-manifestation-cost-item">Everyday manifestation = 5 luck points</span>
-                            		    <br>
-                            		    <span class="sheet-manifestation-cost-item">Significant manifestation = 20 luck points</span>
-                            		</div>
-                        		</div>  
-                    		</div>    
-                    	</div>
+									<textarea class="sheet-minor-effect sheet-textarea-edit" name="attr_character_minor_effect"></textarea>
+									<textarea class="sheet-minor-effect sheet-text-readonly" name="attr_character_minor_effect" readonly></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="sheet-col"> 
+							<div class="sheet-section-row">
+								<div class="sheet-subsection">
+									<h3 class="sheet-subsection-head">Example Significant Effects (20 luck)</h3>
+									<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
+									
+									<textarea class="sheet-major-effect sheet-textarea-edit" name="attr_character_major_effect"></textarea>
+									<textarea class="sheet-major-effect sheet-text-readonly" name="attr_character_major_effect" readonly></textarea>
+								</div>
+							</div>
+						</div>    
                     </div>
             	</div>
         	</div>
@@ -939,7 +985,7 @@
 						<input type="hidden" class="sheet-lock-state" name="attr_character_lock_state"/>
 						
                         <textarea class="sheet-equipment sheet-textarea-edit" name="attr_character_equipment"></textarea>
-						<textarea class="sheet-equipment sheet-text-readonly" name="attr_character_equipment"></textarea>
+						<textarea class="sheet-equipment sheet-text-readonly" name="attr_character_equipment" readonly></textarea>
                     </div>
                 </div>
             </div>
