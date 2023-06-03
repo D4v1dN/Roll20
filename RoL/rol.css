@@ -23,6 +23,8 @@
 .sheet-select-spacer {
      margin-left: 170px;
  }
+ 
+ 
 .sheet-select-radio {
     margin: 0px 10px 0px 5px;
     vertical-align: text-bottom;   
@@ -197,12 +199,20 @@
 }
 
 
+.charsheet .sheet-lock-state ~ input[type="checkbox"] + span { 
+    box-shadow: inset 1px 1px 1px lightgrey;
+    background-color: rgba(255,255,255,0.5);  
+}
 
 .charsheet .sheet-lock-state[value="0"] ~ input[type="checkbox"] + span {    
     box-shadow: inset 1px 1px 1px lightgrey;
     background-color: rgba(255,255,255,0.5);  
-
 }
+.charsheet .sheet-lock-state[value="on"] ~ input[type="checkbox"] + span {    
+    box-shadow: none;
+    background-color: transparent;  
+}
+
 .charsheet .sheet-lock-state[value="on"] ~ input[type="checkbox"] {    
     display: none;
 }
@@ -448,6 +458,20 @@ label.sheet-label-long-width {
    width: 100px;
 }
 
+label.sheet-label-icon {
+	font-size: 1.5em;
+	width: 1.5em;
+	margin: 0 0 0 5px;
+	padding: 0 0 0 0px;
+}
+
+label.sheet-label-icon-padded {
+	font-size: 1.5em;
+	width: 1.5em;
+	margin: 0 0 0 5px;
+	padding: 0 0 0 20px;
+}
+
 .sheet-contacts-div {
     margin-left: 5px;
 }
@@ -658,6 +682,15 @@ input[type="checkbox"].sheet-checkbox {
   border-radius: 0px;
 }
 
+input[type="checkbox"].sheet-health-mental  {
+    position: absolute;
+    opacity: 0;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1;
+}
+
 .sheet-contacts input[type="checkbox"] {
     position: absolute;
     opacity: 0;
@@ -688,6 +721,17 @@ input[type="checkbox"].sheet-checkbox {
     margin-top: 4px;
 }
 
+input[type="checkbox"].sheet-health-mental  + span {
+    padding: 4px;
+	vertical-align: text-top;
+	width: 12px;
+    text-align: center;
+	font-weight: bold;
+	background-color: rgba(255,255,255,0.5);
+	box-shadow: inset 1px 1px 1px lightgrey;
+	font-size: 15px;	
+}
+
 .sheet-contacts input[type="checkbox"] + span {
     padding: 1px;
 	vertical-align: text-top;
@@ -710,6 +754,19 @@ input[type="checkbox"].sheet-checkbox {
 	width: 12px;
     display: inline-block;
     text-align: center;
+}
+
+/* Contacts checkbox icons */
+input[type="checkbox"].sheet-health-mental  + span::before {
+    font-family: 'fontello';
+    content: '\e800';
+    /*width: 15px;*/
+} 
+
+input[type="checkbox"].sheet-health-mental:checked + span::before {
+    font-family: 'fontello';
+    content: '\e80f';
+     /*width: 15px;*/
 }
 
 /* Contacts checkbox icons */
@@ -754,6 +811,17 @@ input[type="checkbox"].sheet-checkbox {
 }
 
 
+.sheet-heart-icon::before {
+    font-family: 'pictos';
+    content: 'k';
+	color: red;
+}
+
+.sheet-head-icon::before {
+    font-family: 'pictos';
+    content: 'U';
+	color: blue;
+}
 
 
 input[type="checkbox"].sheet-lock-state {

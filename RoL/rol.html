@@ -116,14 +116,14 @@
                 	    <div class="sheet-demimonde-control sheet-section-unlocked">
                 	         <label class="sheet-label sheet-label-medium-width">Type</label>
                 	         <select name="attr_demimonde" class="sheet-dropdown-edit">
-                	             <option value="Human">Human</option>
-								  <option value="Human-Magic">Human - Magic</option>
+                	             <option value="Human" selected="selected">Human</option>
+								 <option value="Human-Magic">Human - Magic</option>
                 	             <option value="Demi-Monde">Demi-Monde</option>
                 	         </select>
                     	</div>
                     	<div class="sheet-demimonde-control  sheet-section-locked">
                     	    <label class="sheet-label sheet-label-medium-width">Type</label>
-                    	    <input class="sheet-text-short sheet-dropdown-value" name="attr_demimonde" type="text" readonly>
+                    	    <input class="sheet-text-short sheet-dropdown-value" name="attr_demimonde" type="text" value="Human" readonly>
                     	</div>
                     </div>
         		</div>
@@ -254,7 +254,7 @@
         	    <div class="sheet-section-inner-container">
         	        <h4 class="sheet-section-head">Health</h4>
         	        <div class="sheet-section-row">
-        	            <label class="sheet-label sheet-label-long-width">Health</label>
+        	            <label class="sheet-label sheet-label-icon"><span class="sheet-heart-icon"><span></label>
                         <select class="sheet-text-always-edit" name="attr_character_damage">
                             <option value="0" selected="selected">0: Unharmed</option>
                             <option value="1">1: Hurt</option>
@@ -263,6 +263,10 @@
                             <option value="4">4: (in one attack)</option>
                             <option value="5">5: (in one attack)</option>
                         </select>
+						<label class="sheet-label sheet-label-icon-padded"><span class="sheet-head-icon"><span></label>
+						<input class="sheet-health-mental" name="attr_character_mentalimpared" type="checkbox"><span></span>
+						
+						<!-- input class="sheet-mental-state" name="attr_character_mental_state" type="checkbox"><span></span -->
                     </div>
                     <div class="sheet-section-row">
                         <div class="sheet-damage-dscription"> 
@@ -1184,16 +1188,26 @@
 		getAttrs(statAttrList, function(values) {
 			let total = 0
 			statAttrList.forEach(stat => {
-	console.log(stat)
 			    total += parseInt(values[stat])||0
 			});
-	console.log(total)
 			let destHash = {}
             destHash["character_statstotal"] = total
 			setAttrs(destHash);
 		});
 	}
 	
+	function updateStatTotal() {
+	console.log("total ...")
+		getAttrs(statAttrList, function(values) {
+			let total = 0
+			statAttrList.forEach(stat => {
+			    total += parseInt(values[stat])||0
+			});
+			let destHash = {}
+            destHash["character_statstotal"] = total
+			setAttrs(destHash);
+		});
+	}	
 	
     // on shee open update all
     on("sheet:opened", function() { 
@@ -1211,14 +1225,25 @@
     
 	
     /* damage and damage status*/
-    on("sheet:opened change:character_damage", function() { 
-      getAttrs(["character_damage"], function(values) {
-            let srcVal = Object.values(values)[0];
-            let intval = parseInt(srcVal)||0;
+    on("sheet:opened change:character_damage change:character_mentalimpared", function() { 
+      getAttrs(["character_damage","character_mentalimpared"], function(values) {
+            let health = parseInt(values["character_damage"])||0;
+			let mental = values["character_mentalimpared"];
+			
+			console.log(`health: ${health}`);
+			console.log(`mental: ${mental}`);
+			
             let fumble = 100;
             let status = "";
             let desc = "";
-            switch (intval) {
+			
+			/* if mentally impared and heal is not worse set to impared */
+			if (mental == "on" && health < 2) {
+				health = 2
+			}
+			
+			/* Build status and description strings */
+            switch (health) {
                 case 2:
                     status = "Status: Impared"
                     desc = "Any rolls of 90 or over count as a fumble and trigger an Involuntary Action."
@@ -1227,6 +1252,7 @@
                 case 3:
                     status = "Status: Down"
                     desc = "You are down and can take no actions."
+					fumble = 90;
                     break;   
                 case 4: 
                     status = "Status: Mortal wound"
